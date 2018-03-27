@@ -2,9 +2,14 @@ var request = require('request');
 var mongoose = require('mongoose');
 var db = require('../models');
 
-exports.index = (req, res) => {
-  res.send("hi")
-}
+exports.createJob = (req, res) => {
+  db.Job;
+  console
+    .log('this is it!!!!', req.body)
+    .create(req.body)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+};
 
 // exports.index = (req, res) => {
 //   db.Article.find({})

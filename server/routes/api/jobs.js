@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models');
+var db = require('../../models');
 
-var controller = require('../controllers/controller.js');
+var controller = require('../../controllers/controller.js');
 
 module.exports = function(app) {
-  app.get('/', controller.index);
+  router.route('/').post(controller.createJob);
   // app.get('/dashboard', controller.scrape);
   // app.get('/addjob', controller.showArticles);
   // app.get('/saved', controller.displaySaved);
