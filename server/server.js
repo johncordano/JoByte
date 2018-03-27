@@ -34,9 +34,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/joByte", {});
 
-// // load ROUTES
-// require('./routes/routes.js')(app);
-
+// load ROUTES
+require('./routes/routes.js')(app);
 
 app.listen(PORT, function() {
     console.log('App running on port', PORT)
