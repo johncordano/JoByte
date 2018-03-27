@@ -15,6 +15,10 @@ var UserSchema = new Schema({
     required: true,
     unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+  },
+  job: {
+    type: Schema.Types.ObjectId,
+    ref: 'Job'
   }
 });
 
