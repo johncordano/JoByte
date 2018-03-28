@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var JobSchema = new Schema({
-  companyName: {
+  company: {
     type: String,
     trim: true,
     required: true

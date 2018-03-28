@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter, BrowserRouter } from 'react-router-dom';
-import AddJob from './components/AddJob';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
+
+// Components
+import AddJob from './components/AddJob';
+import Dashboard from './components/Dashboard';
+import Myjobs from './components/Myjobs';
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Route exact path="/" component={AddJob} />
-      </BrowserRouter>
+      <div>
+        <Route exact path="/" component={Dashboard} />
+      </div>
     );
   }
 }
