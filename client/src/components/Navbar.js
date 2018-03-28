@@ -9,11 +9,11 @@ class Navbar extends Component {
         <h2>joByte</h2>
         <div className="icon">
           {/* <img src="" alt="Dashboard icon" /> */}
-          <a href="dashboard.html">Home</a>
+          <AddJob />
         </div>
         <div className="icon">
           {/* <img src="" alt="" /> */}
-          <Link to={AddJob}>Add a job</Link>
+          <Link to={'/job/new'}>Add a job</Link>
         </div>
         <div className="icon">
           {/* <img src="" alt="Calendar icon" /> */}

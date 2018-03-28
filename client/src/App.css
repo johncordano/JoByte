@@ -1,5 +1,117 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+/* First page */
+
+/* .img { */
+/* background: url(../images/initial-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 50%;
+  height: 100vh;
+  float: left;
+} */
+
+.title {
+  font-weight: 600;
   text-align: center;
+  font-size: 24px;
+}
+
+.signin {
+  margin-top: 110px;
+  width: 50%;
+  float: right;
+}
+
+.description p {
+  font-weight: 100;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.username-form {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.username-form input {
+  border: none;
+  border-bottom: 1px solid;
+  width: 300px;
+  line-height: 40px;
+}
+
+.signup-btn,
+#google-btn {
+  display: flex !important;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#google-btn {
+  margin-top: 20px;
+}
+
+.enter-btn,
+.signup-btn,
+#google-btn {
+  background: #242323;
+  cursor: pointer;
+  color: white !important;
+  width: 300px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.separate {
+  display: flex;
+  justify-content: center;
+  color: #d3d3d3;
+  margin: 40px 0;
+}
+
+.line-left,
+.line-right {
+  width: 125px;
+  height: 1px;
+  margin-top: 8px;
+  background: #d3d3d3;
+}
+
+.line-left {
+  margin-right: 17px;
+}
+
+.line-right {
+  margin-left: 17px;
+}
+
+/* Signed-page */
+
+.signed-page {
+  background: #d3d3d3;
 }
 
 .sidenav {
@@ -33,4 +145,547 @@
   text-decoration: none;
   display: inline-block;
   margin-bottom: 5px;
+}
+
+.icon img {
+  position: absolute;
+  width: 16px;
+  margin: 18px;
+}
+
+.centralized {
+  width: 80%;
+  float: right;
+}
+
+.container-dashboard {
+  display: flex;
+  justify-content: center;
+}
+
+.total-applied {
+  margin-right: 40px;
+}
+
+.scheduled-interview {
+  margin-left: 20px;
+}
+
+.total-applied,
+.scheduled-interview {
+  width: 370px;
+  height: 117px;
+  background: white;
+  margin-top: 76px;
+}
+
+.total-applied h3,
+.scheduled-interview h3 {
+  font-size: 15px;
+  color: gray;
+  padding: 20px 0 0 20px;
+}
+
+.total-applied p,
+.scheduled-interview p {
+  margin-top: 36px;
+  width: 130px;
+  float: left;
+  font-weight: 400;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.total-applied img,
+.scheduled-interview img {
+  width: 130px;
+  padding-right: 20px;
+}
+
+.table-job {
+  width: 780px;
+  margin: 0 auto;
+  background: white;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.rtable {
+  width: 100%;
+}
+
+.table-job h2,
+.new-job h2 {
+  font-size: 15px;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.table-job thead {
+  text-align: left;
+  background: #f5f5f5;
+  color: #b2b2b2;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+tbody th,
+tbody td {
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:last-child {
+  border: none;
+}
+
+thead th,
+thead td,
+tbody th,
+tbody td {
+  padding-left: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.calendar-img {
+  margin-top: 68px;
+  text-align: center;
+}
+
+/* Company page */
+
+.company {
+  background: white;
+  max-width: 800px;
+  margin: 76px auto;
+  padding: 30px;
+  overflow: auto;
+}
+
+.company h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.job-p {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.job-description h3 {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.job-description p {
+  font-size: 14px;
+}
+
+.job-description button {
+  float: right;
+  border: none;
+  text-decoration: none;
+}
+
+.form-info {
+  margin-top: 70px;
+}
+
+#date-applied,
+#contact,
+#app-summary,
+#interview,
+#followUp,
+#status {
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+.input h4 {
+  float: left;
+}
+
+.input span {
+  margin-left: 20px;
+  font-weight: 200;
+}
+
+.input p {
+  font-size: 12px;
+  color: gray;
+}
+
+/* Add new job page */
+
+.new-job {
+  background: white;
+  max-width: 600px;
+  margin: 76px auto;
+  padding: 30px;
+  overflow: auto;
+}
+
+form input {
+  border: none;
+  padding: 5px 0;
+  display: flex;
+  font-size: 18px;
+  width: 535px;
+  border-bottom: 1px solid #ddd;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.input-label {
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.save-btn,
+.delete-btn,
+.edit-btn {
+  background: #242323;
+  color: white !important;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  float: right;
+  margin-top: 30px;
+  display: inherit;
+  cursor: pointer;
+}
+
+.delete-btn,
+.edit-btn {
+  padding: 10px 0;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown select {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: gray;
+  height: 40px;
+}
+
+/* Search job page */
+
+.dropdown-search {
+  text-align: center;
+}
+
+.add-btn,
+#detail-btn {
+  background: #242323;
+  color: white !important;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#detail-btn {
+  width: 50px !important;
+}
+
+.dropdown-search select {
+  margin-top: 56px;
+}
+
+.table-search {
+  margin-top: 77px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown select {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: gray;
+  height: 40px;
+}
+
+/* Search job page */
+
+.dropdown-search {
+  text-align: center;
+}
+
+.add-btn {
+  background: #242323;
+  color: white !important;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dropdown-search select {
+  margin-top: 56px;
+}
+
+.table-search {
+  margin-top: 77px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown select {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: gray;
+  height: 40px;
+}
+
+#simpleModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.closeBtn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Search job page */
+
+.dropdown-search {
+  text-align: center;
+}
+
+.add-btn {
+  background: #242323;
+  color: white !important;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.dropdown-search select {
+  margin-top: 56px;
+}
+
+.table-search {
+  margin-top: 77px;
+}
+
+.edit-btn {
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+  .img {
+    width: 100%;
+    height: 50vh;
+    /* background: url(../images/initial-img.jpg); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: none;
+  }
+  .signin {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+  .icon a {
+    font-size: 14px;
+  }
+
+  .container-dashboard {
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+
+  .total-applied {
+    margin-top: 0 !important;
+  }
+
+  .scheduled-interview {
+    margin: 0;
+    margin-top: 20px !important;
+  }
+
+  .total-applied,
+  .scheduled-interview {
+    width: 100%;
+    /* margin: 0 auto !important; */
+  }
+
+  .table-job,
+  .total-applied,
+  .scheduled-interview,
+  .new-job {
+    width: 90% !important;
+  }
+
+  form input {
+    width: 90%;
+  }
+
+  .total-applied,
+  .scheduled-interview {
+    padding: 0 30px;
+  }
+
+  .total-applied img,
+  .scheduled-interview img {
+    width: 150px;
+    float: right;
+    margin-top: 8px;
+  }
+
+  .edit-btn,
+  .delete-btn,
+  .save-btn {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 870px) {
+  .total-applied img,
+  .scheduled-interview img {
+    width: 110px;
+    float: right;
+    padding-right: 20px;
+    margin-top: 21px !important;
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .sidenav {
+    width: 100%;
+    height: 190px;
+    position: initial;
+  }
+
+  .sidenav-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav a {
+    background: none;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .icon {
+    text-align: center;
+  }
+
+  .icon img {
+    position: relative;
+  }
+
+  .centralized {
+    width: 100%;
+  }
+
+  .total-applied,
+  .scheduled-interview {
+    width: 39%;
+    margin-top: 60px;
+  }
+
+  .total-applied img,
+  .scheduled-interview img {
+    float: right;
+    margin-top: 14px;
+  }
+
+  .table-job {
+    width: 80%;
+    margin-bottom: 100px;
+  }
+
+  .total-applied {
+    margin-right: 0;
+  }
+
+  tr td,
+  tr th {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 1021px) {
+  .total-applied {
+    margin-right: 20px;
+  }
+  .total-applied img,
+  .scheduled-interview img {
+    float: right;
+    margin-top: 15px;
+  }
 }
