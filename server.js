@@ -22,6 +22,7 @@ var PORT = process.env.PORT || 8080;
 // ===============================
 
 // using body parser for handling submissions...
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // static directory...

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
+import Navbar from './Navbar';
 
 class AddJob extends Component {
   state = {
@@ -36,12 +37,15 @@ class AddJob extends Component {
       position: this.state.position,
       link: this.state.link,
       status: this.state.status
-    }).catch(err => console.log(err));
+    })
+      .then(this.loadJob())
+      .catch(err => console.log(err));
   };
 
   render() {
     return (
       <div className="App">
+        <Navbar />
         <form>
           <input
             value={this.state.company}
