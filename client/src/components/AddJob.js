@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import API from '../utils/API';
 
 class AddJob extends Component {
@@ -10,11 +11,15 @@ class AddJob extends Component {
     status: ''
   };
 
-  //   componentDidMount() {
-  //     setState = {
-  //         this.handleFormSubmit()
-  //     };
-  //   }
+  componentDidMount() {
+    this.loadJob();
+  }
+
+  loadJob = () => {
+    API.getJob()
+      .then(res => this.setState({ job: res.data, company: '', position: '', link: '', status: '' }))
+      .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -59,6 +64,19 @@ class AddJob extends Component {
           />
           <button onClick={this.handleFormSubmit}>Add</button>
         </form>
+        {this.state.job.length ? (
+          <ul>
+            {this.state.job.map(data => (
+              <li key={data._id}>
+                <Link to={'/job/' + data._id}>
+                  <strong>{data.company}</strong>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <h3>No Results to Display</h3>
+        )}
       </div>
     );
   }

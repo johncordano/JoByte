@@ -2,13 +2,24 @@ var request = require('request');
 var mongoose = require('mongoose');
 var db = require('../models');
 
-exports.createJob = (req, res) => {
-  db.Job;
-  console
-    .log('this is it!!!!', req.body)
-    .create(req.body)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+// exports.createJob = (req, res) => {
+
+//   db.Job.create(req.body)
+//     .then(dbModel => console.log('dbmodel', dbModel))
+//     .catch(err => res.status(422).json(err));
+// };
+
+module.exports = {
+  findAll: function(req, res) {
+    db.Job.find(req.query)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  create: function(req, res) {
+    db.Job.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  }
 };
 
 // exports.index = (req, res) => {
