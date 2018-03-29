@@ -12,16 +12,6 @@ class AddJob extends Component {
     status: ''
   };
 
-  componentDidMount() {
-    this.loadJob();
-  }
-
-  loadJob = () => {
-    API.getJob()
-      .then(res => this.setState({ job: res.data, company: '', position: '', link: '', status: '' }))
-      .catch(err => console.log(err));
-  };
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -84,19 +74,6 @@ class AddJob extends Component {
                 Add
               </button>
             </form>
-            {this.state.job.length ? (
-              <ul>
-                {this.state.job.map(data => (
-                  <li key={data._id}>
-                    <Link to={'/job/' + data._id}>
-                      <strong>{data.company}</strong>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
           </div>
         </div>
       </div>
