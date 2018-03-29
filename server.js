@@ -4,8 +4,8 @@
 
 // var logger = require("morgan");
 var express = require('express');
-var mongojs = require('mongojs');
-var request = require('request');
+// var mongojs = require('mongojs');
+// var request = require('request');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 const routes = require('./routes');
