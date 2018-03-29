@@ -8,36 +8,17 @@ import ChartPurple from '../images/chart-purple.svg';
 import API from '../utils/API';
 
 class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tableVisible: false,
-      job: [],
-      company: '',
-      position: '',
-      link: '',
-      status: ''
-    };
-  }
-
-  componentDidMount() {
-    this.loadJob();
-  }
-
-  loadJob = () => {
-    API.getJob()
-      .then(res => this.setState({ job: res.data, company: '', position: '', link: '', status: '' }))
-      .catch(err => console.log(err));
+  state = {
+    tableVisible: false
   };
 
   handleClick = () => {
-    let { tableVisible } = this.state;
+    let { tableVisible } = this.state.tableVisible;
     tableVisible = tableVisible ? false : true;
     this.setState({ tableVisible });
   };
 
   render() {
-    // console.log(this.state.job);
     return (
       <div>
         <Navbar />
@@ -55,7 +36,7 @@ class Dashboard extends React.Component {
               <img src={ChartPurple} alt="Char blue graphic" />
             </div>
           </div>
-          {this.state.tableVisible ? <Myjobs jobs={this.state.job} /> : null}
+          {this.state.tableVisible ? <Myjobs jobs={this.props.jobs} /> : null}
         </div>
       </div>
     );
