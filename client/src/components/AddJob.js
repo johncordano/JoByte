@@ -44,43 +44,61 @@ class AddJob extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Navbar />
-        <form>
-          <input
-            value={this.state.company}
-            onChange={this.handleInputChange}
-            name="company"
-            placeholder="Company (required)"
-          />
-          <input
-            value={this.state.position}
-            onChange={this.handleInputChange}
-            name="position"
-            placeholder="Position (required)"
-          />
-          <input value={this.state.link} onChange={this.handleInputChange} name="link" placeholder="Link (required)" />
-          <input
-            value={this.state.status}
-            onChange={this.handleInputChange}
-            name="status"
-            placeholder="Status (required)"
-          />
-          <button onClick={this.handleFormSubmit}>Add</button>
-        </form>
-        {this.state.job.length ? (
-          <ul>
-            {this.state.job.map(data => (
-              <li key={data._id}>
-                <Link to={'/job/' + data._id}>
-                  <strong>{data.company}</strong>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <h3>No Results to Display</h3>
-        )}
+        <div className="centralized">
+          <div className="new-job">
+            <h2>Add a new job</h2>
+
+            <form>
+              <input
+                className="input-label"
+                value={this.state.company}
+                onChange={this.handleInputChange}
+                name="company"
+                placeholder="Company (required)"
+              />
+
+              <input
+                className="input-label"
+                value={this.state.position}
+                onChange={this.handleInputChange}
+                name="position"
+                placeholder="Position (required)"
+              />
+              <input
+                className="input-label"
+                value={this.state.link}
+                onChange={this.handleInputChange}
+                name="link"
+                placeholder="Link (required)"
+              />
+              <input
+                className="input-label"
+                value={this.state.status}
+                onChange={this.handleInputChange}
+                name="status"
+                placeholder="Status (required)"
+              />
+              <button className="add-btn" onClick={this.handleFormSubmit}>
+                Add
+              </button>
+            </form>
+            {this.state.job.length ? (
+              <ul>
+                {this.state.job.map(data => (
+                  <li key={data._id}>
+                    <Link to={'/job/' + data._id}>
+                      <strong>{data.company}</strong>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </div>
+        </div>
       </div>
     );
   }
