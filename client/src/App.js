@@ -38,13 +38,7 @@ class App extends Component {
           }}
         />
         <Route exact path="/job/new" component={AddJob} />
-        <Route
-          exact
-          path="/job/view"
-          render={() => {
-            ViewJob;
-          }}
-        />
+        <Route path="/job/view/" component={ViewJob}/>
       </div>
     );
   }
