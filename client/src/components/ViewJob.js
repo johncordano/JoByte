@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 
 class ViewJob extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jobInfo: this.props.location.state
+    };
+  }
+
+
   render() {
-    console.log(this.props.job);
+    console.log(this.state.jobInfo)
     return (
       <div>
         <Navbar />
         <div className="centralized">
-          <h2>{this.props.company}</h2>
+          <h2>here {this.props.company}</h2>
           <h4>Position</h4>
           <div className="job-info">
             <div className="input">
