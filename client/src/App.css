@@ -192,7 +192,8 @@ tbody td {
   padding-left: 20px;
 }
 
-#view-btn {
+#view-btn,
+#add-todo {
   background: #242323;
   color: white !important;
   width: 100px;

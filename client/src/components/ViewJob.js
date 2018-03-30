@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
+import Modal from './Modal';
 
 class ViewJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      res: this.props.location.state
+      res: this.props.location.state,
+      add: false
     };
   }
+
+  toggleAdd = () => {
+    this.setState({
+      add: !this.state.add
+    });
+  };
 
   render() {
     console.log(this.state.res.jobInfo);
@@ -15,18 +23,25 @@ class ViewJob extends Component {
       <div>
         <Navbar />
         <div className="centralized">
-          <h2>here {this.state.res.jobInfo.company}</h2>
-          <h4>Position</h4>
           <div className="job-info">
             <div className="input">
-              <h4>Company</h4>
-              <input type="text" id="date-applied" value="" />
+              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.company} />
+              <hr />
+              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.position} />
+              <hr />
+              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.link} />
+              <hr />
+              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.status} />
               <hr />
             </div>
+          </div>
+          <div className="job-info">
             <div className="input">
-              <h4>Position</h4>
-              <input type="text" id="date-applied" value="" />
-              <hr />
+              <h2>To do's</h2>
+              <button id="add-todo">+</button>
+              <Modal show={this.state.edit} toggle={this.toggleEdit} onClose={this.toggleEdit}>
+                <h2>test</h2>
+              </Modal>
             </div>
           </div>
         </div>
