@@ -83,7 +83,6 @@ class AddJob extends Component {
                 Add
               </button>
             </form>
-            div
           </div>
         </div>
       </div>

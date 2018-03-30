@@ -22,6 +22,9 @@ export default {
   //             ACTION REQUESTS
   // ============================
 
+  getAllAction: function(jobId) {
+    return axios.get('/api/action/');
+  },
   getAction: function(jobId) {
     return axios.get('/api/action/' + jobId);
   },

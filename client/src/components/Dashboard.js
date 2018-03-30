@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Myjobs from './Myjobs';
+import MyActions from './MyActions';
 import ChartBlue from '../images/chart-blue.svg';
 import ChartPurple from '../images/chart-purple.svg';
 
@@ -9,13 +10,22 @@ import ChartPurple from '../images/chart-purple.svg';
 
 class Dashboard extends React.Component {
   state = {
-    tableVisible: false
+    MyJobsTableVisible: false,
+    MyActionsTableVisible: false
   };
 
-  handleClick = () => {
-    let { tableVisible } = this.state.tableVisible;
-    tableVisible = tableVisible ? false : true;
-    this.setState({ tableVisible });
+  handleMyJobsClick = () => {
+    this.setState({MyActionsTableVisible: false})
+    let { MyJobsTableVisible } = this.state.MyJobsTableVisible;
+    MyJobsTableVisible = MyJobsTableVisible ? false : true;
+    this.setState({ MyJobsTableVisible });
+  };
+
+  handleMyActionsClick = () => {
+    this.setState({MyJobsTableVisible: false})
+    let { MyActionsTableVisible } = this.state.MyActionsTableVisible;
+    MyActionsTableVisible = MyActionsTableVisible ? false : true;
+    this.setState({ MyActionsTableVisible });
   };
 
   render() {
@@ -24,19 +34,20 @@ class Dashboard extends React.Component {
         <Navbar />
         <div className="centralized">
           <div className="container-dashboard">
-            <div className="total-applied" onClick={this.handleClick.bind(this)}>
+            <div className="total-applied" onClick={this.handleMyJobsClick.bind(this)}>
               <h3>My Jobs</h3>
               <p id="jobCount">20</p>
               <img src={ChartBlue} alt="Char blue graphic" />
             </div>
 
-            <div className="scheduled-interview">
+            <div className="scheduled-interview" onClick={this.handleMyActionsClick.bind(this)}>
               <h3>To do's</h3>
               <p>12</p>
               <img src={ChartPurple} alt="Char blue graphic" />
             </div>
           </div>
-          {this.state.tableVisible ? <Myjobs jobs={this.props.jobs} /> : null}
+          {this.state.MyJobsTableVisible ? <Myjobs jobs={this.props.jobs} /> : null}
+          {this.state.MyActionsTableVisible ? <MyActions actions={this.props.actions} /> : null}
         </div>
       </div>
     );

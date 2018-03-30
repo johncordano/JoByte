@@ -81,32 +81,32 @@ class ViewJob extends Component {
               <button onClick={() => this.setState({ isModalOpen: true })} id="add-todo">
                 +
               </button>
-              {/* <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}> */}
-              <form>
-                <div className="date-picker">
-                  <h4>Choose a date</h4>
-                  <DatePicker onChange={this.onDateChange} value={this.state.date} />
-                </div>
+               <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}>
+                <form>
+                  <div className="date-picker">
+                    <h4>Choose a date</h4>
+                    <DatePicker onChange={this.onDateChange} value={this.state.date} />
+                  </div>
 
-                <input
-                  className="input-label"
-                  value={this.state.description}
-                  onChange={this.handleInputChange}
-                  name="description"
-                  placeholder="Description"
-                />
-                <input
-                  className="input-label"
-                  value={this.state.status}
-                  onChange={this.handleInputChange}
-                  name="status"
-                  placeholder="Status"
-                />
-                <button className="add-btn" onClick={this.handleFormSubmit}>
-                  Add
-                </button>
-              </form>
-              {/* </Modal> */}
+                  <input
+                    className="input-label"
+                    value={this.state.description}
+                    onChange={this.handleInputChange}
+                    name="description"
+                    placeholder="Description"
+                  />
+                  <input
+                    className="input-label"
+                    value={this.state.status}
+                    onChange={this.handleInputChange}
+                    name="status"
+                    placeholder="Status"
+                  />
+                  <button className="add-btn" onClick={this.handleFormSubmit}>
+                    Add
+                  </button>
+                </form>
+              </Modal> 
               <table className="rtable">
                 <thead>
                   <tr>

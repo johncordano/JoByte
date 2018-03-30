@@ -13,17 +13,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jobsArray: []
+      jobsArray: [],
+      actionsArray: []
     };
   }
 
   componentDidMount() {
     this.loadJob();
+    this.loadActions();
   }
 
   loadJob = () => {
     API.getJob()
       .then(res => this.setState({ jobsArray: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  loadActions = () => {
+    API.getAllAction()
+      .then(res => this.setState({ actionsArray: res.data }))
       .catch(err => console.log(err));
   };
 
@@ -34,7 +42,7 @@ class App extends Component {
           exact
           path="/"
           render={() => {
-            return <Dashboard jobs={this.state.jobsArray} />;
+            return <Dashboard jobs={this.state.jobsArray} actions={this.state.actionsArray}/>;
           }}
         />
         <Route exact path="/job/new" component={AddJob} />
