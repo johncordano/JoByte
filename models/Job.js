@@ -15,8 +15,7 @@ var JobSchema = new Schema({
     type: String
   },
   status: {
-    type: String,
-    required: true
+    type: String
   },
   actions: [
     {

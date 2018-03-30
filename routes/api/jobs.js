@@ -7,6 +7,7 @@ const controller = require('../../controllers/controller.js');
 router
   .route('/')
   .get(controller.findAllJobs)
-  .post(controller.createJob);
+  .post(controller.createJob)
+  .put(controller.updateJob);
 
 module.exports = router;
