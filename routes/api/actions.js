@@ -6,6 +6,9 @@ const controller = require('../../controllers/controller.js');
 router
   .route('/:id')
   .get(controller.findAllActions)
-  .post(controller.createAction);
+ 
+router 
+ .route('/')
+ .post(controller.createAction);
 
 module.exports = router;
