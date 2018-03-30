@@ -29,12 +29,14 @@ class Myjobs extends Component {
                   <td>{data.link}</td>
                   <td>{data.status}</td>
                   <td>
-                    <Link to={{
-                      pathname: "/job/view",
-                      state: {
-                        jobInfo: data
-                      }
-                    }}>
+                    <Link
+                      to={{
+                        pathname: '/job/view',
+                        state: {
+                          jobInfo: data
+                        }
+                      }}
+                    >
                       <button data-id={data._id} id="view-btn">
                         View
                       </button>

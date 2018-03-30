@@ -8,6 +8,7 @@ class ViewJob extends Component {
     super(props);
     this.state = {
       res: this.props.location.state,
+      actionsArray: [],
       add: false,
       date: '',
       description: '',
@@ -96,6 +97,32 @@ class ViewJob extends Component {
                   Add
                 </button>
               </form>
+              <table className="rtable">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody className="tbody saved-jobs" id="saved-jobs">
+                  {this.state.actionsArray.map(data => {
+                    return (
+                      <tr key={data._id}>
+                        <td>{data.date}</td>
+                        <td>{data.description}</td>
+                        <td>{JSON.stringify(data.status)}</td>
+                        <td>
+                          <button data-id={data._id} id="view-btn">
+                            Update
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
