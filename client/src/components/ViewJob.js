@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import Modal from './Modal';
+// import Modal from './Modal';
 import API from '../utils/API';
+import DatePicker from 'react-date-picker';
 
 class ViewJob extends Component {
   constructor(props) {
@@ -10,10 +11,14 @@ class ViewJob extends Component {
       res: this.props.location.state,
       actionsArray: [],
       add: false,
-      date: '',
+      date: new Date(),
       description: '',
       status: ''
     };
+  }
+
+  componentDidMount() {
+    this.loadActions();
   }
 
   toggleAdd = () => {
@@ -34,6 +39,8 @@ class ViewJob extends Component {
       [name]: value
     });
   };
+
+  onDateChange = date => this.setState({ date });
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -72,13 +79,11 @@ class ViewJob extends Component {
               {/* <Modal show={this.state.add} toggle={this.toggleAdd} onClose={this.toggleAdd}> */}
               {/* </Modal> */}
               <form>
-                <input
-                  className="input-label"
-                  value={this.state.date}
-                  onChange={this.handleInputChange}
-                  name="date"
-                  placeholder="Date"
-                />
+                <div className="date-picker">
+                  <h4>Choose a date</h4>
+                  <DatePicker onChange={this.onDateChange} value={this.state.date} />
+                </div>
+
                 <input
                   className="input-label"
                   value={this.state.description}

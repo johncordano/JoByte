@@ -5,7 +5,7 @@ import Myjobs from './Myjobs';
 import ChartBlue from '../images/chart-blue.svg';
 import ChartPurple from '../images/chart-purple.svg';
 
-import API from '../utils/API';
+// import API from '../utils/API';
 
 class Dashboard extends React.Component {
   state = {
