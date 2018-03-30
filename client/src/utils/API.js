@@ -22,8 +22,8 @@ export default {
   //             ACTION REQUESTS
   // ============================
 
-  getAction: function() {
-    return axios.get('/api/action');
+  getAction: function(jobId) {
+    return axios.get('/api/action/' + jobId);
   },
   addAction: function(actionData) {
     return axios.post('/api/action', actionData);

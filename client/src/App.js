@@ -38,7 +38,7 @@ class App extends Component {
           }}
         />
         <Route exact path="/job/new" component={AddJob} />
-        <Route path="/job/view/" component={ViewJob} />
+        <Route path="/job/view" component={ViewJob} />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-// import Modal from './Modal';
+import Modal from './Modal';
 import API from '../utils/API';
 import DatePicker from 'react-date-picker';
 
@@ -28,7 +28,8 @@ class ViewJob extends Component {
   };
 
   loadActions = () => {
-    API.getAction()
+    const jobId = this.state.res.jobInfo._id;
+    API.getAction(jobId)
       .then(res => this.setState({ actionsArray: res.data }))
       .catch(err => console.log(err));
   };
@@ -48,14 +49,15 @@ class ViewJob extends Component {
     API.addAction({
       date: this.state.date,
       description: this.state.description,
-      status: this.state.status
+      status: this.state.status,
+      jobId: this.state.res.jobInfo._id
     })
       .then(this.loadActions())
       .catch(err => console.log(err));
   };
 
   render() {
-    // console.log(this.state.res.jobInfo);
+    // console.log(this.state);
     return (
       <div>
         <Navbar />
@@ -76,8 +78,7 @@ class ViewJob extends Component {
             <div className="input">
               <h2>To do's</h2>
               <button id="add-todo">+</button>
-              {/* <Modal show={this.state.add} toggle={this.toggleAdd} onClose={this.toggleAdd}> */}
-              {/* </Modal> */}
+              {/* <Modal show={this.state.add} toggle={this.toggleAdd} onClose={this.toggleAdd} /> */}
               <form>
                 <div className="date-picker">
                   <h4>Choose a date</h4>

@@ -12,7 +12,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findAllActions: function(req, res) {
-    db.Action.find(req.query)
+    // console.log('Pleaseork', req.params);
+    // console.log('Please work', res);
+    db.Action.find({ jobId: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

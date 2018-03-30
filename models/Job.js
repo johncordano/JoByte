@@ -17,7 +17,13 @@ var JobSchema = new Schema({
   status: {
     type: String,
     required: true
-  }
+  },
+  actions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Action'
+    }
+  ]
 });
 
 var Job = mongoose.model('Job', JobSchema);

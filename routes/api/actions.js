@@ -4,7 +4,7 @@ const db = require('../../models');
 const controller = require('../../controllers/controller.js');
 
 router
-  .route('/')
+  .route('/:id')
   .get(controller.findAllActions)
   .post(controller.createAction);
 
