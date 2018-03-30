@@ -1,13 +1,23 @@
 var db = require('../models');
 
 module.exports = {
-  findAll: function(req, res) {
+  findAllJobs: function(req, res) {
     db.Job.find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  createJob: function(req, res) {
     db.Job.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findAllActions: function(req, res) {
+    db.Action.find(req.query)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  createAction: function(req, res) {
+    db.Action.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
