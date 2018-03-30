@@ -13,7 +13,8 @@ class ViewJob extends Component {
       add: false,
       date: new Date(),
       description: '',
-      status: ''
+      status: '',
+      isModalOpen: false
     };
   }
 
@@ -21,9 +22,9 @@ class ViewJob extends Component {
     this.loadActions();
   }
 
-  toggleAdd = () => {
+  toggleOpen = () => {
     this.setState({
-      add: !this.state.add
+      isModalOpen: !this.state.isModalOpen
     });
   };
 
@@ -77,8 +78,10 @@ class ViewJob extends Component {
           <div className="job-info">
             <div className="input">
               <h2>To do's</h2>
-              <button id="add-todo">+</button>
-              {/* <Modal show={this.state.add} toggle={this.toggleAdd} onClose={this.toggleAdd} /> */}
+              <button onClick={() => this.setState({ isModalOpen: true })} id="add-todo">
+                +
+              </button>
+              {/* <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}> */}
               <form>
                 <div className="date-picker">
                   <h4>Choose a date</h4>
@@ -103,6 +106,7 @@ class ViewJob extends Component {
                   Add
                 </button>
               </form>
+              {/* </Modal> */}
               <table className="rtable">
                 <thead>
                   <tr>
