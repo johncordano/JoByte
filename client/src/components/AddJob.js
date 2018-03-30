@@ -12,6 +12,16 @@ class AddJob extends Component {
     status: ''
   };
 
+  componentDidMount() {
+    this.loadJob();
+  }
+
+  loadJob = () => {
+    API.getJob()
+      .then(res => this.setState({ jobsArray: res.data }))
+      .catch(err => console.log(err));
+  };
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({

@@ -1,12 +1,37 @@
 import axios from 'axios';
 
 export default {
+  // ============================
+  //             JOB REQUESTS
+  // ============================
+
   getJob: function() {
     return axios.get('/api/job');
   },
-
   addJob: function(jobData) {
-    console.log(jobData);
     return axios.post('/api/job', jobData);
+  },
+  updateJob: function(jobData) {
+    return axios.put('/api/job', jobData);
+  },
+  deleteJob: function(jobData) {
+    return axios.delete('/api/job', jobData);
+  },
+
+  // ============================
+  //             ACTION REQUESTS
+  // ============================
+
+  getAction: function() {
+    return axios.get('/api/action');
+  },
+  addAction: function(actionData) {
+    return axios.post('/api/action', actionData);
+  },
+  updateAction: function(actionData) {
+    return axios.put('/api/action', actionData);
+  },
+  deleteAction: function(actionData) {
+    return axios.delete('/api/action', actionData);
   }
 };

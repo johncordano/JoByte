@@ -3,10 +3,9 @@ const db = require('../../models');
 
 const controller = require('../../controllers/controller.js');
 
-// Matches with "/api/books"
 router
   .route('/')
-  .get(controller.findAllJobs)
-  .post(controller.createJob);
+  .get(controller.findAllActions)
+  .post(controller.createAction);
 
 module.exports = router;
