@@ -49,7 +49,7 @@ class AddJob extends Component {
         <div className="centralized">
           <div className="new-job">
             <h2>Add a new job</h2>
-            <form>
+            <form className="add-form">
               <input
                 className="input-label"
                 value={this.state.company}

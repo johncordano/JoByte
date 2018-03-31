@@ -81,8 +81,9 @@ class ViewJob extends Component {
               <button onClick={() => this.setState({ isModalOpen: true })} id="add-todo">
                 +
               </button>
-               <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}>
-                <form>
+              <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}>
+                <h2>Add a new To-do</h2>
+                <form className="add-form">
                   <div className="date-picker">
                     <h4>Choose a date</h4>
                     <DatePicker onChange={this.onDateChange} value={this.state.date} />
@@ -106,7 +107,7 @@ class ViewJob extends Component {
                     Add
                   </button>
                 </form>
-              </Modal> 
+              </Modal>
               <table className="rtable">
                 <thead>
                   <tr>

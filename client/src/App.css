@@ -56,6 +56,7 @@ body {
 
 .container-dashboard {
   display: flex;
+  margin: 0 75px 0 75px;
   justify-content: center;
 }
 
@@ -77,14 +78,18 @@ body {
 }
 
 .total-applied h3,
-.scheduled-interview h3 {
-  font-size: 24px;
+.scheduled-interview h3,
+.total-researching h3 {
+  font-size: 18px;
   color: gray;
   margin: 0;
+  cursor: pointer;
+  font-weight: 400;
 }
 
 .total-applied p,
-.scheduled-interview p {
+.scheduled-interview p,
+.total-researching p {
   width: 50%;
   float: left;
   font-weight: 400;
@@ -98,13 +103,19 @@ body {
   width: 50%;
   padding-right: 20px;
 }
+.total-researching svg {
+  width: 100%;
+  margin: 0 auto;
+}
 
 /* AddJob Form */
 
-form input {
+.add-form,
+.view-form {
   border: none;
   padding: 5px 0;
   display: flex;
+  flex-wrap: wrap;
   font-size: 18px;
   width: 100%;
   border-bottom: 1px solid #ddd;
@@ -112,10 +123,10 @@ form input {
   margin-top: 10px;
 }
 
-.input-label {
+/* .input-label {
   font-size: 14px;
   line-height: 30px;
-}
+} */
 
 .new-job,
 .job-info {
@@ -142,12 +153,16 @@ form input {
 
 /* Myjobs table */
 
-.table-job {
-  width: 780px;
-  margin: 0 auto;
+.table-job,
+.chart {
+  margin: 0 75px;
   background: white;
   margin-top: 60px;
   padding: 20px;
+}
+
+.table-job {
+  margin-bottom: 100px;
 }
 
 .rtable {

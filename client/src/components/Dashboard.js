@@ -63,20 +63,23 @@ class Dashboard extends React.Component {
               <img src={ChartPurple} alt="Char blue graphic" />
             </div>
           </div>
-          <div className="total-researching" onClick={this.handleResearchingClick.bind(this)}>
-            <h3>Researching</h3>
-            <BarChart
-              height={250}
-              width={650}
-              axes
-              data={[
-                { x: 'Researching', y: 20 },
-                { x: 'Applied', y: 30 },
-                { x: 'Interview Schedules', y: 40 },
-                { x: 'Waiting Response', y: 20 },
-                { x: 'Resolved', y: 40 }
-              ]}
-            />
+          <div className="chart">
+            <div className="total-researching" onClick={this.handleResearchingClick.bind(this)}>
+              <h3>Researching</h3>
+              <BarChart
+                height={250}
+                width={650}
+                data={[
+                  { x: 'Researching', y: 20, color: '#C46882' },
+                  { x: 'Applied', y: 30, color: '#975DA8' },
+                  { x: 'Interview Schedules', y: 40, color: '#9186FB' },
+                  { x: 'Waiting Response', y: 20, color: '#86DDE4' },
+                  { x: 'Resolved', y: 40, color: '#99D285' }
+                ]}
+                margin={{ top: 50, right: 100, bottom: 50, left: 100 }}
+                padding={{ top: 100, right: 100, bottom: 50, left: 100 }}
+              />
+            </div>
           </div>
           {this.state.MyJobsTableVisible ? <Myjobs jobs={this.props.jobs} /> : null}
           {this.state.MyActionsTableVisible ? <MyActions actions={this.props.actions} /> : null}
