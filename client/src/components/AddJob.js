@@ -5,13 +5,17 @@ import Navbar from './Navbar';
 
 
 class AddJob extends Component {
-  state = {
-    job: [],
-    company: '',
-    position: '',
-    link: '',
-    status: ''
-  };
+  constructor(props) {
+    super(props); 
+    this.state = {
+      job: [],
+      company: '',
+      position: '',
+      link: '',
+      status: ''
+    };
+  }
+
 
   componentDidMount() {
     this.loadJob();
@@ -45,6 +49,7 @@ class AddJob extends Component {
   };
 
   render() {
+    console.log(this.props.history)
     return (
       <div>
         <Navbar />
@@ -79,12 +84,11 @@ class AddJob extends Component {
                   <option value="Applied">Applied</option>
                   <option value="Interviewing">Interviewing</option>
                </select>
-              <Link to='/'>
-                <button 
+              <Link 
+                  to='/'
                   className="add-btn" 
                   onClick={this.handleFormSubmit}>
-                    Add
-                </button>
+                  Add
               </Link>
             </form>
           </div>

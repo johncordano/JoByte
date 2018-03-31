@@ -10,34 +10,11 @@ import ViewJob from './components/ViewJob';
 // import Myjobs from './components/Myjobs';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     jobsArray: [],
-  //     actionsArray: []
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   this.loadJob();
-  //   this.loadActions();
-  // }
-
-  // loadJob = () => {
-  //   API.getJob()
-  //     .then(res => this.setState({ jobsArray: res.data }))
-  //     .catch(err => console.log(err));
-  // };
-
-  // loadActions = () => {
-  //   API.getAllAction()
-  //     .then(res => this.setState({ actionsArray: res.data }))
-  //     .catch(err => console.log(err));
-  // };
 
   render() {
     return (
       <div>
+        {/*<Route exact path = "/signin" component={Signin} />*/}
         <Route exact path = "/" component={Dashboard} />
         <Route exact path="/job/new" component={AddJob} />
         <Route path="/job/view" component={ViewJob} />
