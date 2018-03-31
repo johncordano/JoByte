@@ -4,8 +4,12 @@ const db = require('../../models');
 const controller = require('../../controllers/controller.js');
 
 router
-  .route('/')
-  .get(controller.findAllActions)
-  .post(controller.createAction);
+  .route('/:id')
+  .get(controller.findJobActions)
+ 
+router 
+ .route('/')
+ .get(controller.findAllActions)
+ .post(controller.createAction);
 
 module.exports = router;

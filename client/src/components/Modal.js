@@ -21,7 +21,7 @@ class Modal extends React.Component {
 
     // Modal "window"
     const modalStyle = {
-      backgroundColor: '#dff3ec',
+      backgroundColor: '#E3E3E3',
       borderRadius: '5px',
       maxWidth: '500px',
       minHeight: '100px',
