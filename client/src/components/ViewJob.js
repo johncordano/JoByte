@@ -135,13 +135,6 @@ class ViewJob extends Component {
                   name="link"
                   placeholder="Link"
                 />
-                <input
-                  className="input-label"
-                  value={this.state.curJob.status}
-                  onChange={this.handleInputChange}
-                  name="status"
-                  placeholder="Status (required)"
-                />
                 <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
                   <option value="Researching">Researching</option>
                   <option value="Applied">Applied</option>
