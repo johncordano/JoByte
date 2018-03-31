@@ -1,4 +1,5 @@
 import React from 'react';
+import API from '../utils/API';
 // import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Myjobs from './Myjobs';
@@ -11,10 +12,31 @@ import { AreaChart, BarChart } from 'react-easy-chart';
 
 class Dashboard extends React.Component {
   state = {
+    jobsArray: [],
+    actionsArray: [],
     MyJobsTableVisible: false,
     MyActionsTableVisible: false,
     ResearchingTableVisible: false
   };
+  
+
+  componentDidMount() {
+    this.loadJob();
+    this.loadActions();
+  };
+
+  loadJob = () => {
+    API.getJob()
+      .then(res => this.setState({ jobsArray: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  loadActions = () => {
+    API.getAllAction()
+      .then(res => this.setState({ actionsArray: res.data }))
+      .catch(err => console.log(err));
+  };
+
 
   hideAllTables = () => {
     this.setState({
@@ -53,13 +75,13 @@ class Dashboard extends React.Component {
           <div className="container-dashboard">
             <div className="total-applied" onClick={this.handleMyJobsClick.bind(this)}>
               <h3>My Jobs</h3>
-              <p id="jobCount">{this.props.jobs.length}</p>
+              <p id="jobCount">{this.state.jobsArray.length}</p>
               <img src={ChartBlue} alt="Char blue graphic" />
             </div>
 
             <div className="scheduled-interview" onClick={this.handleMyActionsClick.bind(this)}>
               <h3>To do's</h3>
-              <p>{this.props.actions.length}</p>
+              <p>{this.state.actionsArray.length}</p>
               <img src={ChartPurple} alt="Char blue graphic" />
             </div>
           </div>
@@ -81,11 +103,11 @@ class Dashboard extends React.Component {
               />
             </div>
           </div>
-          {this.state.MyJobsTableVisible ? <Myjobs jobs={this.props.jobs} /> : null}
-          {this.state.MyActionsTableVisible ? <MyActions actions={this.props.actions} /> : null}
+          {this.state.MyJobsTableVisible ? <Myjobs jobs={this.state.jobsArray} /> : null}
+          {this.state.MyActionsTableVisible ? <MyActions actions={this.state.actionsArray} /> : null}
           {/*this.state.ResearchingTableVisible ? <ResearchingTable actions={this.props.jobs} /> : null */}
 
-          {this.props.jobs.map(data => {
+          {/*this.props.jobs.map(data => {
             if (data.status === 'Researching') {
               return (
                 <tr key={data._id}>
@@ -97,7 +119,7 @@ class Dashboard extends React.Component {
                 </tr>
               );
             }
-          })}
+          })*/}
         </div>
       </div>
     );

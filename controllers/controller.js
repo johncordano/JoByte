@@ -1,6 +1,11 @@
 var db = require('../models');
 
 module.exports = {
+
+// ================================
+//            JOB METHODS
+// ================================
+
   findAllJobs: function(req, res) {
     db.Job.find(req.query)
       .then(dbModel => res.json(dbModel))
@@ -11,19 +16,30 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  updateJob: function(req, res) {
-    console.log(req.body);
-    // db.Job.update(
-    //   { _id: id },
-    //   {
-    //     $set: {
-    //       status: req.body,
-    //       details: { model: '14Q3', make: 'xyz' },
-    //       tags: ['coats', 'outerwear', 'clothing']
-    //     }
-    //   }
-    // );
+  deleteJob: function(req, res) {
+    db.Job.deleteOne({_id:req.query.id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
+  updateJob: function(req, res) {
+    db.Job.update(
+      { _id: req.body.id },
+      {
+        $set: {
+          company: req.body.company,
+          position: req.body.position,
+          link: req.body.link,
+          status: req.body.status
+        }
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
+  },
+
+// ================================
+//            ACTION METHODS
+// ================================
+
   findJobActions: function(req, res) {
     // console.log('Pleaseork', req.params);
     // console.log('Please work', res);
@@ -40,6 +56,11 @@ module.exports = {
   },
   createAction: function(req, res) {
     db.Action.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  deleteAction: function(req, res) {
+    db.Action.deleteOne({_id: req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

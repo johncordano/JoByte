@@ -8,7 +8,13 @@ class ViewJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      res: this.props.location.state,
+      curJob: {
+        id: this.props.location.state.jobInfo._id,
+        company: this.props.location.state.jobInfo.company,
+        position: this.props.location.state.jobInfo.position,
+        link: this.props.location.state.jobInfo.link,
+        status: this.props.location.state.jobInfo.status
+      },
       actionsArray: [],
       add: false,
       date: new Date(),
@@ -28,34 +34,76 @@ class ViewJob extends Component {
     });
   };
 
+
   loadActions = () => {
-    const jobId = this.state.res.jobInfo._id;
+    const jobId = this.state.curJob.id;
     API.getAction(jobId)
       .then(res => this.setState({ actionsArray: res.data }))
       .catch(err => console.log(err));
   };
 
+
   handleInputChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+    const { curJob } = this.state;
+    const newCurJob = { ...curJob, [name]: value}
+    this.setState({ curJob: newCurJob });
   };
+
+
+  handleDropdownChange = event => {
+    const { curJob } = this.state;
+    const newCurJob = { ...curJob, status: event.target.value };
+    this.setState({ curJob: newCurJob });
+  };
+
 
   onDateChange = date => this.setState({ date });
 
+
+  handleJobUpdate = event => {
+    event.preventDefault();
+    API.updateJob({
+      id: this.state.curJob.id,
+      company: this.state.curJob.company,
+      position: this.state.curJob.position,
+      link: this.state.curJob.link,
+      status: this.state.curJob.status
+    })
+    .then(console.log('Successfully updated job'))
+    .catch(err => console.log(err));
+  };
+
+
+  handleJobDelete = event => {
+    event.preventDefault();
+    API.deleteJob({id: this.state.curJob.id})
+      .then(console.log('Successfully deleted job'))
+      .catch(err => console.log(err));
+  };
+
+
+  handleActionDelete = (event, id) => {
+    event.preventDefault();
+    console.log(id)
+    API.deleteAction({id: id})
+      .then(this.loadActions())
+      .catch(err => console.log(err));
+  };
+
+
   handleFormSubmit = event => {
     event.preventDefault();
-
     API.addAction({
       date: this.state.date,
       description: this.state.description,
       status: this.state.status,
-      jobId: this.state.res.jobInfo._id
+      jobId: this.state.curJob.id
     })
       .then(this.loadActions())
       .catch(err => console.log(err));
   };
+
 
   render() {
     // console.log(this.state);
@@ -65,14 +113,40 @@ class ViewJob extends Component {
         <div className="centralized">
           <div className="job-info">
             <div className="input">
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.company} />
-              <hr />
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.position} />
-              <hr />
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.link} />
-              <hr />
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.status} />
-              <hr />
+              <form className="add-form">
+                <input
+                  className="input-label"
+                  value={this.state.curJob.company}
+                  onChange={this.handleInputChange}
+                  name="curJob[company]"
+                  placeholder="Company (required)"
+                />
+                <input
+                  className="input-label"
+                  value={this.state.curJob.position}
+                  onChange={this.handleInputChange}
+                  name="position"
+                  placeholder="Position (required)"
+                />
+                <input
+                  className="input-label"
+                  value={this.state.curJob.link}
+                  onChange={this.handleInputChange}
+                  name="link"
+                  placeholder="Link"
+                />
+                <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
+                  <option value="Researching">Researching</option>
+                  <option value="Applied">Applied</option>
+                  <option value="Interviewing">Interviewing</option>
+               </select>
+                <button className="add-btn" onClick={this.handleJobUpdate}>
+                  Save Changes
+                </button>
+                <button className="add-btn" onClick={this.handleJobDelete}>
+                  Delete Job
+                </button>
+            </form>
             </div>
           </div>
           <div className="job-info">
@@ -125,8 +199,8 @@ class ViewJob extends Component {
                         <td>{data.description}</td>
                         <td>{JSON.stringify(data.status)}</td>
                         <td>
-                          <button data-id={data._id} id="view-btn">
-                            Update
+                          <button id="view-btn" onClick={event => this.handleActionDelete(event, data._id)}>
+                            Delete
                           </button>
                         </td>
                       </tr>

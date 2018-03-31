@@ -5,9 +5,9 @@ import API from '../utils/API';
 // import SummaryGraph from './SummaryGraph';
 
 class Myjobs extends Component {
-  state = {
-    dropDownSelection: 'blah'
-  };
+  // state = {
+  //   dropDownSelection: 'blah'
+  // };
 
   // handleChange = (event, id) => {
   //   this.setState({ dropDownSelection: event.target.value });
@@ -39,19 +39,7 @@ class Myjobs extends Component {
                   <td>{data.company}</td>
                   <td>{data.position}</td>
                   <td>{data.link}</td>
-
-                  <td>
-                    {/* <select value={this.state.dropDownSelection} onChange={this.handleChange(data._id)}> */}
-                    <select value={this.state.dropDownSelection}>
-                      <option select value="researching">
-                        Researching
-                      </option>
-                      <option value="applied">Applied</option>
-                      <option value="interviewing">Interviewing</option>
-                      <option value="awaiting-response">Awaiting Response</option>
-                      <option value="resolved">Resolved</option>
-                    </select>
-                  </td>
+                  <td>{data.status}</td>
                   <td>
                     <Link
                       to={{
