@@ -1,6 +1,11 @@
 var db = require('../models');
 
 module.exports = {
+
+// ================================
+//            JOB METHODS
+// ================================
+
   findAllJobs: function(req, res) {
     db.Job.find(req.query)
       .then(dbModel => res.json(dbModel))
@@ -8,6 +13,11 @@ module.exports = {
   },
   createJob: function(req, res) {
     db.Job.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  deleteJob: function(req, res) {
+    db.Job.deleteOne({_id:req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -24,6 +34,11 @@ module.exports = {
     //   }
     // );
   },
+
+// ================================
+//            ACTION METHODS
+// ================================
+
   findJobActions: function(req, res) {
     // console.log('Pleaseork', req.params);
     // console.log('Please work', res);

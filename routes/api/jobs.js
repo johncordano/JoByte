@@ -8,6 +8,7 @@ router
   .route('/')
   .get(controller.findAllJobs)
   .post(controller.createJob)
-  .put(controller.updateJob);
+  .put(controller.updateJob)
+  .delete(controller.deleteJob);
 
 module.exports = router;

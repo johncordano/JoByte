@@ -15,7 +15,7 @@ export default {
     return axios.put('/api/job', jobData);
   },
   deleteJob: function(jobData) {
-    return axios.delete('/api/job', jobData);
+    return axios.delete('/api/job', {params: jobData});
   },
 
   // ============================

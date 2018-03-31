@@ -34,12 +34,14 @@ class ViewJob extends Component {
     });
   };
 
+
   loadActions = () => {
     const jobId = this.state.curJob.id;
     API.getAction(jobId)
       .then(res => this.setState({ actionsArray: res.data }))
       .catch(err => console.log(err));
   };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -48,7 +50,9 @@ class ViewJob extends Component {
     });
   };
 
+
   onDateChange = date => this.setState({ date });
+
 
   handleJobUpdate = event => {
     event.preventDefault();
@@ -59,7 +63,15 @@ class ViewJob extends Component {
       link: this.state.curJob.link,
       status: this.state.curJob.status
     })
+    .then(console.log('Successfully updated job'))
     .catch(err => console.log(err));
+  };
+
+  handleJobDelete = event => {
+    event.preventDefault();
+    API.deleteJob({id: this.state.curJob.id})
+      .then(console.log('Successfully deleted job'))
+      .catch(err => console.log(err));
   }
 
   handleFormSubmit = event => {
@@ -69,7 +81,7 @@ class ViewJob extends Component {
       date: this.state.date,
       description: this.state.description,
       status: this.state.status,
-      jobId: this.state.res.jobInfo._id
+      jobId: this.state.curJob.id
     })
       .then(this.loadActions())
       .catch(err => console.log(err));
@@ -88,7 +100,7 @@ class ViewJob extends Component {
                   className="input-label"
                   value={this.state.curJob.company}
                   onChange={this.handleInputChange}
-                  name="company"
+                  name="curJob[company]"
                   placeholder="Company (required)"
                 />
                 <input
@@ -114,6 +126,9 @@ class ViewJob extends Component {
                 />
                 <button className="add-btn" onClick={this.handleJobUpdate}>
                   Save Changes
+                </button>
+                <button className="add-btn" onClick={this.handleJobDelete}>
+                  Delete Job
                 </button>
             </form>
             </div>
