@@ -10,6 +10,7 @@ router
 router 
  .route('/')
  .get(controller.findAllActions)
- .post(controller.createAction);
+ .post(controller.createAction)
+ .delete(controller.deleteAction);
 
 module.exports = router;

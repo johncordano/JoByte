@@ -35,6 +35,6 @@ export default {
     return axios.put('/api/action', actionData);
   },
   deleteAction: function(actionData) {
-    return axios.delete('/api/action', actionData);
+    return axios.delete('/api/action', {params: actionData});
   }
 };

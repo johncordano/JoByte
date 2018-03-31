@@ -27,9 +27,10 @@ module.exports = {
     //   { _id: id },
     //   {
     //     $set: {
-    //       status: req.body,
-    //       details: { model: '14Q3', make: 'xyz' },
-    //       tags: ['coats', 'outerwear', 'clothing']
+    //       company: req.body.company,
+    //       position: req.body.position,
+    //       link: req.body.link,
+    //       status: req.body.status
     //     }
     //   }
     // );
@@ -55,6 +56,11 @@ module.exports = {
   },
   createAction: function(req, res) {
     db.Action.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  deleteAction: function(req, res) {
+    db.Action.deleteOne({_id:req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

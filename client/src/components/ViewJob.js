@@ -72,7 +72,13 @@ class ViewJob extends Component {
     API.deleteJob({id: this.state.curJob.id})
       .then(console.log('Successfully deleted job'))
       .catch(err => console.log(err));
-  }
+  };
+
+  handleActionDelete = (event, id) => {
+    event.preventDefault();
+    console.log(id)
+    // API.deleteAction({})
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -183,8 +189,8 @@ class ViewJob extends Component {
                         <td>{data.description}</td>
                         <td>{JSON.stringify(data.status)}</td>
                         <td>
-                          <button data-id={data._id} id="view-btn">
-                            Update
+                          <button id="view-btn" onClick={event => this.handleActionDelete(event, data._id)}>
+                            Delete
                           </button>
                         </td>
                       </tr>
