@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Navbar from './Navbar';
+
 
 class AddJob extends Component {
   state = {
@@ -79,9 +80,13 @@ class AddJob extends Component {
                 name="status"
                 placeholder="Status (required)"
               />
-              <button className="add-btn" onClick={this.handleFormSubmit}>
-                Add
-              </button>
+              <Link to='/'>
+                <button 
+                  className="add-btn" 
+                  onClick={this.handleFormSubmit}>
+                    Add
+                </button>
+              </Link>
             </form>
           </div>
         </div>

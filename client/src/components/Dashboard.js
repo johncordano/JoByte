@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
           {this.state.MyActionsTableVisible ? <MyActions actions={this.props.actions} /> : null}
           {/*this.state.ResearchingTableVisible ? <ResearchingTable actions={this.props.jobs} /> : null */}
 
-          {this.props.jobs.map(data => {
+          {/*this.props.jobs.map(data => {
             if (data.status === 'Researching') {
               return (
                 <tr key={data._id}>
@@ -97,7 +97,7 @@ class Dashboard extends React.Component {
                 </tr>
               );
             }
-          })}
+          })*/}
         </div>
       </div>
     );
