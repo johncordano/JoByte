@@ -60,7 +60,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   deleteAction: function(req, res) {
-    db.Action.deleteOne({_id:req.query.id})
+    db.Action.deleteOne({_id: req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

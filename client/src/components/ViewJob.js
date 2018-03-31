@@ -77,7 +77,9 @@ class ViewJob extends Component {
   handleActionDelete = (event, id) => {
     event.preventDefault();
     console.log(id)
-    // API.deleteAction({})
+    API.deleteAction({id: id})
+      .then(this.loadActions())
+      .catch(err => console.log(err));
   };
 
   handleFormSubmit = event => {
