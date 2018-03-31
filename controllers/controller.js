@@ -11,8 +11,30 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  updateJob: function(req, res) {
+    console.log(req.body);
+    // db.Job.update(
+    //   { _id: id },
+    //   {
+    //     $set: {
+    //       status: req.body,
+    //       details: { model: '14Q3', make: 'xyz' },
+    //       tags: ['coats', 'outerwear', 'clothing']
+    //     }
+    //   }
+    // );
+  },
+  findJobActions: function(req, res) {
+    // console.log('Pleaseork', req.params);
+    // console.log('Please work', res);
+    db.Action.find({ jobId: req.params.id })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findAllActions: function(req, res) {
-    db.Action.find(req.query)
+    // console.log('Pleaseork', req.params);
+    // console.log('Please work', res);
+    db.Action.find({})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

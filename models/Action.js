@@ -11,8 +11,11 @@ var ActionSchema = new Schema({
     required: true
   },
   status: {
-    type: Boolean,
+    type: String,
     default: false
+  },
+  jobId: {
+    type: String
   }
 });
 

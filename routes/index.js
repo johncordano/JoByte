@@ -5,7 +5,7 @@ const actionsRoutes = require('./api/actions');
 
 // API Routes
 router.use('/api/job', jobRoutes);
-router.use('/api/actions', actionsRoutes);
+router.use('/api/action', actionsRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {

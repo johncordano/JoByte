@@ -10,7 +10,7 @@ import SettingsIcon from '../images/settings.svg';
 import LogoutIcon from '../images/logout.svg';
 
 // Components
-import Dashboard from './Dashboard';
+// import Dashboard from './Dashboard';
 
 class Navbar extends React.Component {
   render() {
