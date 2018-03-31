@@ -22,18 +22,18 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateJob: function(req, res) {
-    console.log('here:',req.body);
-    // db.Job.update(
-    //   { _id: id },
-    //   {
-    //     $set: {
-    //       company: req.body.company,
-    //       position: req.body.position,
-    //       link: req.body.link,
-    //       status: req.body.status
-    //     }
-    //   }
-    // );
+    db.Job.update(
+      { _id: req.body.id },
+      {
+        $set: {
+          company: req.body.company,
+          position: req.body.position,
+          link: req.body.link,
+          status: req.body.status
+        }
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
   },
 
 // ================================

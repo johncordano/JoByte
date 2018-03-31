@@ -45,11 +45,16 @@ class ViewJob extends Component {
 
   handleInputChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+    const { curJob } = this.state;
+    const newCurJob = { ...curJob, [name]: value}
+    this.setState({ curJob: newCurJob });
   };
 
+  handleDropdownChange = event => {
+    const { curJob } = this.state;
+    const newCurJob = { ...curJob, status: event.target.value };
+    this.setState({ curJob: newCurJob });
+  };
 
   onDateChange = date => this.setState({ date });
 
@@ -84,7 +89,6 @@ class ViewJob extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
     API.addAction({
       date: this.state.date,
       description: this.state.description,
@@ -132,6 +136,11 @@ class ViewJob extends Component {
                   name="status"
                   placeholder="Status (required)"
                 />
+                <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
+                  <option value="Researching">Researching</option>
+                  <option value="Applied">Applied</option>
+                  <option value="Interviewing">Interviewing</option>
+               </select>
                 <button className="add-btn" onClick={this.handleJobUpdate}>
                   Save Changes
                 </button>
