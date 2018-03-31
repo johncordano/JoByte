@@ -8,7 +8,13 @@ class ViewJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      res: this.props.location.state,
+      curJob: {
+        id: this.props.location.state.jobInfo._id,
+        company: this.props.location.state.jobInfo.company,
+        position: this.props.location.state.jobInfo.position,
+        link: this.props.location.state.jobInfo.link,
+        status: this.props.location.state.jobInfo.status
+      },
       actionsArray: [],
       add: false,
       date: new Date(),
@@ -29,7 +35,7 @@ class ViewJob extends Component {
   };
 
   loadActions = () => {
-    const jobId = this.state.res.jobInfo._id;
+    const jobId = this.state.curJob.id;
     API.getAction(jobId)
       .then(res => this.setState({ actionsArray: res.data }))
       .catch(err => console.log(err));
@@ -43,6 +49,18 @@ class ViewJob extends Component {
   };
 
   onDateChange = date => this.setState({ date });
+
+  handleJobUpdate = event => {
+    event.preventDefault();
+    API.updateJob({
+      id: this.state.curJob.id,
+      company: this.state.curJob.company,
+      position: this.state.curJob.position,
+      link: this.state.curJob.link,
+      status: this.state.curJob.status
+    })
+    .catch(err => console.log(err));
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -65,14 +83,39 @@ class ViewJob extends Component {
         <div className="centralized">
           <div className="job-info">
             <div className="input">
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.company} />
-              <hr />
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.position} />
-              <hr />
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.link} />
-              <hr />
-              <input type="text" id="date-applied" value="" placeholder={this.state.res.jobInfo.status} />
-              <hr />
+              <form className="add-form">
+                <input
+                  className="input-label"
+                  value={this.state.curJob.company}
+                  onChange={this.handleInputChange}
+                  name="company"
+                  placeholder="Company (required)"
+                />
+                <input
+                  className="input-label"
+                  value={this.state.curJob.position}
+                  onChange={this.handleInputChange}
+                  name="position"
+                  placeholder="Position (required)"
+                />
+                <input
+                  className="input-label"
+                  value={this.state.curJob.link}
+                  onChange={this.handleInputChange}
+                  name="link"
+                  placeholder="Link"
+                />
+                <input
+                  className="input-label"
+                  value={this.state.curJob.status}
+                  onChange={this.handleInputChange}
+                  name="status"
+                  placeholder="Status (required)"
+                />
+                <button className="add-btn" onClick={this.handleJobUpdate}>
+                  Save Changes
+                </button>
+            </form>
             </div>
           </div>
           <div className="job-info">

@@ -12,7 +12,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateJob: function(req, res) {
-    console.log(req.body);
+    console.log('here:',req.body);
     // db.Job.update(
     //   { _id: id },
     //   {
