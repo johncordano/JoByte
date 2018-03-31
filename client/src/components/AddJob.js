@@ -15,13 +15,14 @@ class AddJob extends Component {
 
   componentDidMount() {
     this.loadJob();
-  }
+  };
 
   loadJob = () => {
     API.getJob()
       .then(res => this.setState({ jobsArray: res.data }))
       .catch(err => console.log(err));
   };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -73,13 +74,11 @@ class AddJob extends Component {
                 name="link"
                 placeholder="Link (required)"
               />
-              <input
-                className="input-label"
-                value={this.state.status}
-                onChange={this.handleInputChange}
-                name="status"
-                placeholder="Status (required)"
-              />
+              <select id="" name = "status" onChange={this.handleInputChange} value={this.state.status}>
+                  <option value="Researching">Researching</option>
+                  <option value="Applied">Applied</option>
+                  <option value="Interviewing">Interviewing</option>
+               </select>
               <Link to='/'>
                 <button 
                   className="add-btn" 

@@ -50,11 +50,13 @@ class ViewJob extends Component {
     this.setState({ curJob: newCurJob });
   };
 
+
   handleDropdownChange = event => {
     const { curJob } = this.state;
     const newCurJob = { ...curJob, status: event.target.value };
     this.setState({ curJob: newCurJob });
   };
+
 
   onDateChange = date => this.setState({ date });
 
@@ -72,12 +74,14 @@ class ViewJob extends Component {
     .catch(err => console.log(err));
   };
 
+
   handleJobDelete = event => {
     event.preventDefault();
     API.deleteJob({id: this.state.curJob.id})
       .then(console.log('Successfully deleted job'))
       .catch(err => console.log(err));
   };
+
 
   handleActionDelete = (event, id) => {
     event.preventDefault();
@@ -86,6 +90,7 @@ class ViewJob extends Component {
       .then(this.loadActions())
       .catch(err => console.log(err));
   };
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -98,6 +103,7 @@ class ViewJob extends Component {
       .then(this.loadActions())
       .catch(err => console.log(err));
   };
+
 
   render() {
     // console.log(this.state);
