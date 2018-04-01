@@ -9,7 +9,6 @@ class MyActions extends Component {
   render() {
     return (
       <div className="table-job">
-        <h2>Your outstanding actions</h2>
         <table className="rtable">
           <thead>
             <tr>

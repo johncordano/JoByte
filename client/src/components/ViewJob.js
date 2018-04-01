@@ -34,7 +34,6 @@ class ViewJob extends Component {
     });
   };
 
-
   loadActions = () => {
     const jobId = this.state.curJob.id;
     API.getAction(jobId)
@@ -42,14 +41,12 @@ class ViewJob extends Component {
       .catch(err => console.log(err));
   };
 
-
   handleJobInputChange = event => {
     const { name, value } = event.target;
     const { curJob } = this.state;
-    const newCurJob = { ...curJob, [name]: value}
+    const newCurJob = { ...curJob, [name]: value };
     this.setState({ curJob: newCurJob });
   };
-
 
   handleDropdownChange = event => {
     const { curJob } = this.state;
@@ -64,9 +61,7 @@ class ViewJob extends Component {
     });
   };
 
-
   onDateChange = date => this.setState({ date });
-
 
   handleJobUpdate = event => {
     event.preventDefault();
@@ -77,27 +72,24 @@ class ViewJob extends Component {
       link: this.state.curJob.link,
       status: this.state.curJob.status
     })
-    .then(console.log('Successfully updated job'))
-    .catch(err => console.log(err));
+      .then(console.log('Successfully updated job'))
+      .catch(err => console.log(err));
   };
-
 
   handleJobDelete = event => {
     event.preventDefault();
-    API.deleteJob({id: this.state.curJob.id})
+    API.deleteJob({ id: this.state.curJob.id })
       .then(console.log('Successfully deleted job'))
       .catch(err => console.log(err));
   };
 
-
   handleActionDelete = (event, id) => {
     event.preventDefault();
-    console.log(id)
-    API.deleteAction({id: id})
+    console.log(id);
+    API.deleteAction({ id: id })
       .then(this.loadActions())
       .catch(err => console.log(err));
   };
-
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -111,13 +103,12 @@ class ViewJob extends Component {
       .catch(err => console.log(err));
   };
 
-
   render() {
     // console.log(this.state);
     return (
-      <div>
+      <div className="page">
         <Navbar />
-        <div className="centralized">
+        <div className="main">
           <div className="job-info">
             <div className="input">
               <form className="add-form">
@@ -146,14 +137,14 @@ class ViewJob extends Component {
                   <option value="Researching">Researching</option>
                   <option value="Applied">Applied</option>
                   <option value="Interviewing">Interviewing</option>
-               </select>
+                </select>
                 <button className="add-btn" onClick={this.handleJobUpdate}>
                   Save Changes
                 </button>
                 <button className="add-btn" onClick={this.handleJobDelete}>
                   Delete Job
                 </button>
-            </form>
+              </form>
             </div>
           </div>
           <div className="job-info">

@@ -21,7 +21,6 @@ class Myjobs extends Component {
     // console.log(this.state.status);
     return (
       <div className="table-job">
-        <h2>Your saved jobs</h2>
         <table className="rtable">
           <thead>
             <tr>

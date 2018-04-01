@@ -9,17 +9,24 @@ body {
   width: 100%;
 }
 
+.page {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: 'sidebar main';
+}
+
 /* Navbar */
 
 .sidenav {
-  height: 100%;
+  grid-area: sidebar;
+  background-color: #242323;
+  /* height: 100%;
   width: 20%;
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
-  background-color: #242323;
-  overflow-x: hidden;
+  left: 0; */
+  /* overflow-x: hidden; */
 }
 
 .sidenav h2 {
@@ -49,37 +56,34 @@ body {
   margin: 18px;
 }
 
-.centralized {
-  width: 80%;
-  float: right;
+.main {
+  grid-area: main;
 }
 
 .container-dashboard {
-  display: flex;
-  margin: 0 75px 0 75px;
-  justify-content: center;
+  /* display: flex; */
+  margin: 80px;
+  /* justify-content: center; */
 }
 
-.total-applied {
+.hello-container {
   margin-right: 40px;
+  width: 100%;
 }
 
 .scheduled-interview {
   margin-left: 20px;
 }
 
-.total-applied,
-.scheduled-interview {
-  width: 370px;
-  height: 117px;
+.chart-container {
+  width: 100%;
   background: white;
-  margin-top: 76px;
+  margin-top: 48px;
   padding: 20px;
 }
 
-.total-applied h3,
-.scheduled-interview h3,
-.total-researching h3 {
+.hello-container h3,
+.chart-container h3 {
   font-size: 18px;
   color: gray;
   margin: 0;
@@ -87,22 +91,25 @@ body {
   font-weight: 400;
 }
 
-.total-applied p,
-.scheduled-interview p,
-.total-researching p {
+.hello-container p {
   width: 50%;
   float: left;
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 0;
-  margin-top: 33px;
 }
 
-.total-applied img,
+.tab-container {
+  background: white;
+  padding: 20px;
+  margin-top: 46px;
+}
+
+/* .total-applied img,
 .scheduled-interview img {
   width: 50%;
   padding-right: 20px;
-}
+} */
 .total-researching svg {
   width: 100%;
   margin: 0 auto;
@@ -114,27 +121,24 @@ body {
 .view-form {
   border: none;
   padding: 5px 0;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 18px;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
+  display: grid;
   line-height: 30px;
-  margin-top: 10px;
 }
 
-/* .input-label {
-  font-size: 14px;
-  line-height: 30px;
-} */
+.add-form input,
+.add-form select {
+  height: 35px;
+  margin-bottom: 15px;
+  width: 50%;
+}
 
 .new-job,
 .job-info {
   background: white;
-  max-width: 800px;
-  margin: 76px auto;
-  padding: 30px;
-  overflow: auto;
+  margin: 83px 50% 0 70px;
+  padding: 45px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px grey;
 }
 
 .add-btn {
@@ -149,16 +153,14 @@ body {
   margin-top: 30px;
   display: inherit;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 /* Myjobs table */
 
-.table-job,
-.chart {
-  margin: 0 75px;
+.table-job {
   background: white;
-  margin-top: 60px;
-  padding: 20px;
+  margin-top: 30px;
 }
 
 .table-job {
@@ -171,8 +173,9 @@ body {
 
 .table-job h2,
 .new-job h2 {
-  font-size: 15px;
-  color: gray;
+  font-size: 24px;
+  color: #242323;
+  margin-top: 0;
   margin-bottom: 15px;
 }
 
