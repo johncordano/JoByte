@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { Route, Switch, withRouter } from 'react-router-dom';
 import API from '../utils/API';
 
 class Login extends Component {
@@ -16,7 +15,7 @@ class Login extends Component {
     });
   };
   
-  handleFormSubmit = event => {
+  handleFormSubmitNewAccount = event => {
     event.preventDefault();
     
     API.addAccount({
@@ -24,7 +23,15 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password,
     })
-      // .then(this.addAccount())
+      .catch(err => console.log(err));
+  };
+  
+  handleFormSubmitExistingAccount = event => {
+    event.preventDefault();
+    API.getAccount({
+      email: this.state.email,
+      password: this.state.password,
+    })
       .catch(err => console.log(err));
   };
 
@@ -56,11 +63,36 @@ class Login extends Component {
             name="password"
             placeholder="Password (required)"
           />
-          <button className="add-btn" onClick={this.handleFormSubmit}>
+        <button className="add-btn" onClick={this.handleFormSubmitNewAccount}>
             Create account
           </button>
         </form>
       </div>
+
+      <div className="existing-account">
+        <h2>Sign in to existing account</h2>
+        <form className="existing-form">
+          <input
+            className="input-label"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            name="email"
+            placeholder="Email address (required)"
+          />
+          <input
+            className="input-label"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+            name="password"
+            placeholder="Password (required)"
+          />
+        <button className="signin-btn" onClick={this.handleFormSubmitExistingAccount}>
+            Sign in
+          </button>
+        </form>
+      </div>
+      
+      
     </div>
     )
   }
