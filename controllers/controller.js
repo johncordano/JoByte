@@ -65,9 +65,19 @@ module.exports = {
         user.comparePassword(req.body.password, function(err, isMatch) {
             if (err) throw err;
             console.log('does password match', isMatch); // -&gt; Password123: true
+            if (isMatch) {
+              console.log("yep");
+              console.log('res.redirect', res.redirect);
+              res.redirect('/');
+            }
+            else {
+              console.log("nope");
+              console.log('res.redirect', res.redirect);
+              res.redirect('/login');
+            }
         });
     
-        res.redirect('/');
+        //res.redirect('/');
         console.log(user);
         // test a failing password
         // user.comparePassword(req.body.password, function(err, isMatch) {
