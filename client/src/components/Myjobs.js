@@ -24,11 +24,11 @@ class Myjobs extends Component {
         <table className="rtable">
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Position</th>
-              <th>Link</th>
-              <th>Status</th>
-              <th />
+              <th width="60px">Company</th>
+              <th width="60px">Position</th>
+              <th width="100px">Link</th>
+              <th width="60px">Status</th>
+              <th width="10px" />
             </tr>
           </thead>
           <tbody className="tbody saved-jobs" id="saved-jobs">
@@ -39,7 +39,7 @@ class Myjobs extends Component {
                   <td>{data.position}</td>
                   <td>{data.link}</td>
                   <td>{data.status}</td>
-                  <td>
+                  <td style={{ float: 'right' }}>
                     <Link
                       to={{
                         pathname: '/job/view',

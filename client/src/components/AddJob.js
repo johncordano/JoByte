@@ -52,7 +52,7 @@ class AddJob extends Component {
         <Navbar />
         <div className="main">
           <div className="new-job">
-            <h2>Add a new job</h2>
+            <h3>Add a new job</h3>
             <form className="add-form">
               <input
                 className="input-label"

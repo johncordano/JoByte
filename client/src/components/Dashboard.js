@@ -110,8 +110,7 @@ class Dashboard extends React.Component {
         <div className="main">
           <div className="container-dashboard">
             <div className="hello-container">
-              <h3>Hello Ana,</h3>
-              <p>Check out your progress. </p>
+              <h3>Hello Ana</h3>
             </div>
             <div className="chart-container" onClick={this.handleMyJobsClick.bind(this)}>
               <h3>My Jobs</h3>
@@ -129,7 +128,7 @@ class Dashboard extends React.Component {
               />
             </div>
 
-            <Tabs defaultActiveKey={1} className="tab-container">
+            <Tabs defaultActiveKey={1} className="tab-container" id="tabs">
               <Tab eventKey={1} title="My Jobs">
                 <Myjobs jobs={this.state.jobsArray} />
               </Tab>

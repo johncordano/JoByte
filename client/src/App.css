@@ -9,9 +9,21 @@ body {
   width: 100%;
 }
 
+a {
+  color: #242323;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #242323 !important;
+  color: white !important;
+}
+
 .page {
   display: grid;
   grid-template-columns: 20% 80%;
+  grid-template-rows: auto;
+  height: 100vh;
   grid-template-areas: 'sidebar main';
 }
 
@@ -82,15 +94,6 @@ body {
   padding: 20px;
 }
 
-.hello-container h3,
-.chart-container h3 {
-  font-size: 18px;
-  color: gray;
-  margin: 0;
-  cursor: pointer;
-  font-weight: 400;
-}
-
 .hello-container p {
   width: 50%;
   float: left;
@@ -105,11 +108,6 @@ body {
   margin-top: 46px;
 }
 
-/* .total-applied img,
-.scheduled-interview img {
-  width: 50%;
-  padding-right: 20px;
-} */
 .total-researching svg {
   width: 100%;
   margin: 0 auto;
@@ -133,14 +131,23 @@ body {
 }
 
 .new-job,
-.job-info {
+.job-info,
+.chart-container,
+.tab-container {
   background: white;
-  margin: 83px 50% 0 70px;
-  padding: 45px;
+  padding: 40px;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px grey;
+  box-shadow: 0 0 5px grey;
 }
 
+.tab-container a {
+  width: 150px !important;
+  text-align: center !important;
+}
+
+.new-job {
+  margin: 83px 50% 0 70px;
+}
 .add-btn {
   background: #242323;
   color: white !important;
@@ -171,8 +178,9 @@ body {
   width: 100%;
 }
 
-.table-job h2,
-.new-job h2 {
+.table-job h3,
+.new-job h3,
+.chart-container h3 {
   font-size: 24px;
   color: #242323;
   margin-top: 0;
@@ -182,7 +190,6 @@ body {
 .table-job thead {
   text-align: left;
   background: #f5f5f5;
-  color: #b2b2b2;
   line-height: 45px;
   text-transform: uppercase;
   font-size: 12px;
@@ -215,15 +222,13 @@ tbody td {
   background: #242323;
   color: white !important;
   width: 100px;
-  padding: 10px 0;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
   cursor: pointer;
-}
-
-#view-btn {
-  width: 50px !important;
 }
 
 /* View job */
