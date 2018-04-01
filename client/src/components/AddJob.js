@@ -77,9 +77,14 @@ class AddJob extends Component {
                 placeholder="Link (required)"
               />
               <select id="" name="status" onChange={this.handleInputChange} value={this.state.status}>
+                <option value="" disabled>
+                  -- select a status --
+                </option>
                 <option value="Researching">Researching</option>
                 <option value="Applied">Applied</option>
                 <option value="Interviewing">Interviewing</option>
+                <option value="Awaiting">Awaiting response</option>
+                <option value="Resolved">Resolved</option>
               </select>
               <Link to="/" className="add-btn" onClick={this.handleFormSubmit}>
                 Add

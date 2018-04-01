@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import API from '../utils/API';
+// import API from '../utils/API';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
 
@@ -18,7 +18,7 @@ class Myjobs extends Component {
   // };
 
   render() {
-    // console.log(this.state.status);
+    console.log(this.props);
     return (
       <div className="table-job">
         <table className="rtable">

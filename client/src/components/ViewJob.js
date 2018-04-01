@@ -137,12 +137,14 @@ class ViewJob extends Component {
                   <option value="Researching">Researching</option>
                   <option value="Applied">Applied</option>
                   <option value="Interviewing">Interviewing</option>
+                  <option value="Awaiting">Awaiting response</option>
+                  <option value="Resolved">Resolved</option>
                 </select>
                 <button className="add-btn" onClick={this.handleJobUpdate}>
-                  Save Changes
+                  Save changes
                 </button>
                 <button className="add-btn" onClick={this.handleJobDelete}>
-                  Delete Job
+                  Delete job
                 </button>
               </form>
             </div>

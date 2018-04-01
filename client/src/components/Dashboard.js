@@ -4,10 +4,8 @@ import API from '../utils/API';
 import Navbar from './Navbar';
 import Myjobs from './Myjobs';
 import MyActions from './MyActions';
-import ChartBlue from '../images/chart-blue.svg';
-import ChartPurple from '../images/chart-purple.svg';
-import { AreaChart, BarChart } from 'react-easy-chart';
-import { Tabs, Tab, TabContainer, TabContent, TabPane } from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
+import ChartContainer from './ChartContainer';
 
 // import API from '../utils/API';
 
@@ -88,8 +86,8 @@ class Dashboard extends React.Component {
         appliedCount++;
       } else if (job.status === 'Interviewing') {
         interviewingCount++;
-      } else if (job.status === 'Awaiting Response') {
-        interviewingCount++;
+      } else if (job.status === 'Awaiting') {
+        awaitingCount++;
       } else if (job.status === 'Resolved') {
         resolvedCount++;
       }
@@ -110,21 +108,17 @@ class Dashboard extends React.Component {
         <div className="main">
           <div className="container-dashboard">
             <div className="hello-container">
-              <h3>Hello Ana</h3>
+              <h3>Hello USER</h3>
             </div>
             <div className="chart-container" onClick={this.handleMyJobsClick.bind(this)}>
               <h3>My Jobs</h3>
 
-              <BarChart
-                height={150}
-                width={250}
-                data={[
-                  { x: 'Researching', y: 20, color: '#C46882' },
-                  { x: 'Applied', y: 30, color: '#975DA8' },
-                  { x: 'Interview Schedules', y: 40, color: '#9186FB' },
-                  { x: 'Waiting Response', y: 20, color: '#86DDE4' },
-                  { x: 'Resolved', y: 40, color: '#99D285' }
-                ]}
+              <ChartContainer
+                researching={this.state.researchCount}
+                applied={this.state.appliedCount}
+                interviewing={this.state.interviewingCount}
+                awaiting={this.state.awaitingCount}
+                resolved={this.state.resolvedCount}
               />
             </div>
 
