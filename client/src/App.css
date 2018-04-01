@@ -68,13 +68,18 @@ a:hover {
   margin: 18px;
 }
 
+.main-single {
+  grid-area: main;
+}
+
 .main {
   grid-area: main;
+  display: flex;
 }
 
 .container-dashboard {
   /* display: flex; */
-  margin: 80px;
+  margin: 70px;
   /* justify-content: center; */
 }
 
@@ -90,7 +95,7 @@ a:hover {
 .chart-container {
   width: 100%;
   background: white;
-  margin-top: 48px;
+  margin-top: 40px;
   padding: 20px;
 }
 
@@ -125,13 +130,15 @@ a:hover {
 
 .add-form input,
 .add-form select {
+  padding: 10px;
   height: 35px;
   margin-bottom: 15px;
-  width: 50%;
+  width: 100%;
 }
 
 .new-job,
-.job-info,
+.job-container,
+.todos-container,
 .chart-container,
 .tab-container {
   background: white;
@@ -144,23 +151,37 @@ a:hover {
   width: 150px !important;
   text-align: center !important;
 }
-
 .new-job {
   margin: 83px 50% 0 70px;
 }
+
+.job-container,
+.todos-container {
+  margin: 83px 0 0 70px;
+}
+
+.save-btn,
+.delete-btn,
 .add-btn {
   background: #242323;
   color: white !important;
-  width: 200px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
   float: right;
-  margin-top: 30px;
-  display: inherit;
   cursor: pointer;
+  display: inherit;
   border-radius: 5px;
+  margin-top: 30px;
+  width: 150px;
+}
+
+.save-btn {
+  float: left;
+}
+.delete-btn {
+  float: right;
 }
 
 /* Myjobs table */
@@ -180,11 +201,21 @@ a:hover {
 
 .table-job h3,
 .new-job h3,
-.chart-container h3 {
+.chart-container h3,
+.job-container h3,
+.todos-container h3 {
   font-size: 24px;
   color: #242323;
   margin-top: 0;
   margin-bottom: 15px;
+}
+
+.todo-flex button {
+  float: right;
+  width: 30px !important;
+}
+.todo-flex h3 {
+  float: left;
 }
 
 .table-job thead {
@@ -232,10 +263,6 @@ tbody td {
 }
 
 /* View job */
-
-.job-info {
-  margin-top: 70px;
-}
 
 .input h4 {
   float: left;

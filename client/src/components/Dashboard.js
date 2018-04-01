@@ -105,7 +105,7 @@ class Dashboard extends React.Component {
     return (
       <div className="page">
         <Navbar />
-        <div className="main">
+        <div className="main-single">
           <div className="container-dashboard">
             <div className="hello-container">
               <h3>Hello USER</h3>

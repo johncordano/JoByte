@@ -50,7 +50,7 @@ class AddJob extends Component {
     return (
       <div className="page">
         <Navbar />
-        <div className="main">
+        <div className="main-single">
           <div className="new-job">
             <h3>Add a new job</h3>
             <form className="add-form">
