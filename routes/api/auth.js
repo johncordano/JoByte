@@ -4,12 +4,16 @@ const db = require('../../models');
 const controller = require('../../controllers/controller.js');
 
 router
-  .route('/')
-  .post(controller.createAccount);
-  // .put(controller.updateAccount);
-  
-  router
-  .route('/:id')
-  .post(controller.findAccount);
+  .route("/login").post(controller.findAccount);
+router
+  .route("/signup").post(controller.createAccount);
+// router
+//   .route('/signup')
+//   .post(controller.createAccount)
+//   // .put(controller.updateAccount);
+// 
+// router
+//   .route('/login')
+//   .post(controller.findAccount);
 
 module.exports = router;

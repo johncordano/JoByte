@@ -44,10 +44,11 @@ export default {
   
   getAccount: function(accountData) {
     console.log(accountData);
-    return axios.post('/api/account', accountData);
+    console.log('calling getAccount');
+    return axios.post('/api/account/login', accountData);
   },
   addAccount: function(accountData) {
-    return axios.post('/api/account', accountData);
+    return axios.post('/api/account/signup', accountData);
   },
   updateAccount: function(accountData) {
     return axios.put('/api/account', accountData);
