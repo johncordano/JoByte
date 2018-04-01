@@ -5,8 +5,11 @@ const controller = require('../../controllers/controller.js');
 
 router
   .route('/')
-  // .get(controller.findAllJobs)
   .post(controller.createAccount);
-  // .put(controller.updateJob);
+  // .put(controller.updateAccount);
+  
+  router
+  .route('/:id')
+  .post(controller.findAccount);
 
 module.exports = router;

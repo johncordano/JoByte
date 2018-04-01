@@ -44,8 +44,9 @@ export default {
   //             ACCOUNT REQUESTS
   // ============================
   
-  getAccount: function() {
-    return axios.get('/api/account');
+  getAccount: function(accountData) {
+    console.log(accountData);
+    return axios.post('/api/account', accountData);
   },
   addAccount: function(accountData) {
     return axios.post('/api/account', accountData);
