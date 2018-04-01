@@ -58,16 +58,16 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', UserSchema);
 
-// create a user a new user
-var testUser = new User({
-    name: "rhonda",
-    password: "Password",
-    email: "c@b.com"
-});
-
-// save user to database
-testUser.save(function(err) {
-  if (err) throw err;
-});
+// // create a user a new user
+// var testUser = new User({
+//     name: "rhonda",
+//     password: "Password",
+//     email: "c@b.com"
+// });
+// 
+// // save user to database
+// testUser.save(function(err) {
+//   if (err) throw err;
+// });
 
 module.exports = User;

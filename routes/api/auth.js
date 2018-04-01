@@ -4,7 +4,7 @@ const db = require('../../models');
 const controller = require('../../controllers/controller.js');
 
 router
-  .route('/account')
+  .route('/')
   // .get(controller.findAllJobs)
   .post(controller.createAccount);
   // .put(controller.updateJob);
