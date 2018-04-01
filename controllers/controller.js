@@ -7,7 +7,7 @@ module.exports = {
 // ================================
 
   findAllJobs: function(req, res) {
-    db.Job.find(req.query)
+    db.Job.find().sort({status: 1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -41,16 +41,12 @@ module.exports = {
 // ================================
 
   findJobActions: function(req, res) {
-    // console.log('Pleaseork', req.params);
-    // console.log('Please work', res);
-    db.Action.find({ jobId: req.params.id })
+    db.Action.find({ jobId: req.params.id }).sort({ date: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findAllActions: function(req, res) {
-    // console.log('Pleaseork', req.params);
-    // console.log('Please work', res);
-    db.Action.find({})
+    db.Action.find({}).sort({ date:1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

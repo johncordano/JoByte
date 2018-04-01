@@ -43,7 +43,7 @@ class ViewJob extends Component {
   };
 
 
-  handleInputChange = event => {
+  handleJobInputChange = event => {
     const { name, value } = event.target;
     const { curJob } = this.state;
     const newCurJob = { ...curJob, [name]: value}
@@ -55,6 +55,13 @@ class ViewJob extends Component {
     const { curJob } = this.state;
     const newCurJob = { ...curJob, status: event.target.value };
     this.setState({ curJob: newCurJob });
+  };
+
+  handleActionInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
   };
 
 
@@ -117,21 +124,21 @@ class ViewJob extends Component {
                 <input
                   className="input-label"
                   value={this.state.curJob.company}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleJobInputChange}
                   name="curJob[company]"
                   placeholder="Company (required)"
                 />
                 <input
                   className="input-label"
                   value={this.state.curJob.position}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleJobInputChange}
                   name="position"
                   placeholder="Position (required)"
                 />
                 <input
                   className="input-label"
                   value={this.state.curJob.link}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleJobInputChange}
                   name="link"
                   placeholder="Link"
                 />
@@ -166,14 +173,14 @@ class ViewJob extends Component {
                   <input
                     className="input-label"
                     value={this.state.description}
-                    onChange={this.handleInputChange}
+                    onChange={this.handleActionInputChange}
                     name="description"
                     placeholder="Description"
                   />
                   <input
                     className="input-label"
                     value={this.state.status}
-                    onChange={this.handleInputChange}
+                    onChange={this.handleActionInputChange}
                     name="status"
                     placeholder="Status"
                   />

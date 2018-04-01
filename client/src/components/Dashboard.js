@@ -16,7 +16,12 @@ class Dashboard extends React.Component {
     actionsArray: [],
     MyJobsTableVisible: false,
     MyActionsTableVisible: false,
-    ResearchingTableVisible: false
+    ResearchingTableVisible: false,
+    researchCount: 0,
+    appliedCount: 0,
+    interviewingCount: 0,
+    awaitingCount: 0,
+    resolvedCount: 0
   };
   
 
@@ -25,11 +30,16 @@ class Dashboard extends React.Component {
     this.loadActions();
   };
 
+
   loadJob = () => {
     API.getJob()
-      .then(res => this.setState({ jobsArray: res.data }))
-      .catch(err => console.log(err));
+      .then(res => {
+        this.setState({ jobsArray: res.data })
+        this.updateStatusCounts(res.data)
+      })
+      .catch(err => console.log(err))
   };
+
 
   loadActions = () => {
     API.getAllAction()
@@ -46,12 +56,14 @@ class Dashboard extends React.Component {
     });
   };
 
+
   handleMyJobsClick = () => {
     this.hideAllTables();
     let { MyJobsTableVisible } = this.state.MyJobsTableVisible;
     MyJobsTableVisible = MyJobsTableVisible ? false : true;
     this.setState({ MyJobsTableVisible });
   };
+
 
   handleMyActionsClick = () => {
     this.hideAllTables();
@@ -60,12 +72,48 @@ class Dashboard extends React.Component {
     this.setState({ MyActionsTableVisible });
   };
 
+
   handleResearchingClick = () => {
     this.hideAllTables();
     let { ResearchingTableVisible } = this.state.ResearchingTableVisible;
     ResearchingTableVisible = ResearchingTableVisible ? false : true;
     this.setState({ ResearchingTableVisible });
   };
+
+
+  // counts for graph....
+  updateStatusCounts = (jobsArray) => {
+    let researchCount = 0
+    let appliedCount = 0
+    let interviewingCount =0
+    let awaitingCount = 0
+    let resolvedCount = 0
+    jobsArray.forEach(job => {
+      if (job.status === "Researching"){
+        researchCount++
+      }
+      else if (job.status === "Applied"){
+        appliedCount++
+      }
+      else if (job.status === "Interviewing"){
+        interviewingCount++
+      }
+      else if (job.status === "Awaiting Response"){
+        interviewingCount++
+      }
+      else if (job.status === "Resolved"){
+        resolvedCount++
+      }
+    });
+    this.setState({
+      researchCount,
+      appliedCount,
+      interviewingCount,
+      awaitingCount,
+      resolvedCount
+    })
+  };
+
 
   render() {
     return (
@@ -92,11 +140,11 @@ class Dashboard extends React.Component {
                 height={250}
                 width={650}
                 data={[
-                  { x: 'Researching', y: 20, color: '#C46882' },
-                  { x: 'Applied', y: 30, color: '#975DA8' },
-                  { x: 'Interview Schedules', y: 40, color: '#9186FB' },
-                  { x: 'Waiting Response', y: 20, color: '#86DDE4' },
-                  { x: 'Resolved', y: 40, color: '#99D285' }
+                  { x: 'Researching', y: this.state.researchCount, color: '#C46882' },
+                  { x: 'Applied', y: this.state.appliedCount, color: '#975DA8' },
+                  { x: 'Interview Schedules', y: this.state.interviewingCount, color: '#9186FB' },
+                  { x: 'Awaiting Response', y: this.state.awaitingCount, color: '#86DDE4' },
+                  { x: 'Resolved', y: this.state.resolvedCount, color: '#99D285' }
                 ]}
                 margin={{ top: 50, right: 100, bottom: 50, left: 100 }}
                 padding={{ top: 100, right: 100, bottom: 50, left: 100 }}
