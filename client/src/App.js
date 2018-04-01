@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import AddJob from './components/AddJob';
 import ViewJob from './components/ViewJob';
 import API from './utils/API';
+import Login from './components/Login';
 // import Myjobs from './components/Myjobs';
 
 class App extends Component {
@@ -38,6 +39,13 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Route
+          exact
+          path="/login"
+          render={() => {
+            return <Login />;
+          }}
+        />
         <Route
           exact
           path="/"

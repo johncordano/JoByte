@@ -42,7 +42,30 @@ module.exports = {
     db.Action.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  createAccount: function(req, res) {
+    db.User.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  checkPassword: function(req, res) {
+    // fetch user and test password verification
+    db.User.findOne({ name: 'rhonda' }, function(err, user) {
+        if (err) throw err;
+
+        // test a matching password
+        user.comparePassword('Password123', function(err, isMatch) {
+            if (err) throw err;
+            console.log('Password123:', isMatch); // -&gt; Password123: true
+        });
+
+        // test a failing password
+        user.comparePassword('123Password', function(err, isMatch) {
+            if (err) throw err;
+            console.log('123Password:', isMatch); // -&gt; 123Password: false
+        });
+    });
+  }  
 };
 
 // exports.index = (req, res) => {

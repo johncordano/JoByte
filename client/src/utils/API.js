@@ -36,5 +36,23 @@ export default {
   },
   deleteAction: function(actionData) {
     return axios.delete('/api/action', actionData);
-  }
+  },
+  
+  // ============================
+  //             ACCOUNT REQUESTS
+  // ============================
+  
+  getAccount: function() {
+    return axios.get('/api/account');
+  },
+  addAccount: function(accountData) {
+    return axios.post('/api/account', accountData);
+  },
+  updateACcount: function(accountData) {
+    return axios.put('/api/account', accountData);
+  },
+  deleteAccount: function(accountData) {
+    return axios.delete('/api/account', accountData);
+  },
+  
 };
