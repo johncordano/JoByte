@@ -48,7 +48,7 @@ export default {
   addAccount: function(accountData) {
     return axios.post('/api/account', accountData);
   },
-  updateACcount: function(accountData) {
+  updateAccount: function(accountData) {
     return axios.put('/api/account', accountData);
   },
   deleteAccount: function(accountData) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+//import { Route, Switch, withRouter } from 'react-router-dom';
 import API from '../utils/API';
 
 class Login extends Component {
@@ -24,7 +24,7 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password,
     })
-      // .then(this.loadJob())
+      // .then(this.addAccount())
       .catch(err => console.log(err));
   };
 
