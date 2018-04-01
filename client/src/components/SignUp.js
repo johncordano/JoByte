@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
 
-class Login extends Component {
+class SignUp extends Component {
   state = {
     name: "",
-    email: "a@d.com",
-    password: "mypw",
+    email: "",
+    password: "",
   };
   
   handleInputChange = event => {
@@ -15,9 +15,11 @@ class Login extends Component {
     });
   };
   
-  handleFormSubmitExistingAccount = event => {
+  handleFormSubmitNewAccount = event => {
     event.preventDefault();
-    API.getAccount({
+    
+    API.addAccount({
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     })
@@ -28,10 +30,16 @@ class Login extends Component {
     return (
       
     <div className="centralized">
-
-      <div className="existing-account">
-        <h2>Sign in to existing account</h2>
-        <form className="existing-form">
+      <div className="new-account">
+        <h2>Create account</h2>
+        <form className="add-form">
+          <input
+            className="input-label"
+            value={this.state.name}
+            onChange={this.handleInputChange}
+            name="name"
+            placeholder="Your name (required)"
+          />
           <input
             className="input-label"
             value={this.state.email}
@@ -46,14 +54,15 @@ class Login extends Component {
             name="password"
             placeholder="Password (required)"
           />
-        <button className="signin-btn" onClick={this.handleFormSubmitExistingAccount}>
-            Sign in
+        <button className="add-btn" onClick={this.handleFormSubmitNewAccount}>
+            Create account
           </button>
         </form>
-      </div>    
+      </div>      
+      
     </div>
     )
   }
 }
 
-export default Login;
+export default SignUp;
