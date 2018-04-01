@@ -165,11 +165,6 @@ class ViewJob extends Component {
               <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}>
                 <h2>Add a new To-do</h2>
                 <form className="add-form">
-                  <div className="date-picker">
-                    <h4>Choose a date</h4>
-                    <DatePicker onChange={this.onDateChange} value={this.state.date} />
-                  </div>
-
                   <input
                     className="input-label"
                     value={this.state.description}
@@ -184,6 +179,10 @@ class ViewJob extends Component {
                     name="status"
                     placeholder="Status"
                   />
+                  <div className="date-picker">
+                    <h4>Choose a date</h4>
+                    <DatePicker onChange={this.onDateChange} value={this.state.date} />
+                  </div>
                   <button className="add-btn" onClick={this.handleFormSubmit}>
                     Add
                   </button>
