@@ -5,22 +5,10 @@ import { Link } from 'react-router-dom';
 // import SummaryGraph from './SummaryGraph';
 
 class Myjobs extends Component {
-  // state = {
-  //   dropDownSelection: 'blah'
-  // };
-
-  // handleChange = (event, id) => {
-  //   this.setState({ dropDownSelection: event.target.value });
-  //   API.updateJob({
-  //     id,
-  //     status: this.state.status
-  //   }).catch(err => console.log(err));
-  // };
-
   render() {
     console.log(this.props);
     return (
-      <div className="table-job">
+      <div>
         <table className="rtable">
           <thead>
             <tr>
@@ -38,7 +26,7 @@ class Myjobs extends Component {
                   <td>{data.company}</td>
                   <td>{data.position}</td>
                   <td>{data.link}</td>
-                  <td>{data.status}</td>
+                  <td>{JSON.stringify(data.status)}</td>
                   <td style={{ float: 'right' }}>
                     <Link
                       to={{

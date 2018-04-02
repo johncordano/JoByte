@@ -1,3 +1,5 @@
+/* GLOBAL CLASSES */
+
 * {
   box-sizing: border-box;
 }
@@ -27,9 +29,17 @@ a:hover {
   grid-template-areas: 'sidebar main';
 }
 
-/* Navbar */
+.main {
+  grid-area: main;
+}
 
-.sidenav {
+.main-single {
+  grid-area: main;
+}
+
+/* SIDEBAR */
+
+.sidebar {
   grid-area: sidebar;
   background-color: #242323;
   /* height: 100%;
@@ -41,7 +51,7 @@ a:hover {
   /* overflow-x: hidden; */
 }
 
-.sidenav h2 {
+.sidebar h2 {
   color: white;
   text-transform: uppercase;
   text-align: center;
@@ -49,7 +59,7 @@ a:hover {
   margin-bottom: 30px;
 }
 
-.sidenav a {
+.sidebar a {
   background: #646464;
   width: 100%;
   color: white;
@@ -68,28 +78,15 @@ a:hover {
   margin: 18px;
 }
 
-.main-single {
-  grid-area: main;
-}
-
-.main {
-  grid-area: main;
-  display: flex;
-}
+/* DASHBOARD COMPONENT */
 
 .container-dashboard {
-  /* display: flex; */
   margin: 70px;
-  /* justify-content: center; */
 }
 
 .hello-container {
   margin-right: 40px;
   width: 100%;
-}
-
-.scheduled-interview {
-  margin-left: 20px;
 }
 
 .chart-container {
@@ -99,18 +96,14 @@ a:hover {
   padding: 20px;
 }
 
-.hello-container p {
-  width: 50%;
-  float: left;
-  font-weight: 400;
-  font-size: 20px;
-  margin-bottom: 0;
-}
-
 .tab-container {
   background: white;
   padding: 20px;
   margin-top: 46px;
+}
+
+.tab-content {
+  margin-top: 40px;
 }
 
 .total-researching svg {
@@ -118,18 +111,22 @@ a:hover {
   margin: 0 auto;
 }
 
-/* AddJob Form */
+/* FORMS */
 
-.add-form,
-.view-form {
+.add-job-form,
+.update-job-form,
+.view-form,
+.add-todo {
   border: none;
   padding: 5px 0;
   display: grid;
   line-height: 30px;
 }
 
-.add-form input,
-.add-form select {
+.update-job-form input,
+.update-job-form select,
+.add-job-form input,
+.add-job-form select {
   padding: 10px;
   height: 35px;
   margin-bottom: 15px;
@@ -155,14 +152,50 @@ a:hover {
   margin: 83px 50% 0 70px;
 }
 
-.job-container,
-.todos-container {
-  margin: 83px 0 0 70px;
+.job-container {
+  width: 50%;
+  margin: 83px 70px 0 70px;
 }
+
+.todos-container {
+  margin: 60px 70px 100px 70px;
+}
+
+.input-label {
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.add-todo-h2 {
+  margin: 0 0 40px 0;
+}
+
+.date-picker {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.react-date-picker__button {
+  border: none !important;
+}
+
+.date-picker h4 {
+  color: #767676;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 13px;
+}
+
+.react-date-picker {
+  margin-left: 15px;
+}
+
+/* BUTTONS */
 
 .save-btn,
 .delete-btn,
-.add-btn {
+.add-todo-btn {
   background: #242323;
   color: white !important;
   padding: 10px;
@@ -180,16 +213,40 @@ a:hover {
 .save-btn {
   float: left;
 }
+
 .delete-btn {
   float: right;
 }
 
-/* Myjobs table */
-
-.table-job {
-  background: white;
-  margin-top: 30px;
+.add-todo-btn,
+.add-todo-btn-short,
+.close-btn {
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  display: inherit;
+  border-radius: 5px;
+  padding: 5px;
 }
+
+.close-btn {
+  /* background: white;
+  height: 30px; */
+}
+
+.add-todo-btn {
+  width: 100%;
+}
+
+.add-todo-btn-short {
+  background: #242323;
+  color: white !important;
+  float: right;
+  width: 30px !important;
+}
+
+/* Myjobs table */
 
 .table-job {
   margin-bottom: 100px;
@@ -210,10 +267,6 @@ a:hover {
   margin-bottom: 15px;
 }
 
-.todo-flex button {
-  float: right;
-  width: 30px !important;
-}
 .todo-flex h3 {
   float: left;
 }
@@ -263,17 +316,3 @@ tbody td {
 }
 
 /* View job */
-
-.input h4 {
-  float: left;
-}
-
-.input span {
-  margin-left: 20px;
-  font-weight: 200;
-}
-
-.input p {
-  font-size: 12px;
-  color: gray;
-}

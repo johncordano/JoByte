@@ -15,7 +15,7 @@ import LogoutIcon from '../images/logout.svg';
 class Navbar extends React.Component {
   render() {
     return (
-      <div className="sidenav">
+      <div className="sidebar">
         <h2>joByte</h2>
         <div className="icon">
           <img src={DashboardIcon} alt="Dashboard icon" />

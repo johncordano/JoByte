@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Modal extends React.Component {
+class ActionModal extends React.Component {
   render() {
     // Render nothing if the "show" prop is false
     if (!this.props.show) {
@@ -34,19 +34,19 @@ class Modal extends React.Component {
     const button = {
       backgroundColor: 'white',
       marginBottom: '10px',
-      height: '30px',
-      minWidth: '100%',
+      height: '40px',
       width: '100%',
-      border: 'none'
+      border: 'none',
+      marginTop: '10px'
     };
 
     return (
-      <div className="backdrop" style={backdropStyle}>
-        <div className="modal" style={modalStyle}>
+      <div style={backdropStyle}>
+        <div style={modalStyle}>
           {this.props.children}
 
-          <div className="footer">
-            <button style={button} onClick={this.props.onClose}>
+          <div>
+            <button className="close-btn" style={button} onClick={this.props.onClose}>
               Close
             </button>
           </div>
@@ -56,10 +56,10 @@ class Modal extends React.Component {
   }
 }
 
-Modal.propTypes = {
+ActionModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
   children: PropTypes.node
 };
 
-export default Modal;
+export default ActionModal;
