@@ -37,6 +37,113 @@ a:hover {
   grid-area: main;
 }
 
+/* LOGIN PAGE */
+
+.login-container {
+  background-color: white;
+  display: inline-grid;
+  grid-template-columns: 50% 50%;
+}
+
+.login-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  display: table;
+  float: left;
+  max-height: 100%;
+  height: 100vh;
+}
+
+.signin {
+  margin-top: 110px;
+  width: 50%;
+  float: right;
+}
+
+.title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 24px;
+}
+
+.description p {
+  font-weight: 100;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.username-form {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.username-form input {
+  border: none;
+  border-bottom: 1px solid;
+  width: 300px;
+  line-height: 40px;
+}
+
+.signup-btn,
+#google-btn {
+  display: flex !important;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#google-btn {
+  margin-top: 20px;
+}
+
+.enter-btn,
+.signup-btn,
+#google-btn {
+  background: #242323;
+  cursor: pointer;
+  color: white !important;
+  width: 300px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.separate {
+  display: flex;
+  justify-content: center;
+  color: #d3d3d3;
+  margin: 40px 0;
+}
+
+.line-left,
+.line-right {
+  width: 125px;
+  height: 1px;
+  margin-top: 8px;
+  background: #d3d3d3;
+}
+
+.line-left {
+  margin-right: 17px;
+}
+
+.line-right {
+  margin-left: 17px;
+}
+
 /* SIDEBAR */
 
 .sidebar {
@@ -195,7 +302,8 @@ a:hover {
 
 .save-btn,
 .delete-btn,
-.add-todo-btn {
+.add-todo-btn,
+.add-job-btn {
   background: #242323;
   color: white !important;
   padding: 10px;
@@ -210,12 +318,26 @@ a:hover {
   width: 150px;
 }
 
+/* .add-job-btn a:hover {
+  color: white !important;
+} */
+
 .save-btn {
-  float: left;
+  float: right;
+}
+
+.add-job-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.add-job-btn a:hover {
+  text-decoration: none;
+  color: white !important;
 }
 
 .delete-btn {
-  float: right;
+  float: left;
 }
 
 .add-todo-btn,
@@ -230,11 +352,6 @@ a:hover {
   padding: 5px;
 }
 
-.close-btn {
-  /* background: white;
-  height: 30px; */
-}
-
 .add-todo-btn {
   width: 100%;
 }
@@ -246,7 +363,7 @@ a:hover {
   width: 30px !important;
 }
 
-/* Myjobs table */
+/* YourJobs table */
 
 .table-job {
   margin-bottom: 100px;

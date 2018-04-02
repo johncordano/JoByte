@@ -23,7 +23,7 @@ class Navbar extends React.Component {
         </div>
         <div className="icon">
           <img src={AddJobIcon} alt="Add a job icon" />
-          <Link to={'/job/new'}>Add a job</Link>
+          <Link to={'/job/new'}>Add a Job</Link>
         </div>
         <div className="icon">
           <img src={ContactsIcon} alt="Contacts icon" />
@@ -31,7 +31,7 @@ class Navbar extends React.Component {
         </div>
         <div className="icon">
           <img src={InterviewIcon} alt="Interview icon" />
-          <a href="calendar.html">Interview prep</a>
+          <a href="calendar.html">Interview Preparation</a>
         </div>
         <div className="icon">
           <img src={SettingsIcon} alt="Settings icon" />

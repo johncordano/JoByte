@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
   // ============================
-  //             JOB REQUESTS
+  //       JOB REQUESTS
   // ============================
   
   getJob: function() {
@@ -15,11 +15,11 @@ export default {
     return axios.put('/api/job', jobData);
   },
   deleteJob: function(jobData) {
-    return axios.delete('/api/job', {params: jobData});
+    return axios.delete('/api/job', { params: jobData });
   },
   
   // ============================
-  //             ACTION REQUESTS
+  //      ACTION REQUESTS
   // ============================
   
   getAllAction: function(jobId) {
@@ -58,3 +58,4 @@ export default {
     },
     
   };
+

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import InitialImg from '../images/initial-img.jpg';
+import Logo from '../images/logo.svg';
 import API from '../utils/API';
 import { withRouter } from 'react-router-dom';
 import { Route, Redirect } from 'react-router';
@@ -46,9 +48,10 @@ class Login extends Component {
     }
     return (
       
-    <div className="centralized">
-
-      <div className="existing-account">
+   <div className="login-container">
+      <img className="login-img" src={InitialImg} alt="Initial img" />
+      <div className="signin">
+        <img src={Logo} alt="Logo" />
         <h2>Sign in to existing account</h2>
         <form className="existing-form">
           <input
@@ -72,6 +75,7 @@ class Login extends Component {
       </div>    
     </div>
     )
+
   }
 }
 

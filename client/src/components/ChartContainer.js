@@ -41,7 +41,7 @@ class ChartContainer extends Component {
           data={[
             { x: 'Researching', y: this.props.researching, color: '#C46882' },
             { x: 'Applied', y: this.props.applied, color: '#975DA8' },
-            { x: 'Interview Schedules', y: this.props.interviewing, color: '#9186FB' },
+            { x: 'Interviews Scheduled', y: this.props.interviewing, color: '#9186FB' },
             { x: 'Awaiting Response', y: this.props.awaiting, color: '#86DDE4' },
             { x: 'Resolved', y: this.props.resolved, color: '#99D285' }
           ]}

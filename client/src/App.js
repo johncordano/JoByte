@@ -6,7 +6,6 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import AddJob from './components/AddJob';
 import ViewJob from './components/ViewJob';
-//import API from './utils/API';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 // import Myjobs from './components/Myjobs';
