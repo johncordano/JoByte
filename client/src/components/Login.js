@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
+import { withRouter } from 'react-router-dom';
+import { Route, Redirect } from 'react-router';
 
 class Login extends Component {
   state = {
     name: "",
-    email: "a@d.com",
-    password: "mypw",
+    email: "",
+    password: "",
+    redirect: false,
   };
   
   handleInputChange = event => {
@@ -24,12 +27,23 @@ class Login extends Component {
     })
     .then(res => {
       console.log("login res", res);
-      // return a Router component with Redirect to=...
-    })
-      .catch(err => console.log(err));
+
+      if (res.status === 200) {
+        this.setState({redirect: true});
+         }
+        else {
+          alert("check your credentials")
+        }
+      }
+    )
+    .catch(err => console.log(err));
   };
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to={"/dashboard"} />
+    }
     return (
       
     <div className="centralized">
