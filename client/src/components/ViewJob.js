@@ -4,6 +4,7 @@ import API from '../utils/API';
 import DatePicker from 'react-date-picker';
 import ActionModal from './ActionModal';
 import MyActions from './MyActions';
+import { withRouter } from 'react-router-dom';
 
 class ViewJob extends Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class ViewJob extends Component {
   handleJobDelete = event => {
     event.preventDefault();
     API.deleteJob({ id: this.state.curJob.id })
-      .then(console.log('Successfully deleted job'))
+      .then(this.props.history.push('/'))
       .catch(err => console.log(err));
   };
 
@@ -105,7 +106,6 @@ class ViewJob extends Component {
   };
 
   render() {
-    console.log(this.state.isModalOpen);
     return (
       <div className="page">
         <Navbar />
@@ -118,7 +118,7 @@ class ViewJob extends Component {
                 className="input-label"
                 value={this.state.curJob.company}
                 onChange={this.handleJobInputChange}
-                name="curJob[company]"
+                name="company"
                 placeholder="Company (required)"
               />
               <input
@@ -197,4 +197,4 @@ class ViewJob extends Component {
   }
 }
 
-export default ViewJob;
+export default withRouter(ViewJob);
