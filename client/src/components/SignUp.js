@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import InitialImg from '../images/initial-img.jpg';
-import Logo from '../images/logo.svg';
 import API from '../utils/API';
-import { withRouter } from 'react-router-dom';
 import { Route, Redirect } from 'react-router';
 
-class Login extends Component {
+class SignUp extends Component {
   state = {
     name: "",
     email: "",
@@ -20,10 +17,10 @@ class Login extends Component {
     });
   };
   
-  handleFormSubmitExistingAccount = event => {
+  handleFormSubmitNewAccount = event => {
     event.preventDefault();
-    console.log("login");
-    API.getAccount({
+    API.addAccount({
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     })
@@ -34,11 +31,11 @@ class Login extends Component {
         this.setState({redirect: true});
          }
         else {
-          console.log("check your credentials")
+          alert("check your credentials")
         }
       }
     )
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -48,12 +45,17 @@ class Login extends Component {
     }
     return (
       
-   <div className="login-container">
-      <img className="login-img" src={InitialImg} alt="Initial img" />
-      <div className="signin">
-        <img src={Logo} alt="Logo" />
-        <h2>Sign in to existing account</h2>
-        <form className="existing-form">
+    <div className="centralized">
+      <div className="new-account">
+        <h2>Create account</h2>
+        <form className="add-form">
+          <input
+            className="input-label"
+            value={this.state.name}
+            onChange={this.handleInputChange}
+            name="name"
+            placeholder="Your name (required)"
+          />
           <input
             className="input-label"
             value={this.state.email}
@@ -68,15 +70,15 @@ class Login extends Component {
             name="password"
             placeholder="Password (required)"
           />
-        <button className="signin-btn" onClick={this.handleFormSubmitExistingAccount}>
-            Sign in
+        <button className="add-btn" onClick={this.handleFormSubmitNewAccount}>
+            Create account
           </button>
         </form>
-      </div>    
+      </div>      
+      
     </div>
     )
-
   }
 }
 
-export default Login;
+export default SignUp;
