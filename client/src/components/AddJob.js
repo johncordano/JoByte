@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Navbar from './Navbar';
+import { withRouter } from 'react-router-dom';
 
 class AddJob extends Component {
   constructor(props) {
@@ -41,12 +42,12 @@ class AddJob extends Component {
       link: this.state.link,
       status: this.state.status
     })
-      .then(this.loadJob())
+      .then(this.props.history.push('/'))
       .catch(err => console.log(err));
   };
 
   render() {
-    console.log(this.props.history);
+    // console.log(this.props.history);
     return (
       <div className="page">
         <Navbar />
@@ -97,4 +98,4 @@ class AddJob extends Component {
   }
 }
 
-export default AddJob;
+export default withRouter(AddJob);
