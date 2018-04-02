@@ -7,7 +7,7 @@ module.exports = {
   // ================================
   
   findAllJobs: function(req, res) {
-    db.Job.find({ userId: req.body.userId }).sort({status: 1})
+    db.Job.find().sort({status: 1})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
