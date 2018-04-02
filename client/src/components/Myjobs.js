@@ -38,7 +38,7 @@ class Myjobs extends Component {
                   <td>{data.company}</td>
                   <td>{data.position}</td>
                   <td>{data.link}</td>
-                  <td>{data.status}</td>
+                  <td>{JSON.stringify(data.status)}</td>
                   <td style={{ float: 'right' }}>
                     <Link
                       to={{

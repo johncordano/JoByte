@@ -127,7 +127,9 @@ class Dashboard extends React.Component {
                 <Myjobs jobs={this.state.jobsArray} />
               </Tab>
               <Tab eventKey={2} title="To do's">
-                <MyActions actions={this.state.actionsArray} />
+                <div className="table-job">
+                  <MyActions actions={this.state.actionsArray} />
+                </div>
               </Tab>
             </Tabs>
             {/* <div className="total-applied" onClick={this.handleMyJobsClick.bind(this)}>
@@ -144,7 +146,7 @@ class Dashboard extends React.Component {
           </div>
 
           {/* {this.state.MyJobsTableVisible ? <Myjobs jobs={this.state.jobsArray} /> : null} */}
-          {this.state.MyActionsTableVisible ? <MyActions actions={this.state.actionsArray} /> : null}
+          {/* {this.state.MyActionsTableVisible ? <MyActions actions={this.state.actionsArray} /> : null} */}
           {/*this.state.ResearchingTableVisible ? <ResearchingTable actions={this.props.jobs} /> : null */}
 
           {/*this.props.jobs.map(data => {

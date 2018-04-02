@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import Modal from './Modal';
 import API from '../utils/API';
 import DatePicker from 'react-date-picker';
+import ActionModal from './ActionModal';
+import MyActions from './MyActions';
 
 class ViewJob extends Component {
   constructor(props) {
@@ -104,114 +105,90 @@ class ViewJob extends Component {
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state.isModalOpen);
     return (
       <div className="page">
         <Navbar />
         <div className="main">
           <div className="job-container">
             <h3>Job Saved</h3>
-            <div className="input">
-              <form className="add-form">
-                <input
-                  className="input-label"
-                  value={this.state.curJob.company}
-                  onChange={this.handleJobInputChange}
-                  name="curJob[company]"
-                  placeholder="Company (required)"
-                />
-                <input
-                  className="input-label"
-                  value={this.state.curJob.position}
-                  onChange={this.handleJobInputChange}
-                  name="position"
-                  placeholder="Position (required)"
-                />
-                <input
-                  className="input-label"
-                  value={this.state.curJob.link}
-                  onChange={this.handleJobInputChange}
-                  name="link"
-                  placeholder="Link"
-                />
-                <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
-                  <option value="Researching">Researching</option>
-                  <option value="Applied">Applied</option>
-                  <option value="Interviewing">Interviewing</option>
-                  <option value="Awaiting">Awaiting response</option>
-                  <option value="Resolved">Resolved</option>
-                </select>
-                <div className="btns">
-                  <button className="save-btn" onClick={this.handleJobUpdate}>
-                    Save changes
-                  </button>
-                  <button className="delete-btn" onClick={this.handleJobDelete}>
-                    Delete job
-                  </button>
-                </div>
-              </form>
-            </div>
+
+            <form className="add-form">
+              <input
+                className="input-label"
+                value={this.state.curJob.company}
+                onChange={this.handleJobInputChange}
+                name="curJob[company]"
+                placeholder="Company (required)"
+              />
+              <input
+                className="input-label"
+                value={this.state.curJob.position}
+                onChange={this.handleJobInputChange}
+                name="position"
+                placeholder="Position (required)"
+              />
+              <input
+                className="input-label"
+                value={this.state.curJob.link}
+                onChange={this.handleJobInputChange}
+                name="link"
+                placeholder="Link"
+              />
+              <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
+                <option value="Researching">Researching</option>
+                <option value="Applied">Applied</option>
+                <option value="Interviewing">Interviewing</option>
+                <option value="Awaiting">Awaiting response</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+              <div className="btns">
+                <button className="save-btn" onClick={this.handleJobUpdate}>
+                  Save changes
+                </button>
+                <button className="delete-btn" onClick={this.handleJobDelete}>
+                  Delete job
+                </button>
+              </div>
+            </form>
           </div>
           <div className="todos-container">
             <div className="input todo-flex">
               <h3>To do's</h3>
-              <button onClick={() => this.setState({ isModalOpen: true })} id="add-todo">
+              <button onClick={this.toggleOpen} id="add-todo">
                 +
               </button>
-            </div>
-            <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}>
-              <h2>Add a new To-do</h2>
-              <form className="add-form">
-                <div className="date-picker">
-                  <h4>Choose a date</h4>
-                  <DatePicker onChange={this.onDateChange} value={this.state.date} />
-                </div>
 
-                <input
-                  className="input-label"
-                  value={this.state.description}
-                  onChange={this.handleActionInputChange}
-                  name="description"
-                  placeholder="Description"
-                />
-                <input
-                  className="input-label"
-                  value={this.state.status}
-                  onChange={this.handleActionInputChange}
-                  name="status"
-                  placeholder="Status"
-                />
-                <button className="add-btn" onClick={this.handleFormSubmit}>
-                  Add
-                </button>
-              </form>
-            </Modal>
-            <table className="rtable">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Description</th>
-                  <th>Status</th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody className="tbody saved-jobs" id="saved-jobs">
-                {this.state.actionsArray.map(data => {
-                  return (
-                    <tr key={data._id}>
-                      <td>{data.date}</td>
-                      <td>{data.description}</td>
-                      <td>{JSON.stringify(data.status)}</td>
-                      <td>
-                        <button id="view-btn" onClick={event => this.handleActionDelete(event, data._id)}>
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+              <ActionModal show={this.state.isModalOpen} onClose={this.toggleOpen}>
+                <h2>Add a new To-do</h2>
+                <form className="add-form">
+                  <div className="date-picker">
+                    <h4>Choose a date</h4>
+                    <DatePicker onChange={this.onDateChange} value={this.state.date} />
+                  </div>
+
+                  <input
+                    className="input-label"
+                    value={this.state.description}
+                    onChange={this.handleActionInputChange}
+                    name="description"
+                    placeholder="Description"
+                  />
+                  <input
+                    className="input-label"
+                    value={this.state.status}
+                    onChange={this.handleActionInputChange}
+                    name="status"
+                    placeholder="Status"
+                  />
+                  <button className="add-btn" onClick={this.handleFormSubmit}>
+                    Add
+                  </button>
+                </form>
+              </ActionModal>
+
+              <MyActions actions={this.state.actionsArray} />
+            </div>
           </div>
         </div>
       </div>

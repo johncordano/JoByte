@@ -74,7 +74,6 @@ a:hover {
 
 .main {
   grid-area: main;
-  display: flex;
 }
 
 .container-dashboard {
@@ -155,9 +154,13 @@ a:hover {
   margin: 83px 50% 0 70px;
 }
 
-.job-container,
+.job-container {
+  width: 50%;
+  margin: 83px 70px 0 70px;
+}
+
 .todos-container {
-  margin: 83px 0 0 70px;
+  margin: 60px 70px 100px 70px;
 }
 
 .save-btn,
@@ -264,7 +267,7 @@ tbody td {
 
 /* View job */
 
-.input h4 {
+/* .input h4 {
   float: left;
 }
 
@@ -276,4 +279,4 @@ tbody td {
 .input p {
   font-size: 12px;
   color: gray;
-}
+} */
