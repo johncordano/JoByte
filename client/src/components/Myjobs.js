@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import API from '../utils/API';
+// import API from '../utils/API';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
 
@@ -18,18 +18,17 @@ class Myjobs extends Component {
   // };
 
   render() {
-    // console.log(this.state.status);
+    console.log(this.props);
     return (
       <div className="table-job">
-        <h2>Your saved jobs</h2>
         <table className="rtable">
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Position</th>
-              <th>Link</th>
-              <th>Status</th>
-              <th />
+              <th width="60px">Company</th>
+              <th width="60px">Position</th>
+              <th width="100px">Link</th>
+              <th width="60px">Status</th>
+              <th width="10px" />
             </tr>
           </thead>
           <tbody className="tbody saved-jobs" id="saved-jobs">
@@ -40,7 +39,7 @@ class Myjobs extends Component {
                   <td>{data.position}</td>
                   <td>{data.link}</td>
                   <td>{data.status}</td>
-                  <td>
+                  <td style={{ float: 'right' }}>
                     <Link
                       to={{
                         pathname: '/job/view',

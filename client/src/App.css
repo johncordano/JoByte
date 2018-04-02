@@ -9,17 +9,36 @@ body {
   width: 100%;
 }
 
+a {
+  color: #242323;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #242323 !important;
+  color: white !important;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: auto;
+  height: 100vh;
+  grid-template-areas: 'sidebar main';
+}
+
 /* Navbar */
 
 .sidenav {
-  height: 100%;
+  grid-area: sidebar;
+  background-color: #242323;
+  /* height: 100%;
   width: 20%;
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
-  background-color: #242323;
-  overflow-x: hidden;
+  left: 0; */
+  /* overflow-x: hidden; */
 }
 
 .sidenav h2 {
@@ -49,60 +68,51 @@ body {
   margin: 18px;
 }
 
-.centralized {
-  width: 80%;
-  float: right;
+.main-single {
+  grid-area: main;
+}
+
+.main {
+  grid-area: main;
+  display: flex;
 }
 
 .container-dashboard {
-  display: flex;
-  margin: 0 75px 0 75px;
-  justify-content: center;
+  /* display: flex; */
+  margin: 70px;
+  /* justify-content: center; */
 }
 
-.total-applied {
+.hello-container {
   margin-right: 40px;
+  width: 100%;
 }
 
 .scheduled-interview {
   margin-left: 20px;
 }
 
-.total-applied,
-.scheduled-interview {
-  width: 370px;
-  height: 117px;
+.chart-container {
+  width: 100%;
   background: white;
-  margin-top: 76px;
+  margin-top: 40px;
   padding: 20px;
 }
 
-.total-applied h3,
-.scheduled-interview h3,
-.total-researching h3 {
-  font-size: 18px;
-  color: gray;
-  margin: 0;
-  cursor: pointer;
-  font-weight: 400;
-}
-
-.total-applied p,
-.scheduled-interview p,
-.total-researching p {
+.hello-container p {
   width: 50%;
   float: left;
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 0;
-  margin-top: 33px;
 }
 
-.total-applied img,
-.scheduled-interview img {
-  width: 50%;
-  padding-right: 20px;
+.tab-container {
+  background: white;
+  padding: 20px;
+  margin-top: 46px;
 }
+
 .total-researching svg {
   width: 100%;
   margin: 0 auto;
@@ -114,51 +124,71 @@ body {
 .view-form {
   border: none;
   padding: 5px 0;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 18px;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
+  display: grid;
   line-height: 30px;
-  margin-top: 10px;
 }
 
-/* .input-label {
-  font-size: 14px;
-  line-height: 30px;
-} */
+.add-form input,
+.add-form select {
+  padding: 10px;
+  height: 35px;
+  margin-bottom: 15px;
+  width: 100%;
+}
 
 .new-job,
-.job-info {
+.job-container,
+.todos-container,
+.chart-container,
+.tab-container {
   background: white;
-  max-width: 800px;
-  margin: 76px auto;
-  padding: 30px;
-  overflow: auto;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px grey;
 }
 
+.tab-container a {
+  width: 150px !important;
+  text-align: center !important;
+}
+.new-job {
+  margin: 83px 50% 0 70px;
+}
+
+.job-container,
+.todos-container {
+  margin: 83px 0 0 70px;
+}
+
+.save-btn,
+.delete-btn,
 .add-btn {
   background: #242323;
   color: white !important;
-  width: 200px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
   float: right;
-  margin-top: 30px;
-  display: inherit;
   cursor: pointer;
+  display: inherit;
+  border-radius: 5px;
+  margin-top: 30px;
+  width: 150px;
+}
+
+.save-btn {
+  float: left;
+}
+.delete-btn {
+  float: right;
 }
 
 /* Myjobs table */
 
-.table-job,
-.chart {
-  margin: 0 75px;
+.table-job {
   background: white;
-  margin-top: 60px;
-  padding: 20px;
+  margin-top: 30px;
 }
 
 .table-job {
@@ -169,17 +199,28 @@ body {
   width: 100%;
 }
 
-.table-job h2,
-.new-job h2 {
-  font-size: 15px;
-  color: gray;
+.table-job h3,
+.new-job h3,
+.chart-container h3,
+.job-container h3,
+.todos-container h3 {
+  font-size: 24px;
+  color: #242323;
+  margin-top: 0;
   margin-bottom: 15px;
+}
+
+.todo-flex button {
+  float: right;
+  width: 30px !important;
+}
+.todo-flex h3 {
+  float: left;
 }
 
 .table-job thead {
   text-align: left;
   background: #f5f5f5;
-  color: #b2b2b2;
   line-height: 45px;
   text-transform: uppercase;
   font-size: 12px;
@@ -212,22 +253,16 @@ tbody td {
   background: #242323;
   color: white !important;
   width: 100px;
-  padding: 10px 0;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
   cursor: pointer;
 }
 
-#view-btn {
-  width: 50px !important;
-}
-
 /* View job */
-
-.job-info {
-  margin-top: 70px;
-}
 
 .input h4 {
   float: left;

@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Navbar from './Navbar';
 
-
 class AddJob extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
       job: [],
       company: '',
@@ -16,17 +15,15 @@ class AddJob extends Component {
     };
   }
 
-
   componentDidMount() {
     this.loadJob();
-  };
+  }
 
   loadJob = () => {
     API.getJob()
       .then(res => this.setState({ jobsArray: res.data }))
       .catch(err => console.log(err));
   };
-
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -49,13 +46,13 @@ class AddJob extends Component {
   };
 
   render() {
-    console.log(this.props.history)
+    console.log(this.props.history);
     return (
-      <div>
+      <div className="page">
         <Navbar />
-        <div className="centralized">
+        <div className="main-single">
           <div className="new-job">
-            <h2>Add a new job</h2>
+            <h3>Add a new job</h3>
             <form className="add-form">
               <input
                 className="input-label"
@@ -79,16 +76,18 @@ class AddJob extends Component {
                 name="link"
                 placeholder="Link (required)"
               />
-              <select id="" name = "status" onChange={this.handleInputChange} value={this.state.status}>
-                  <option value="Researching">Researching</option>
-                  <option value="Applied">Applied</option>
-                  <option value="Interviewing">Interviewing</option>
-               </select>
-              <Link 
-                  to='/'
-                  className="add-btn" 
-                  onClick={this.handleFormSubmit}>
-                  Add
+              <select id="" name="status" onChange={this.handleInputChange} value={this.state.status}>
+                <option value="" disabled>
+                  -- select a status --
+                </option>
+                <option value="Researching">Researching</option>
+                <option value="Applied">Applied</option>
+                <option value="Interviewing">Interviewing</option>
+                <option value="Awaiting">Awaiting response</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+              <Link to="/" className="add-btn" onClick={this.handleFormSubmit}>
+                Add
               </Link>
             </form>
           </div>

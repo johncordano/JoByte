@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
 
@@ -9,7 +9,6 @@ class MyActions extends Component {
   render() {
     return (
       <div className="table-job">
-        <h2>Your outstanding actions</h2>
         <table className="rtable">
           <thead>
             <tr>

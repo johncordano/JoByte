@@ -9,7 +9,6 @@ class ResearchingTable extends Component {
   render() {
     return (
       <div className="table-job">
-        <h2>Your saved jobs</h2>
         <table className="rtable">
           <thead>
             <tr>
