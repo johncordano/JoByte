@@ -2,13 +2,17 @@
 //      DEPENDENCIES
 // =============================
 
-// var logger = require("morgan");
-var express = require('express');
+const logger = require("morgan");
+const express = require('express');
 // var mongojs = require('mongojs');
 // var request = require('request');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const routes = require('./routes');
+const dbConnection = require('./database') 
+const passport = require('./passport');
 
 // Initialiaze express...
 var app = express();
@@ -28,12 +32,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // static directory...
 app.use(express.static('./public'));
 
-// // use morgan logger to log requests
-// app.use(logger("dev"));
+// use morgan logger to log requests
+app.use(logger("dev"));
 
-mongoose.Promise = global.Promise;
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/joByte', {});
+// Sessions
+app.use(
+	session({
+		secret: 'vizsla-bodhi', //pick a random string to make the hash that is generated secure
+		store: new MongoStore({ mongooseConnection: dbConnection }),
+		resave: false, //required
+		saveUninitialized: false //required
+	})
+)
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
 
 // load ROUTES
 app.use(routes);
