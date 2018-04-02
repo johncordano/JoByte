@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
 
-class Myjobs extends Component {
+class YourJobs extends Component {
   render() {
     return (
       <div>
@@ -50,4 +50,4 @@ class Myjobs extends Component {
   }
 }
 
-export default Myjobs;
+export default YourJobs;
