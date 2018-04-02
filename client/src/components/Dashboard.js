@@ -103,15 +103,9 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div>
-      //  <Navbar />
-        <div className="centralized">
-=======
       <div className="page">
         <Navbar />
         <div className="main-single">
->>>>>>> master
           <div className="container-dashboard">
             <div className="hello-container">
               <h3>Hello USER</h3>
