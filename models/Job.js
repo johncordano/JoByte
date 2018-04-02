@@ -22,7 +22,12 @@ var JobSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Action'
     }
-  ]
+  ],
+  userId: [
+  {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 });
 
 var Job = mongoose.model('Job', JobSchema);
