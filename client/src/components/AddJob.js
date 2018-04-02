@@ -53,7 +53,7 @@ class AddJob extends Component {
         <Navbar />
         <div className="main-addjob">
           <div className="new-job">
-            <h3>Add a new job</h3>
+            <h3>Add a Job</h3>
             <form className="add-job-form">
               <input
                 className="input-label"
@@ -79,7 +79,7 @@ class AddJob extends Component {
               />
               <select id="" name="status" onChange={this.handleInputChange} value={this.state.status}>
                 <option value="" disabled>
-                  -- select a status --
+                  -- Select a status --
                 </option>
                 <option value="Researching">Researching</option>
                 <option value="Applied">Applied</option>
@@ -87,9 +87,12 @@ class AddJob extends Component {
                 <option value="Awaiting">Awaiting response</option>
                 <option value="Resolved">Resolved</option>
               </select>
-              <Link to="/" className="add-btn" onClick={this.handleFormSubmit}>
-                Add
-              </Link>
+
+              <button className="add-job-btn">
+                <Link to="/" onClick={this.handleFormSubmit}>
+                  Add
+                </Link>
+              </button>
             </form>
           </div>
         </div>

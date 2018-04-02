@@ -111,7 +111,7 @@ class ViewJob extends Component {
         <Navbar />
         <div className="main">
           <div className="job-container">
-            <h3>Job Saved</h3>
+            <h3>Job Detail</h3>
 
             <form className="update-job-form">
               <input
@@ -143,11 +143,11 @@ class ViewJob extends Component {
                 <option value="Resolved">Resolved</option>
               </select>
               <div className="btns">
-                <button className="save-btn" onClick={this.handleJobUpdate}>
-                  Save changes
-                </button>
                 <button className="delete-btn" onClick={this.handleJobDelete}>
-                  Delete job
+                  Delete Job
+                </button>
+                <button className="save-btn" onClick={this.handleJobUpdate}>
+                  Save Changes
                 </button>
               </div>
             </form>
@@ -155,13 +155,13 @@ class ViewJob extends Component {
 
           <div className="todos-container">
             <div className="todo-flex">
-              <h3>To do's</h3>
+              <h3>Actions for This Job</h3>
               <button onClick={this.toggleOpen} className="add-todo-btn-short">
-                +
+                Add Action
               </button>
 
               <ActionModal show={this.state.isModalOpen} onClose={this.toggleOpen}>
-                <h2 className="add-todo-h2">Add a new To-do</h2>
+                <h2 className="add-todo-h2">Add an Action</h2>
                 <form className="add-todo">
                   <div className="date-picker">
                     <h4>Choose a date</h4>

@@ -195,7 +195,8 @@ a:hover {
 
 .save-btn,
 .delete-btn,
-.add-todo-btn {
+.add-todo-btn,
+.add-job-btn {
   background: #242323;
   color: white !important;
   padding: 10px;
@@ -210,12 +211,26 @@ a:hover {
   width: 150px;
 }
 
+/* .add-job-btn a:hover {
+  color: white !important;
+} */
+
 .save-btn {
-  float: left;
+  float: right;
+}
+
+.add-job-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.add-job-btn a:hover {
+  text-decoration: none;
+  color: white !important;
 }
 
 .delete-btn {
-  float: right;
+  float: left;
 }
 
 .add-todo-btn,
@@ -230,11 +245,6 @@ a:hover {
   padding: 5px;
 }
 
-.close-btn {
-  /* background: white;
-  height: 30px; */
-}
-
 .add-todo-btn {
   width: 100%;
 }
@@ -246,7 +256,7 @@ a:hover {
   width: 30px !important;
 }
 
-/* Myjobs table */
+/* YourJobs table */
 
 .table-job {
   margin-bottom: 100px;
