@@ -22,10 +22,7 @@ class AddJob extends Component {
 
   loadJob = () => {
     API.getJob()
-      .then(res => {
-        this.setState({ jobsArray: res.data });
-        console.log("res loadjob", res);
-      })
+      .then(res => this.setState({ jobsArray: res.data }))
       .catch(err => console.log(err));
   };
 
