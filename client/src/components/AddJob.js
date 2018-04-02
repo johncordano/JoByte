@@ -42,7 +42,7 @@ class AddJob extends Component {
       link: this.state.link,
       status: this.state.status
     })
-      .then(this.props.history.push('/'))
+      .then(this.props.history.push('/dashboard'))
       .catch(err => console.log(err));
   };
 
@@ -89,7 +89,7 @@ class AddJob extends Component {
               </select>
 
               <button className="add-job-btn">
-                <Link to="/" onClick={this.handleFormSubmit}>
+                <Link to="/dashboard" onClick={this.handleFormSubmit}>
                   Add
                 </Link>
               </button>
