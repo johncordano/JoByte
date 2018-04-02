@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Navbar from './Navbar';
-import { Route, Redirect } from 'react-router'
-
+import { withRouter } from 'react-router-dom';
 
 class AddJob extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
       job: [],
       company: '',
@@ -17,10 +16,9 @@ class AddJob extends Component {
     };
   }
 
-
   componentDidMount() {
     this.loadJob();
-  };
+  }
 
   loadJob = () => {
     API.getJob()
@@ -30,7 +28,6 @@ class AddJob extends Component {
       })
       .catch(err => console.log(err));
   };
-
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -48,19 +45,19 @@ class AddJob extends Component {
       link: this.state.link,
       status: this.state.status
     })
-      .then(this.loadJob())
+      .then(this.props.history.push('/'))
       .catch(err => console.log(err));
   };
 
   render() {
-    console.log(this.props.history)
+    // console.log(this.props.history);
     return (
-      <div>
+      <div className="page">
         <Navbar />
-        <div className="centralized">
+        <div className="main-addjob">
           <div className="new-job">
-            <h2>Add a new job</h2>
-            <form className="add-form">
+            <h3>Add a new job</h3>
+            <form className="add-job-form">
               <input
                 className="input-label"
                 value={this.state.company}
@@ -83,16 +80,18 @@ class AddJob extends Component {
                 name="link"
                 placeholder="Link (required)"
               />
-              <select id="" name = "status" onChange={this.handleInputChange} value={this.state.status}>
-                  <option value="Researching">Researching</option>
-                  <option value="Applied">Applied</option>
-                  <option value="Interviewing">Interviewing</option>
-               </select>
-              <Link 
-                  to='/'
-                  className="add-btn" 
-                  onClick={this.handleFormSubmit}>
-                  Add
+              <select id="" name="status" onChange={this.handleInputChange} value={this.state.status}>
+                <option value="" disabled>
+                  -- select a status --
+                </option>
+                <option value="Researching">Researching</option>
+                <option value="Applied">Applied</option>
+                <option value="Interviewing">Interviewing</option>
+                <option value="Awaiting">Awaiting response</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+              <Link to="/" className="add-btn" onClick={this.handleFormSubmit}>
+                Add
               </Link>
             </form>
           </div>
@@ -102,4 +101,4 @@ class AddJob extends Component {
   }
 }
 
-export default AddJob;
+export default withRouter(AddJob);

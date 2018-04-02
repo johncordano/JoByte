@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import Modal from './Modal';
 import API from '../utils/API';
 import DatePicker from 'react-date-picker';
+import ActionModal from './ActionModal';
+import MyActions from './MyActions';
+import { withRouter } from 'react-router-dom';
 
 class ViewJob extends Component {
   constructor(props) {
@@ -34,7 +36,6 @@ class ViewJob extends Component {
     });
   };
 
-
   loadActions = () => {
     const jobId = this.state.curJob.id;
     API.getAction(jobId)
@@ -42,14 +43,12 @@ class ViewJob extends Component {
       .catch(err => console.log(err));
   };
 
-
   handleJobInputChange = event => {
     const { name, value } = event.target;
     const { curJob } = this.state;
-    const newCurJob = { ...curJob, [name]: value}
+    const newCurJob = { ...curJob, [name]: value };
     this.setState({ curJob: newCurJob });
   };
-
 
   handleDropdownChange = event => {
     const { curJob } = this.state;
@@ -64,9 +63,7 @@ class ViewJob extends Component {
     });
   };
 
-
   onDateChange = date => this.setState({ date });
-
 
   handleJobUpdate = event => {
     event.preventDefault();
@@ -77,27 +74,24 @@ class ViewJob extends Component {
       link: this.state.curJob.link,
       status: this.state.curJob.status
     })
-    .then(console.log('Successfully updated job'))
-    .catch(err => console.log(err));
+      .then(console.log('Successfully updated job'))
+      .catch(err => console.log(err));
   };
-
 
   handleJobDelete = event => {
     event.preventDefault();
-    API.deleteJob({id: this.state.curJob.id})
-      .then(console.log('Successfully deleted job'))
+    API.deleteJob({ id: this.state.curJob.id })
+      .then(this.props.history.push('/'))
       .catch(err => console.log(err));
   };
-
 
   handleActionDelete = (event, id) => {
     event.preventDefault();
-    console.log(id)
-    API.deleteAction({id: id})
+    console.log(id);
+    API.deleteAction({ id: id })
       .then(this.loadActions())
       .catch(err => console.log(err));
   };
-
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -111,60 +105,64 @@ class ViewJob extends Component {
       .catch(err => console.log(err));
   };
 
-
   render() {
-    // console.log(this.state);
     return (
-      <div>
+      <div className="page">
         <Navbar />
-        <div className="centralized">
-          <div className="job-info">
-            <div className="input">
-              <form className="add-form">
-                <input
-                  className="input-label"
-                  value={this.state.curJob.company}
-                  onChange={this.handleJobInputChange}
-                  name="curJob[company]"
-                  placeholder="Company (required)"
-                />
-                <input
-                  className="input-label"
-                  value={this.state.curJob.position}
-                  onChange={this.handleJobInputChange}
-                  name="position"
-                  placeholder="Position (required)"
-                />
-                <input
-                  className="input-label"
-                  value={this.state.curJob.link}
-                  onChange={this.handleJobInputChange}
-                  name="link"
-                  placeholder="Link"
-                />
-                <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
-                  <option value="Researching">Researching</option>
-                  <option value="Applied">Applied</option>
-                  <option value="Interviewing">Interviewing</option>
-               </select>
-                <button className="add-btn" onClick={this.handleJobUpdate}>
-                  Save Changes
+        <div className="main">
+          <div className="job-container">
+            <h3>Job Saved</h3>
+
+            <form className="update-job-form">
+              <input
+                className="input-label"
+                value={this.state.curJob.company}
+                onChange={this.handleJobInputChange}
+                name="company"
+                placeholder="Company (required)"
+              />
+              <input
+                className="input-label"
+                value={this.state.curJob.position}
+                onChange={this.handleJobInputChange}
+                name="position"
+                placeholder="Position (required)"
+              />
+              <input
+                className="input-label"
+                value={this.state.curJob.link}
+                onChange={this.handleJobInputChange}
+                name="link"
+                placeholder="Link"
+              />
+              <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
+                <option value="Researching">Researching</option>
+                <option value="Applied">Applied</option>
+                <option value="Interviewing">Interviewing</option>
+                <option value="Awaiting">Awaiting response</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+              <div className="btns">
+                <button className="save-btn" onClick={this.handleJobUpdate}>
+                  Save changes
                 </button>
-                <button className="add-btn" onClick={this.handleJobDelete}>
-                  Delete Job
+                <button className="delete-btn" onClick={this.handleJobDelete}>
+                  Delete job
                 </button>
+              </div>
             </form>
-            </div>
           </div>
-          <div className="job-info">
-            <div className="input">
-              <h2>To do's</h2>
-              <button onClick={() => this.setState({ isModalOpen: true })} id="add-todo">
+
+          <div className="todos-container">
+            <div className="todo-flex">
+              <h3>To do's</h3>
+              <button onClick={this.toggleOpen} className="add-todo-btn-short">
                 +
               </button>
-              <Modal show={this.state.isModalOpen} onClose={this.toggleOpen}>
-                <h2>Add a new To-do</h2>
-                <form className="add-form">
+
+              <ActionModal show={this.state.isModalOpen} onClose={this.toggleOpen}>
+                <h2 className="add-todo-h2">Add a new To-do</h2>
+                <form className="add-todo">
                   <div className="date-picker">
                     <h4>Choose a date</h4>
                     <DatePicker onChange={this.onDateChange} value={this.state.date} />
@@ -184,37 +182,13 @@ class ViewJob extends Component {
                     name="status"
                     placeholder="Status"
                   />
-                  <button className="add-btn" onClick={this.handleFormSubmit}>
+                  <button className="add-todo-btn" onClick={this.handleFormSubmit}>
                     Add
                   </button>
                 </form>
-              </Modal>
-              <table className="rtable">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th />
-                  </tr>
-                </thead>
-                <tbody className="tbody saved-jobs" id="saved-jobs">
-                  {this.state.actionsArray.map(data => {
-                    return (
-                      <tr key={data._id}>
-                        <td>{data.date}</td>
-                        <td>{data.description}</td>
-                        <td>{JSON.stringify(data.status)}</td>
-                        <td>
-                          <button id="view-btn" onClick={event => this.handleActionDelete(event, data._id)}>
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+              </ActionModal>
+
+              <MyActions actions={this.state.actionsArray} />
             </div>
           </div>
         </div>
@@ -223,4 +197,4 @@ class ViewJob extends Component {
   }
 }
 
-export default ViewJob;
+export default withRouter(ViewJob);

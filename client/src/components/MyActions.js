@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
+import ActionModal from './ActionModal';
+import DatePicker from 'react-date-picker';
 
 class MyActions extends Component {
-  state = {};
+  state = {
+    isModalOpen: false
+  };
+
+  toggleOpen = () => {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen
+    });
+  };
 
   render() {
     return (
       <div className="table-job">
-        <h2>Your outstanding actions</h2>
         <table className="rtable">
           <thead>
             <tr>
