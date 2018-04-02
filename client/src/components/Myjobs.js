@@ -5,22 +5,10 @@ import { Link } from 'react-router-dom';
 // import SummaryGraph from './SummaryGraph';
 
 class Myjobs extends Component {
-  // state = {
-  //   dropDownSelection: 'blah'
-  // };
-
-  // handleChange = (event, id) => {
-  //   this.setState({ dropDownSelection: event.target.value });
-  //   API.updateJob({
-  //     id,
-  //     status: this.state.status
-  //   }).catch(err => console.log(err));
-  // };
-
   render() {
     console.log(this.props);
     return (
-      <div className="table-job">
+      <div>
         <table className="rtable">
           <thead>
             <tr>

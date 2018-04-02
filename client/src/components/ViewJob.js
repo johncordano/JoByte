@@ -113,7 +113,7 @@ class ViewJob extends Component {
           <div className="job-container">
             <h3>Job Saved</h3>
 
-            <form className="add-form">
+            <form className="update-job-form">
               <input
                 className="input-label"
                 value={this.state.curJob.company}
@@ -152,16 +152,17 @@ class ViewJob extends Component {
               </div>
             </form>
           </div>
+
           <div className="todos-container">
-            <div className="input todo-flex">
+            <div className="todo-flex">
               <h3>To do's</h3>
-              <button onClick={this.toggleOpen} id="add-todo">
+              <button onClick={this.toggleOpen} className="add-todo-btn-short">
                 +
               </button>
 
               <ActionModal show={this.state.isModalOpen} onClose={this.toggleOpen}>
-                <h2>Add a new To-do</h2>
-                <form className="add-form">
+                <h2 className="add-todo-h2">Add a new To-do</h2>
+                <form className="add-todo">
                   <div className="date-picker">
                     <h4>Choose a date</h4>
                     <DatePicker onChange={this.onDateChange} value={this.state.date} />
@@ -181,7 +182,7 @@ class ViewJob extends Component {
                     name="status"
                     placeholder="Status"
                   />
-                  <button className="add-btn" onClick={this.handleFormSubmit}>
+                  <button className="add-todo-btn" onClick={this.handleFormSubmit}>
                     Add
                   </button>
                 </form>

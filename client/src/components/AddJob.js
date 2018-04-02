@@ -50,10 +50,10 @@ class AddJob extends Component {
     return (
       <div className="page">
         <Navbar />
-        <div className="main-single">
+        <div className="main-addjob">
           <div className="new-job">
             <h3>Add a new job</h3>
-            <form className="add-form">
+            <form className="add-job-form">
               <input
                 className="input-label"
                 value={this.state.company}

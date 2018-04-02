@@ -124,7 +124,9 @@ class Dashboard extends React.Component {
 
             <Tabs defaultActiveKey={1} className="tab-container" id="tabs">
               <Tab eventKey={1} title="My Jobs">
-                <Myjobs jobs={this.state.jobsArray} />
+                <div className="table-job">
+                  <Myjobs jobs={this.state.jobsArray} />
+                </div>
               </Tab>
               <Tab eventKey={2} title="To do's">
                 <div className="table-job">
@@ -132,36 +134,7 @@ class Dashboard extends React.Component {
                 </div>
               </Tab>
             </Tabs>
-            {/* <div className="total-applied" onClick={this.handleMyJobsClick.bind(this)}>
-              <h3>My Jobs</h3>
-              <p id="jobCount">{this.state.jobsArray.length}</p>
-              <img src={ChartBlue} alt="Char blue graphic" />
-            </div>
-
-            <div className="scheduled-interview" onClick={this.handleMyActionsClick.bind(this)}>
-              <h3>To do's</h3>
-              <p>{this.state.actionsArray.length}</p>
-              <img src={ChartPurple} alt="Char blue graphic" />
-            </div> */}
           </div>
-
-          {/* {this.state.MyJobsTableVisible ? <Myjobs jobs={this.state.jobsArray} /> : null} */}
-          {/* {this.state.MyActionsTableVisible ? <MyActions actions={this.state.actionsArray} /> : null} */}
-          {/*this.state.ResearchingTableVisible ? <ResearchingTable actions={this.props.jobs} /> : null */}
-
-          {/*this.props.jobs.map(data => {
-            if (data.status === 'Researching') {
-              return (
-                <tr key={data._id}>
-                  <td>{data.company}</td>
-                  <td>{data.position}</td>
-                  <td>{data.link}</td>
-                  <td>{data.status}</td>
-                  <td />
-                </tr>
-              );
-            }
-          })*/}
         </div>
       </div>
     );

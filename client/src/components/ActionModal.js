@@ -34,10 +34,10 @@ class ActionModal extends React.Component {
     const button = {
       backgroundColor: 'white',
       marginBottom: '10px',
-      height: '30px',
-      minWidth: '100%',
+      height: '40px',
       width: '100%',
-      border: 'none'
+      border: 'none',
+      marginTop: '10px'
     };
 
     return (
@@ -46,7 +46,7 @@ class ActionModal extends React.Component {
           {this.props.children}
 
           <div>
-            <button style={button} onClick={this.props.onClose}>
+            <button className="close-btn" style={button} onClick={this.props.onClose}>
               Close
             </button>
           </div>
