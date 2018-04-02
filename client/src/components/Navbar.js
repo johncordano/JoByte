@@ -19,7 +19,7 @@ class Navbar extends React.Component {
         <h2>joByte</h2>
         <div className="icon">
           <img src={DashboardIcon} alt="Dashboard icon" />
-          <Link to="/">Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </div>
         <div className="icon">
           <img src={AddJobIcon} alt="Add a job icon" />

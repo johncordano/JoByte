@@ -4,7 +4,7 @@ export default {
   // ============================
   //             JOB REQUESTS
   // ============================
-
+  
   getJob: function() {
     return axios.get('/api/job');
   },
@@ -17,11 +17,11 @@ export default {
   deleteJob: function(jobData) {
     return axios.delete('/api/job', {params: jobData});
   },
-
+  
   // ============================
   //             ACTION REQUESTS
   // ============================
-
+  
   getAllAction: function(jobId) {
     return axios.get('/api/action/');
   },
@@ -35,6 +35,26 @@ export default {
     return axios.put('/api/action', actionData);
   },
   deleteAction: function(actionData) {
-    return axios.delete('/api/action', {params: actionData});
-  }
-};
+    return axios.delete('/api/action', {params: actionData})
+  },
+  
+  // ============================
+  //             ACCOUNT REQUESTS
+  // ============================
+  
+  getAccount: function(accountData) {
+    console.log(accountData);
+    console.log('calling getAccount');
+    return axios.post('/api/account/login', accountData);
+  },
+    addAccount: function(accountData) {
+      return axios.post('/api/account/signup', accountData);
+    },
+    updateAccount: function(accountData) {
+      return axios.put('/api/account', accountData);
+    },
+    deleteAccount: function(accountData) {
+      return axios.delete('/api/account', accountData);
+    },
+    
+  };
