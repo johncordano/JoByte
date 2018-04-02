@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 // Components
+import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import AddJob from './components/AddJob';
 import ViewJob from './components/ViewJob';
@@ -16,12 +17,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/*<Route exact path = "/signin" component={Signin} />*/}
-        <Route exact path = "/" component={Dashboard} />
-        <Route exact path="/job/new" component={AddJob} />
-        <Route path="/job/view" component={ViewJob} />
-        <Route exact path="/signup" comonent={SignUp} />
-      </div>
+        <div>
+          {/*<Route exact path = "/signin" component={Signin} />*/}
+          <Route exact path = "/dashboard" component={Dashboard} />
+          <Route exact path="/job/new" component={AddJob} />
+          <Route path="/job/view" component={ViewJob} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/" component={Login} />
+        </div>
+      </div>  
     );
   }
 }

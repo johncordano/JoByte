@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Navbar from './Navbar';
+import { Route, Redirect } from 'react-router'
 
 
 class AddJob extends Component {
@@ -23,7 +24,10 @@ class AddJob extends Component {
 
   loadJob = () => {
     API.getJob()
-      .then(res => this.setState({ jobsArray: res.data }))
+      .then(res => {
+        this.setState({ jobsArray: res.data });
+        console.log("res loadjob", res);
+      })
       .catch(err => console.log(err));
   };
 

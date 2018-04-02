@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { Route, Redirect } from 'react-router'
 
 export default {
   // ============================
@@ -22,7 +23,10 @@ export default {
   //             ACTION REQUESTS
   // ============================
   
-  getAllAction: function(jobId) {
+  // getAllAction: function(jobId) {
+  //   return axios.get('/api/action/');
+  // },
+  getAllAction: function() {
     return axios.get('/api/action/');
   },
   getAction: function(jobId) {
@@ -46,6 +50,17 @@ export default {
     console.log(accountData);
     console.log('calling getAccount');
     return axios.post('/api/account/login', accountData);
+    // .then((response) => {
+    //   console.log("then is hit above!");
+    //   if (response.ok && window){ 
+    //     console.log("then is hit!");
+    //     window.location.href="/login"; 
+    //   //<Redirect to="/dashboard" />
+    //   }
+    // })
+    // .catch((error) => {
+    //   console.log("catch from getAccount", error);
+    // });
   },
     addAccount: function(accountData) {
       return axios.post('/api/account/signup', accountData);

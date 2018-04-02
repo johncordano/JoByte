@@ -17,9 +17,14 @@ class Login extends Component {
   
   handleFormSubmitExistingAccount = event => {
     event.preventDefault();
+    console.log("login");
     API.getAccount({
       email: this.state.email,
       password: this.state.password,
+    })
+    .then(res => {
+      console.log("login res", res);
+      // return a Router component with Redirect to=...
     })
       .catch(err => console.log(err));
   };

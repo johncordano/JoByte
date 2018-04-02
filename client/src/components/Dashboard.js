@@ -34,6 +34,7 @@ class Dashboard extends React.Component {
   loadJob = () => {
     API.getJob()
       .then(res => {
+        console.log("load job ", res);
         this.setState({ jobsArray: res.data })
         this.updateStatusCounts(res.data)
       })
@@ -118,7 +119,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+      //  <Navbar />
         <div className="centralized">
           <div className="container-dashboard">
             <div className="total-applied" onClick={this.handleMyJobsClick.bind(this)}>

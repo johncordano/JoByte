@@ -7,7 +7,7 @@ module.exports = {
 // ================================
 
   findAllJobs: function(req, res) {
-    db.Job.find().sort({status: 1})
+    db.Job.find({ userId: req.body.userId }).sort({status: 1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -59,7 +59,7 @@ module.exports = {
     db.Action.deleteOne({_id: req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
   
   
   createAccount: function(req, res) {
@@ -84,12 +84,13 @@ module.exports = {
             console.log('does password match', isMatch); // -&gt; Password123: true
             if (isMatch) {
               console.log("yep");
-              console.log('res.redirect', res.redirect);
-              res.redirect('/');
+          //    console.log('res.redirect', res.redirect);
+              //res.redirect('/');
+              res.status("200");
             }
             else {
               console.log("nope");
-              console.log('res.redirect', res.redirect);
+              //console.log('res.redirect', res.redirect);
               res.redirect('/login');
             }
         });
