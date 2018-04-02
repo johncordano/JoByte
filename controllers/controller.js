@@ -66,6 +66,7 @@ module.exports = {
       // console.log(req.body);
       
       db.User.create(req.body)
+      .then(data => res.json(data))
       .then(function(res) {
        //console.log("create account res", res._id)
         // res returns _id: 5ac281ed8799ebd5211abeeb

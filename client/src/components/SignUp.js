@@ -19,17 +19,15 @@ class SignUp extends Component {
   
   handleFormSubmitNewAccount = event => {
     event.preventDefault();
-    // TODO - this is not working on the frontend. Might need a callback instead?
     API.addAccount({
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     })
     .then(res => {
-      //console.log("login res", res);
+      console.log("login res", res);
 
       if (res.status === 200) {
-        console.log("hello");
         this.setState({redirect: true});
          }
         else {
