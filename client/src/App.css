@@ -316,3 +316,7 @@ tbody td {
 }
 
 /* View job */
+
+.react-date-picker__calendar .react-calendar {
+  width: 280px;
+}
