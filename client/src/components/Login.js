@@ -32,7 +32,7 @@ class Login extends Component {
         this.setState({redirect: true});
          }
         else {
-          alert("check your credentials")
+          console.log("check your credentials")
         }
       }
     )

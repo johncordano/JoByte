@@ -63,12 +63,20 @@ module.exports = {
     
     
     createAccount: function(req, res) {
-      console.log(req.body);
+      // console.log(req.body);
       
       db.User.create(req.body)
-      //  .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-    },
+      .then(function(res) {
+       //console.log("create account res", res._id)
+        // res returns _id: 5ac281ed8799ebd5211abeeb
+        if (res._id) {
+          console.log("create account res", res._id)
+          res.status(200).end();
+        }
+      })
+      
+        .catch(err => res.status(422).json(err));
+      },
     findAccount: function(req, res) {
       // fetch user and test password verification
       console.log("req.body", req.body);

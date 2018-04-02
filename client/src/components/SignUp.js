@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
+import { Route, Redirect } from 'react-router';
 
 class SignUp extends Component {
   state = {
     name: "",
     email: "",
     password: "",
+    redirect: false,
   };
   
   handleInputChange = event => {
@@ -17,16 +19,32 @@ class SignUp extends Component {
   
   handleFormSubmitNewAccount = event => {
     event.preventDefault();
-    
+    // TODO - this is not working on the frontend. Might need a callback instead?
     API.addAccount({
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     })
+    .then(res => {
+      //console.log("login res", res);
+
+      if (res.status === 200) {
+        console.log("hello");
+        this.setState({redirect: true});
+         }
+        else {
+          alert("check your credentials")
+        }
+      }
+    )
       .catch(err => console.log(err));
   };
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to={"/dashboard"} />
+    }
     return (
       
     <div className="centralized">
