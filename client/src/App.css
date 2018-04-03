@@ -16,10 +16,10 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
   background-color: #016c5a !important;
   color: white !important;
-}
+} */
 
 .page {
   display: grid;
@@ -188,7 +188,6 @@ a:hover {
 }
 
 .sidebar a {
-  background: #646464;
   width: 100%;
   color: white;
   display: flex;
@@ -200,10 +199,19 @@ a:hover {
   margin-bottom: 5px;
 }
 
-.icon img {
+.sidebar-icon img {
   position: absolute;
   width: 16px;
-  margin: 18px;
+  margin: 22px 20px;
+}
+
+.sidebar-icon a:hover {
+  background: #d3d3d3 !important;
+  color: #242323 !important;
+}
+
+.sidebar-highlight {
+  background-color: #d3d3d3;
 }
 
 /* DASHBOARD COMPONENT */
