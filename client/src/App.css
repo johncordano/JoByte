@@ -276,7 +276,8 @@ a {
 .update-job-form input,
 .update-job-form select,
 .add-job-form input,
-.add-job-form select {
+.add-job-form select,
+.add-todo select {
   padding: 10px;
   height: 35px;
   margin-bottom: 15px;
