@@ -32,7 +32,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="sidebar">
-        <h2>joByte</h2>
+        <h2>JOByte</h2>
 
         {this.props.path === '/dashboard' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>

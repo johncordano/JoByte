@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
         researchCount++;
       } else if (job.status === 'Applied') {
         appliedCount++;
-      } else if (job.status === 'Interviewing') {
+      } else if (job.status === 'Interview Scheduled') {
         interviewingCount++;
       } else if (job.status === 'Awaiting') {
         awaitingCount++;

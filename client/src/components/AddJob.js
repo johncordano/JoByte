@@ -83,7 +83,7 @@ class AddJob extends Component {
                 </option>
                 <option value="Researching">Researching</option>
                 <option value="Applied">Applied</option>
-                <option value="Interviewing">Interviewing</option>
+                <option value="Interview Scheduled">Interview Scheduled</option>
                 <option value="Awaiting">Awaiting response</option>
                 <option value="Resolved">Resolved</option>
               </select>
