@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import InitialImg from '../images/initial-img.jpeg';
+// import InitialImg from '../images/initial-img.jpeg';
 import Logo from '../images/logo.svg';
+import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import { withRouter } from 'react-router-dom';
 import { Route, Redirect } from 'react-router';
@@ -46,11 +47,11 @@ class Login extends Component {
     }
     return (
       <div className="login-container">
-        <img className="login-img" src={InitialImg} alt="Initial img" />
         <div className="signin">
-          <img src={Logo} alt="Logo" />
-          <h2>Sign in to existing account</h2>
-          <form className="existing-form">
+          <img className="logo" src={Logo} alt="Logo" />
+          <h3>Welcome!</h3>
+
+          <form className="username-form ">
             <input
               className="input-label"
               value={this.state.email}
@@ -59,15 +60,21 @@ class Login extends Component {
               placeholder="Email address (required)"
             />
             <input
+              type="password"
               className="input-label"
               value={this.state.password}
               onChange={this.handleInputChange}
               name="password"
               placeholder="Password (required)"
             />
-            <button className="signin-btn" onClick={this.handleFormSubmitExistingAccount}>
-              Sign in
-            </button>
+            <div className="signin-buttons">
+              <button className="signin-btn" onClick={this.handleFormSubmitExistingAccount}>
+                Sign in
+              </button>
+              <button className="signup-btn" onClick={this.handleFormSubmitExistingAccount}>
+                <Link to="/signup">Create a New Account</Link>
+              </button>
+            </div>
           </form>
         </div>
       </div>

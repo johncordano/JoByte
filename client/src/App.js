@@ -11,19 +11,18 @@ import SignUp from './components/SignUp';
 // import Myjobs from './components/Myjobs';
 
 class App extends Component {
-  
   render() {
     return (
       <div>
         <div>
           {/*<Route exact path = "/signin" component={Signin} />*/}
-          <Route exact path = "/dashboard" component={Dashboard} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/job/new" component={AddJob} />
           <Route path="/job/view" component={ViewJob} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/" component={Login} />
         </div>
-      </div>  
+      </div>
     );
   }
 }
