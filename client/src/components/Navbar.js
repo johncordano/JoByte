@@ -28,7 +28,7 @@ class Navbar extends React.Component {
           if (response.status === 200) {
             this.props.updateUser({
               loggedIn: false,
-              name: null
+              username: null
             })
           }
         }).catch(error => {

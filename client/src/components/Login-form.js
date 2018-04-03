@@ -6,7 +6,7 @@ class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
-            name: '',
+            username: '',
             password: '',
             email:'',
             redirectTo: null
@@ -28,8 +28,9 @@ class LoginForm extends Component {
 
         axios
             .post('/user/login', {
-                password: this.state.password,
-                email: this.state.email
+                username: this.state.username,
+                password: this.state.password
+
             })
             .then(response => {
                 console.log('login response: ')
@@ -38,7 +39,7 @@ class LoginForm extends Component {
                     // update App.js state
                     this.props.updateUser({
                         loggedIn: true,
-                        name: response.data.name
+                        username: response.data.username
                     })
                     // update the state to redirect to home
                     this.setState({
@@ -62,15 +63,15 @@ class LoginForm extends Component {
                     <form className="">
                         <div className="">
                             <div className="">
-                                <label className="" htmlFor="Email">Email</label>
+                                <label className="" htmlFor="username">Username</label>
                             </div>
                             <div className="">
                                 <input className=""
                                     type="text"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    value={this.state.email}
+                                    id="username"
+                                    name="username"
+                                    placeholder="username"
+                                    value={this.state.username}
                                     onChange={this.handleChange}
                                 />
                             </div>

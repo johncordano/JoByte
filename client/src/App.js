@@ -17,7 +17,7 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      name: null
+      username: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -42,7 +42,7 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.name
+          username: response.data.user.username
         })
       } else {
         console.log('Get user: no user');
@@ -55,6 +55,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('log from app.js, loggedIn:', this.state.loggedIn, 'as', this.state.username)
     return (
       <div>
 

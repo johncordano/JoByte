@@ -5,7 +5,7 @@ class Signup extends Component {
 	constructor() {
 		super()
 		this.state = {
-			name: '',
+			username: '',
 			email: '',
 			password: '',
 			confirmPassword: '',
@@ -21,12 +21,12 @@ class Signup extends Component {
 	}
 	handleSubmit(event) {
 		console.log('sign-up handleSubmit, name: ')
-		console.log(this.state.name)
+		console.log(this.state.username)
 		event.preventDefault()
 
 		//request to server to add a new username/password
 		axios.post('/user/', {
-			name: this.state.name,
+			username: this.state.username,
 			email: this.state.email,
 			password: this.state.password
 		})
@@ -60,10 +60,10 @@ render() {
 					<div className="">
 						<input className="form-input"
 							type="text"
-							id="name"
-							name="name"
-							placeholder="name"
-							value={this.state.name}
+							id="username"
+							name="username"
+							placeholder="username"
+							value={this.state.username}
 							onChange={this.handleChange}
 						/>
 					</div>
