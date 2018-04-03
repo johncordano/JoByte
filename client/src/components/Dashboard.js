@@ -104,7 +104,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="page">
-        <Navbar />
+        <Navbar path={this.props.match.path} />
         <div className="main-single">
           <div className="container-dashboard">
             <div className="hello-container">
