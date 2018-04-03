@@ -1,7 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import YourJobs from './YourJobs';
 import MyActions from './MyActions';
 import { Tabs, Tab } from 'react-bootstrap';
@@ -104,7 +104,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="page">
-        <Navbar path={this.props.match.path} />
+        <Sidebar path={this.props.match.path} />
         <div className="main-single">
           <div className="container-dashboard">
             <div className="hello-container">

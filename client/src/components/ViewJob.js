@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import API from '../utils/API';
 import DatePicker from 'react-date-picker';
 import ActionModal from './ActionModal';
@@ -108,7 +108,7 @@ class ViewJob extends Component {
   render() {
     return (
       <div className="page">
-        <Navbar />
+        <Sidebar />
         <div className="main">
           <div className="job-container">
             <h3>Job Detail</h3>
