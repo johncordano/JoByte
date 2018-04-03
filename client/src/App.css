@@ -16,10 +16,10 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  background-color: #242323 !important;
+/* a:hover {
+  background-color: #016c5a !important;
   color: white !important;
-}
+} */
 
 .page {
   display: grid;
@@ -40,26 +40,41 @@ a:hover {
 /* LOGIN PAGE */
 
 .login-container {
-  background-color: white;
-  display: inline-grid;
-  grid-template-columns: 50% 50%;
-}
-
-.login-img {
+  background: url(images/initial-img.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 100%;
-  display: table;
-  float: left;
-  max-height: 100%;
+  /* vertical-align: middle; */
+  width: 100vw;
   height: 100vh;
+  /* margin: 0 auto; */
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.logo {
+  width: 40%;
+  margin: 0 auto;
+  display: block;
 }
 
 .signin {
-  margin-top: 110px;
-  width: 50%;
+  background: white;
+  width: 40%;
   float: right;
+  margin-right: 60px;
+  padding-bottom: 100px;
+  align-content: center;
+  padding: 70px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px grey;
+}
+
+.signin h3 {
+  color: gray;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
 }
 
 .title {
@@ -101,10 +116,16 @@ a:hover {
   margin-top: 20px;
 }
 
+.signup-btn {
+  background: #242323 !important;
+  margin-top: 15px;
+}
+
 .enter-btn,
+.signin-btn,
 .signup-btn,
 #google-btn {
-  background: #242323;
+  background: #016c5a;
   cursor: pointer;
   color: white !important;
   width: 300px;
@@ -116,7 +137,7 @@ a:hover {
   border-radius: 5px;
 }
 
-.buttons {
+.signin-buttons {
   text-align: center;
   margin-top: 50px;
 }
@@ -167,7 +188,6 @@ a:hover {
 }
 
 .sidebar a {
-  background: #646464;
   width: 100%;
   color: white;
   display: flex;
@@ -179,10 +199,19 @@ a:hover {
   margin-bottom: 5px;
 }
 
-.icon img {
+.sidebar-icon img {
   position: absolute;
   width: 16px;
-  margin: 18px;
+  margin: 22px 20px;
+}
+
+.sidebar-icon a:hover {
+  background: #d3d3d3 !important;
+  color: #242323 !important;
+}
+
+.sidebar-highlight {
+  background-color: #d3d3d3;
 }
 
 /* DASHBOARD COMPONENT */
@@ -218,8 +247,21 @@ a:hover {
   margin: 0 auto;
 }
 
+.nothing-inside h4 {
+  text-align: center;
+  font-weight: 400;
+  color: gray;
+  margin-bottom: 30px;
+}
+.nothing-inside button {
+  background: #016c5a;
+  margin: 0 auto;
+  float: none;
+}
+
 /* FORMS */
 
+.login-form,
 .add-job-form,
 .update-job-form,
 .view-form,
@@ -230,6 +272,7 @@ a:hover {
   line-height: 30px;
 }
 
+.login-form input,
 .update-job-form input,
 .update-job-form select,
 .add-job-form input,
@@ -318,20 +361,18 @@ a:hover {
   width: 150px;
 }
 
-/* .add-job-btn a:hover {
-  color: white !important;
-} */
-
 .save-btn {
   float: right;
 }
 
-.add-job-btn a {
+.add-job-btn a,
+.signup-btn a {
   color: white;
   text-decoration: none;
 }
 
-.add-job-btn a:hover {
+.add-job-btn a:hover,
+.signup-btn a:hover {
   text-decoration: none;
   color: white !important;
 }
@@ -365,9 +406,9 @@ a:hover {
 
 /* YourJobs table */
 
-.table-job {
+/* .table-job {
   margin-bottom: 100px;
-}
+} */
 
 .rtable {
   width: 100%;

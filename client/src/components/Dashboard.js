@@ -1,6 +1,6 @@
 import React from 'react';
 import API from '../utils/API';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import YourJobs from './YourJobs';
 import MyActions from './MyActions';
@@ -125,7 +125,16 @@ class Dashboard extends React.Component {
             <Tabs defaultActiveKey={1} className="tab-container" id="tabs">
               <Tab eventKey={1} title="Your Jobs">
                 <div className="table-job">
-                  <YourJobs jobs={this.state.jobsArray} />
+                  {this.state.jobsArray.length === 0 ? (
+                    <div className="nothing-inside">
+                      <h4>You have no saved jobs.</h4>
+                      <button className="add-job-btn">
+                        <Link to="/job/new">Add Job</Link>
+                      </button>
+                    </div>
+                  ) : (
+                    <YourJobs jobs={this.state.jobsArray} />
+                  )}
                 </div>
               </Tab>
               <Tab eventKey={2} title="Your Actions">
