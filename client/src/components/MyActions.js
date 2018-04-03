@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 // import SummaryGraph from './SummaryGraph';
 import ActionModal from './ActionModal';
 import DatePicker from 'react-date-picker';
+import moment from 'moment';
 
 class MyActions extends Component {
   state = {
@@ -32,7 +33,7 @@ class MyActions extends Component {
             {this.props.actions.map(data => {
               return (
                 <tr key={data._id}>
-                  <td>{data.date}</td>
+                  <td>{moment(data.date).format("MM/DD/YYYY")}</td>
                   <td>{data.description}</td>
                   <td>{JSON.stringify(data.status)}</td>
                   <td>
