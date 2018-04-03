@@ -71,7 +71,7 @@ class Login extends Component {
               <button className="signin-btn" onClick={this.handleFormSubmitExistingAccount}>
                 Sign in
               </button>
-              <button className="signup-btn" onClick={this.handleFormSubmitExistingAccount}>
+              <button className="signup-btn">
                 <Link to="/signup">Create a New Account</Link>
               </button>
             </div>

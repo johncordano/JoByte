@@ -17,7 +17,7 @@ a {
 }
 
 a:hover {
-  background-color: #242323 !important;
+  background-color: #016c5a !important;
   color: white !important;
 }
 
@@ -239,6 +239,18 @@ a:hover {
   margin: 0 auto;
 }
 
+.nothing-inside h4 {
+  text-align: center;
+  font-weight: 400;
+  color: gray;
+  margin-bottom: 30px;
+}
+.nothing-inside button {
+  background: #016c5a;
+  margin: 0 auto;
+  float: none;
+}
+
 /* FORMS */
 
 .login-form,
@@ -386,9 +398,9 @@ a:hover {
 
 /* YourJobs table */
 
-.table-job {
+/* .table-job {
   margin-bottom: 100px;
-}
+} */
 
 .rtable {
   width: 100%;

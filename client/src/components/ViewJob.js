@@ -156,7 +156,7 @@ class ViewJob extends Component {
           <div className="todos-container">
             <div className="todo-flex">
               <h3>Actions for This Job</h3>
-              <button onClick={this.toggleOpen} className="add-todo-btn-short">
+              <button onClick={this.toggleOpen} className="add-todo-btn">
                 Add Action
               </button>
 
