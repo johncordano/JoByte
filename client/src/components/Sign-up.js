@@ -31,7 +31,7 @@ class Signup extends Component {
 			password: this.state.password
 		})
 			.then(response => {
-				console.log(response)
+				console.log('response from post rqst:',response)
 				if (!response.data.errmsg) {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
@@ -68,11 +68,11 @@ render() {
 						/>
 					</div>
 				</div>
-				<div className="form-group">
+				<div className="">
 					<div className="">
 						<label className="" htmlFor="password">Email: </label>
 					</div>
-					<div className="col-3 col-mr-auto">
+					<div className="">
 						<input className="form-input"
 							placeholder="email"
 							type="email"
@@ -82,8 +82,8 @@ render() {
 						/>
 					</div>
 				</div>
-				<div className="form-group">
-					<div className="col-1 col-ml-auto">
+				<div className="">
+					<div className="">
 						<label className="form-label" htmlFor="password">Password: </label>
 					</div>
 					<div className="">
@@ -96,10 +96,10 @@ render() {
 						/>
 					</div>
 				</div>
-				<div className="form-group ">
-					<div className="col-7"></div>
+				<div className="">
+					<div className=""></div>
 					<button
-						className="btn btn-primary col-1 col-mr-auto"
+						className=""
 						onClick={this.handleSubmit}
 						type="submit"
 					>Sign up</button>

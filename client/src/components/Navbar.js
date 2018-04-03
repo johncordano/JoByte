@@ -1,5 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
+import axios from 'axios'
 
 // Images
 import DashboardIcon from '../images/dashboard.svg';
@@ -13,7 +15,32 @@ import LogoutIcon from '../images/logout.svg';
 // import Dashboard from './Dashboard';
 
 class Navbar extends React.Component {
+    constructor() {
+        super()
+        this.logout = this.logout.bind(this)
+    }
+
+    logout(event) {
+        event.preventDefault()
+        console.log('logging out')
+        axios.post('/user/logout').then(response => {
+          console.log(response.data)
+          if (response.status === 200) {
+            this.props.updateUser({
+              loggedIn: false,
+              name: null
+            })
+          }
+        }).catch(error => {
+            console.log('Logout error')
+        })
+      }
+
   render() {
+    const loggedIn = this.props.loggedIn;
+    console.log('navbar render, props: ')
+    console.log(this.props);
+
     return (
       <div className="sidebar">
         <h2>joByte</h2>
@@ -37,10 +64,10 @@ class Navbar extends React.Component {
           <img src={SettingsIcon} alt="Settings icon" />
           <a href="calendar.html">Settings</a>
         </div>
-        <div className="icon">
+        <div className="icon" onClick={this.logout}>
           <img src={LogoutIcon} alt="Logout icon" />
 
-          <a href="calendar.html">Logout</a>
+          <a href="#">Logout</a>
         </div>
       </div>
     );

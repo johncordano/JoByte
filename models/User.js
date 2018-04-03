@@ -29,7 +29,7 @@ UserSchema.methods = {
   checkPassword: function(inputPassword) {
     return bcrypt.compareSync(inputPassword, this.password)
   },
-  hasPassword: plainTextPassword => {
+  hashPassword: plainTextPassword => {
     return bcrypt.hashSync(plainTextPassword, 10)
   }
 }

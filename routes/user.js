@@ -1,14 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/User')
+const db = require('../models')
 const passport = require('../passport')
 
 router.post('/', (req, res) => {
     console.log('user signup');
-
     const { name, password, email } = req.body
     // ADD VALIDATION
-    User.findOne({ email: email }, (err, user) => {
+    db.User.findOne({ email: email }, (err, user) => {
         if (err) {
             console.log('User.js post error: ', err)
         } else if (user) {
@@ -17,15 +16,9 @@ router.post('/', (req, res) => {
             })
         }
         else {
-            const newUser = new User({
-                name: name,
-                password: password,
-                email: email
-            })
-            newUser.save((err, savedUser) => {
-                if (err) return res.json(err)
-                res.json(savedUser)
-            })
+            db.User.create(req.body)
+                .then(dbModel => res.json(dbModel))
+                .catch(err => res.status(422).json(err))
         }
     })
 })
@@ -50,11 +43,11 @@ router.post(
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
     console.log(req.user)
-    // if (req.user) {
-    //     res.json({ user: req.user })
-    // } else {
-    //     res.json({ user: null })
-    // }
+    if (req.user) {
+        res.json({ user: req.user })
+    } else {
+        res.json({ user: null })
+    }
 })
 
 router.post('/logout', (req, res) => {

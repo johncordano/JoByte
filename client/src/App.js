@@ -67,9 +67,9 @@ class App extends Component {
         />
         <Route
           path='/signup'
-          rener={() =>
+          render={() =>
             <Signup 
-              // signup={this.signup}
+              signup={this.signup}
             />}
         />
 
