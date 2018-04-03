@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
 import ActionModal from './ActionModal';
 import DatePicker from 'react-date-picker';
 
-class MyActions extends Component {
+class YourActions extends Component {
   state = {
     isModalOpen: false
   };
@@ -16,7 +16,7 @@ class MyActions extends Component {
     });
   };
 
-  render() {
+  render() {  
     return (
       <div className="table-job">
         <table className="rtable">
@@ -24,7 +24,7 @@ class MyActions extends Component {
             <tr>
               <th>Date</th>
               <th>Description</th>
-              <th>Completed</th>
+              <th>Status</th>
               <th />
             </tr>
           </thead>
@@ -34,20 +34,8 @@ class MyActions extends Component {
                 <tr key={data._id}>
                   <td>{data.date}</td>
                   <td>{data.description}</td>
-                  <td>{JSON.stringify(data.status)}</td>
-                  <td>
-                    {/*<Link
-                      to={{
-                        pathname: '/job/view',
-                        state: {
-                          jobInfo: data
-                        }
-                      }}
-                    >
-                      <button data-id={data._id} id="view-btn">
-                        View
-                      </button>
-                    </Link> */}
+                  <td>{data.status}</td>
+                  <td>              
                   </td>
                 </tr>
               );
@@ -59,4 +47,4 @@ class MyActions extends Component {
   }
 }
 
-export default MyActions;
+export default YourActions;

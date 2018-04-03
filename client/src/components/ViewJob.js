@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import API from '../utils/API';
 import DatePicker from 'react-date-picker';
 import ActionModal from './ActionModal';
-import MyActions from './MyActions';
+import YourActions from './YourActions';
 import { withRouter } from 'react-router-dom';
 
 class ViewJob extends Component {
@@ -173,22 +173,25 @@ class ViewJob extends Component {
                     value={this.state.description}
                     onChange={this.handleActionInputChange}
                     name="description"
-                    placeholder="Description"
+                    placeholder="Description (required)"
                   />
-                  <input
-                    className="input-label"
-                    value={this.state.status}
-                    onChange={this.handleActionInputChange}
-                    name="status"
-                    placeholder="Status"
-                  />
+                <select name="status" onChange={this.handleActionInputChange} value={this.state.status} className="input-label">
+                  <option value="" disabled>
+                    -- Select a status --
+                  </option>
+                    <option value="No Action Needed">No Action Needed</option>
+                    <option value="Not Started">Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                  </select>  
+              
                   <button className="add-todo-btn" onClick={this.handleFormSubmit}>
                     Add
                   </button>
                 </form>
               </ActionModal>
 
-              <MyActions actions={this.state.actionsArray} />
+              <YourActions actions={this.state.actionsArray} />
             </div>
           </div>
         </div>
