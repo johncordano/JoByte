@@ -18,6 +18,10 @@ class Navbar extends React.Component {
     color: ''
   };
 
+  componentDidMount() {
+    this.handleClick();
+  }
+
   handleClick = () => {
     this.setState({
       bgColor: '#d3d3d3',
@@ -28,18 +32,36 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="sidebar">
-        <h2>joByte</h2>
+        <h2>JOByte</h2>
 
-        {/* <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}> */}
-        <div className="sidebar-icon">
-          <img src={DashboardIcon} alt="Dashboard icon" />
-          {/* <Link to="/dashboard" onClick={this.handleClick} style={{ color: this.state.color }}> */}
-          <Link to="/dashboard">Dashboard</Link>
-        </div>
-        <div className="sidebar-icon">
-          <img src={AddJobIcon} alt="Add a job icon" />
-          <Link to={'/job/new'}>Add a Job</Link>
-        </div>
+        {this.props.path === '/dashboard' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={DashboardIcon} alt="Dashboard icon" />
+            <Link to="/dashboard" onClick={this.handleClick} style={{ color: this.state.color }}>
+              Dashboard
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={DashboardIcon} alt="Dashboard icon" />
+            <Link to="/dashboard">Dashboard</Link>
+          </div>
+        )}
+
+        {this.props.path === '/job/new' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={AddJobIcon} alt="Add a job icon" />
+            <Link to="/job/new" onClick={this.handleClick} style={{ color: this.state.color }}>
+              Add a Job
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={AddJobIcon} alt="Add a job icon" />
+            <Link to={'/job/new'}>Add a Job</Link>
+          </div>
+        )}
+
         <div className="sidebar-icon">
           <img src={ContactsIcon} alt="Contacts icon" />
           <a href="calendar.html">Contacts</a>

@@ -47,7 +47,6 @@ class SignUp extends Component {
       <div className="login-container">
         <div className="signin">
           <img className="logo" src={Logo} alt="Logo" />
-          <h3>Create a new account!</h3>
 
           <form className="username-form ">
             <input

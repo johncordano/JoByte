@@ -50,7 +50,7 @@ class AddJob extends Component {
     // console.log(this.props.history);
     return (
       <div className="page">
-        <Navbar />
+        <Navbar path={this.props.match.path} />
         <div className="main-addjob">
           <div className="new-job">
             <h3>Add a Job</h3>
@@ -83,7 +83,7 @@ class AddJob extends Component {
                 </option>
                 <option value="Researching">Researching</option>
                 <option value="Applied">Applied</option>
-                <option value="Interviewing">Interviewing</option>
+                <option value="Interview Scheduled">Interview Scheduled</option>
                 <option value="Awaiting">Awaiting response</option>
                 <option value="Resolved">Resolved</option>
               </select>

@@ -138,7 +138,7 @@ class ViewJob extends Component {
               <select id="" onChange={this.handleDropdownChange} value={this.state.curJob.status}>
                 <option value="Researching">Researching</option>
                 <option value="Applied">Applied</option>
-                <option value="Interviewing">Interviewing</option>
+                <option value="Interview Scheduled">Interview Scheduled</option>
                 <option value="Awaiting">Awaiting response</option>
                 <option value="Resolved">Resolved</option>
               </select>

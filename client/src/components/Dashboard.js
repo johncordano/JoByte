@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
         researchCount++;
       } else if (job.status === 'Applied') {
         appliedCount++;
-      } else if (job.status === 'Interviewing') {
+      } else if (job.status === 'Interview Scheduled') {
         interviewingCount++;
       } else if (job.status === 'Awaiting') {
         awaitingCount++;
@@ -104,7 +104,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="page">
-        <Navbar />
+        <Navbar path={this.props.match.path} />
         <div className="main-single">
           <div className="container-dashboard">
             <div className="hello-container">
