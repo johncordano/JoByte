@@ -64,6 +64,10 @@ class Sidebar extends React.Component {
 
         <div className="sidebar-icon">
           <img src={ContactsIcon} alt="Contacts icon" />
+          <a href="/calendar">Calendar</a>
+        </div>
+        <div className="sidebar-icon">
+          <img src={ContactsIcon} alt="Contacts icon" />
           <a href="calendar.html">Contacts</a>
         </div>
         <div className="sidebar-icon">
