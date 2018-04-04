@@ -61,7 +61,21 @@ class Sidebar extends React.Component {
             <Link to={'/job/new'}>Add a Job</Link>
           </div>
         )}
-
+        
+        {this.props.path === '/calendar' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={AddJobIcon} alt="Calendar icon" />
+            <Link to='/calendar' onClick={this.handleClick} style={{ color: this.state.color }}>
+              Calendar
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={AddJobIcon} alt="Calendar icon" />
+            <Link to={'/calendar'}>Calendar</Link>
+          </div>
+        )}
+        
         <div className="sidebar-icon">
           <img src={ContactsIcon} alt="Contacts icon" />
           <a href="calendar.html">Contacts</a>
