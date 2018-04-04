@@ -52,6 +52,14 @@ class ViewJob extends Component {
       .catch(err => console.log(err));
   };
 
+  handleReset = () => {
+    this.setState({
+      date: new Date(),
+      description: '',
+      status: ''
+    });
+  };
+
   handleJobInputChange = event => {
     const { name, value } = event.target;
     const { curJob } = this.state;
@@ -106,6 +114,8 @@ class ViewJob extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    this.toggleOpen();
+    this.handleReset();
     API.addAction({
       date: this.state.date,
       description: this.state.description,
@@ -216,7 +226,7 @@ class ViewJob extends Component {
                 </form>
               </ActionModal>
 
-              <YourActions actions={this.state.actionsArray} />
+              <YourActions loadActions={this.loadActions} actions={this.state.actionsArray} />
             </div>
           </div>
         </div>

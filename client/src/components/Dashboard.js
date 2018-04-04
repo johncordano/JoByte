@@ -148,7 +148,7 @@ class Dashboard extends Component {
                       <h4>You have no saved actions. Navigate to a job to create actions for it.</h4>
                     </div>
                   ) : (
-                    <YourActions actions={this.state.actionsArray} />
+                    <YourActions loadActions={this.loadActions} actions={this.state.actionsArray} />
                   )}
                 </div>
               </Tab>

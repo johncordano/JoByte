@@ -35,7 +35,7 @@ class YourJobs extends Component {
                         }
                       }}
                     >
-                      <button data-id={data._id} id="view-btn">
+                      <button data-id={data._id} className="view-btn">
                         View Details
                       </button>
                     </Link>

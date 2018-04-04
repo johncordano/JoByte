@@ -363,21 +363,38 @@ a {
 .delete-btn,
 .add-todo-btn,
 .add-job-btn {
-  background: #242323;
-  color: white !important;
   padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 12px;
   float: right;
-  cursor: pointer;
-  display: inherit;
-  border-radius: 5px;
   margin-top: 30px;
   width: 150px;
 }
+.delete-action-btn {
+  width: 30px;
+  padding: 5px;
+}
 
-.save-btn {
+.view-btn {
+  padding: 10px 20px;
+}
+
+.save-btn,
+.delete-btn,
+.add-todo-btn,
+.add-job-btn,
+.delete-action-btn,
+.view-btn {
+  background: #242323;
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  display: inherit;
+  border-radius: 5px;
+}
+
+.save-btn,
+.delete-action-btn {
   float: right;
 }
 
@@ -481,7 +498,7 @@ tbody td {
   padding-left: 20px;
 }
 
-#view-btn,
+/* #view-btn,
 #add-todo {
   background: #242323;
   color: white !important;
@@ -493,7 +510,7 @@ tbody td {
   text-decoration: none;
   font-size: 12px;
   cursor: pointer;
-}
+} */
 
 /* View job */
 
