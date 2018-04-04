@@ -11,7 +11,7 @@ import ChartContainer from './ChartContainer';
 
 class Dashboard extends Component {
   state = {
-    jobsArray: [],
+    jobsArray: [''],
     actionsArray: [],
     YourJobsTableVisible: false,
     YourActionsTableVisible: false,
@@ -106,10 +106,10 @@ class Dashboard extends Component {
       <div className="page">
         <Sidebar path={this.props.match.path} />
         <div className="main-single">
-          <div className="container-dashboard">
-            <div className="hello-container">
-              <h3>Hello USER</h3>
-            </div>
+          <div className="container-dashboard dashboard-first-row">
+            {/* <div className="hello-container">
+              <h3>Welcome!</h3>
+            </div> */}
             <div className="chart-container" onClick={this.handleYourJobsClick.bind(this)}>
               <h3>Status of Your Jobs</h3>
 
@@ -121,16 +121,20 @@ class Dashboard extends Component {
                 resolved={this.state.resolvedCount}
               />
             </div>
+          </div>
 
+          <div className="container-dashboard">
             <Tabs defaultActiveKey={1} className="tab-container" id="tabs">
               <Tab eventKey={1} title="Your Jobs">
                 <div className="table-job">
                   {this.state.jobsArray.length === 0 ? (
                     <div className="nothing-inside">
                       <h4>You have no saved jobs.</h4>
-                      <button className="add-job-btn">
-                        <Link to="/job/new">Add Job</Link>
-                      </button>
+                      <div className="add-job-container">
+                        <Link to="/job/new">
+                          <button className="add-job-btn">Add Job</button>
+                        </Link>
+                      </div>
                     </div>
                   ) : (
                     <YourJobs jobs={this.state.jobsArray} />
@@ -139,7 +143,13 @@ class Dashboard extends Component {
               </Tab>
               <Tab eventKey={2} title="Your Actions">
                 <div className="table-job">
-                  <YourActions actions={this.state.actionsArray} />
+                  {this.state.actionsArray.length === 0 ? (
+                    <div className="nothing-inside">
+                      <h4>You have no saved actions. Navigate to a job to create actions for it.</h4>
+                    </div>
+                  ) : (
+                    <YourActions loadActions={this.loadActions} actions={this.state.actionsArray} />
+                  )}
                 </div>
               </Tab>
             </Tabs>

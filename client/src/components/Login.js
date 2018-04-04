@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import Logo from '../images/logo.svg';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
-import { withRouter } from 'react-router-dom';
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 
 class Login extends Component {
   state = {

@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 // Images
 import DashboardIcon from '../images/dashboard.svg';
 import AddJobIcon from '../images/add-job.svg';
+import CalendarIcon from '../images/calendar.svg';
 import ContactsIcon from '../images/contact.svg';
 import InterviewIcon from '../images/interview.svg';
 import SettingsIcon from '../images/settings.svg';
 import LogoutIcon from '../images/logout.svg';
+import LogoWhite from '../images/logoWhite.svg';
 
 // Components
 // import Dashboard from './Dashboard';
@@ -32,7 +34,9 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <h2>JOByte</h2>
+        <div className="logo-container">
+          <img className="logo" src={LogoWhite} alt="Logo" />
+        </div>
 
         {this.props.path === '/dashboard' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
@@ -75,25 +79,35 @@ class Sidebar extends Component {
             <Link to="/contacts">Contacts</Link>
           </div>
         )}
-  
+
         {this.props.path === '/calendar' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={ContactsIcon} alt="Calendar icon" />
+            <img src={CalendarIcon} alt="Calendar icon" />
             <Link to="/calendar" onClick={this.handleClick} style={{ color: this.state.color }}>
               Calendar
             </Link>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={ContactsIcon} alt="Calendar icon" />
+            <img src={CalendarIcon} alt="Calendar icon" />
             <Link to="/calendar">Calendar</Link>
           </div>
         )}
 
-        <div className="sidebar-icon">
-          <img src={InterviewIcon} alt="Interview icon" />
-          <a href="calendar.html">Interview Preparation</a>
-        </div>
+        {this.props.path === '/interview' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={InterviewIcon} alt="Interview icon" />
+            <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
+              Interview Preparation
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={InterviewIcon} alt="Interview icon" />
+            <Link to="/interview">Interview Preparation</Link>
+          </div>
+        )}
+
         <div className="sidebar-icon">
           <img src={SettingsIcon} alt="Settings icon" />
           <a href="calendar.html">Settings</a>
