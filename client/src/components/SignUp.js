@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import API from '../utils/API';
 import Logo from '../images/logo.svg';
 import { Link } from 'react-router-dom';
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 
 class SignUp extends Component {
   state = {
