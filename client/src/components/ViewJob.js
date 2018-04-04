@@ -75,14 +75,13 @@ class ViewJob extends Component {
       status: this.state.curJob.status
     })
       .then(console.log('Successfully updated job'))
+      .then(this.props.history.push('/dashboard'))
       .catch(err => console.log(err));
   };
 
   handleJobDelete = event => {
     event.preventDefault();
-    API.deleteJob({ id: this.state.curJob.id })
-      .then(this.props.history.push('/'))
-      .catch(err => console.log(err));
+    API.deleteJob({ id: this.state.curJob.id }).catch(err => console.log(err));
   };
 
   handleActionDelete = (event, id) => {
