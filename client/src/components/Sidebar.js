@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 // Images
@@ -12,7 +12,7 @@ import LogoutIcon from '../images/logout.svg';
 // Components
 // import Dashboard from './Dashboard';
 
-class Sidebar extends React.Component {
+class Sidebar extends Component {
   state = {
     bgColor: '',
     color: ''
@@ -62,10 +62,20 @@ class Sidebar extends React.Component {
           </div>
         )}
 
-        <div className="sidebar-icon">
-          <img src={ContactsIcon} alt="Contacts icon" />
-          <a href="calendar.html">Contacts</a>
-        </div>
+        {this.props.path === '/contacts' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={ContactsIcon} alt="Contacts icon" />
+            <Link to="/contacts" onClick={this.handleClick} style={{ color: this.state.color }}>
+              Contacts
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={ContactsIcon} alt="Contacts icon" />
+            <Link to={'/contacts'}>Contacts</Link>
+          </div>
+        )}
+
         <div className="sidebar-icon">
           <img src={InterviewIcon} alt="Interview icon" />
           <a href="calendar.html">Interview Preparation</a>

@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import YourJobs from './YourJobs';
-import MyActions from './MyActions';
+import YourActions from './YourActions';
 import { Tabs, Tab } from 'react-bootstrap';
 import ChartContainer from './ChartContainer';
 
 // import API from '../utils/API';
 
-class Dashboard extends React.Component {
+class Dashboard extends Component {
   state = {
     jobsArray: [],
     actionsArray: [],
     YourJobsTableVisible: false,
-    MyActionsTableVisible: false,
+    YourActionsTableVisible: false,
     ResearchingTableVisible: false,
     researchCount: 0,
     appliedCount: 0,
@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
   hideAllTables = () => {
     this.setState({
       YourJobsTableVisible: false,
-      MyActionsTableVisible: false,
+      YourActionsTableVisible: false,
       ResearchingTableVisible: false
     });
   };
@@ -58,11 +58,11 @@ class Dashboard extends React.Component {
     this.setState({ YourJobsTableVisible });
   };
 
-  handleMyActionsClick = () => {
+  handleYourActionsClick = () => {
     this.hideAllTables();
-    let { MyActionsTableVisible } = this.state.MyActionsTableVisible;
-    MyActionsTableVisible = MyActionsTableVisible ? false : true;
-    this.setState({ MyActionsTableVisible });
+    let { YourActionsTableVisible } = this.state.YourActionsTableVisible;
+    YourActionsTableVisible = YourActionsTableVisible ? false : true;
+    this.setState({ YourActionsTableVisible });
   };
 
   handleResearchingClick = () => {
@@ -139,7 +139,7 @@ class Dashboard extends React.Component {
               </Tab>
               <Tab eventKey={2} title="Your Actions">
                 <div className="table-job">
-                  <MyActions actions={this.state.actionsArray} />
+                  <YourActions actions={this.state.actionsArray} />
                 </div>
               </Tab>
             </Tabs>

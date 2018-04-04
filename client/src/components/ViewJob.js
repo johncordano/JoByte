@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import API from '../utils/API';
 import DatePicker from 'react-date-picker';
 import ActionModal from './ActionModal';
-import MyActions from './MyActions';
+import YourActions from './YourActions';
 import { withRouter } from 'react-router-dom';
 
 class ViewJob extends Component {
@@ -188,7 +188,7 @@ class ViewJob extends Component {
                 </form>
               </ActionModal>
 
-              <MyActions actions={this.state.actionsArray} />
+              <YourActions actions={this.state.actionsArray} />
             </div>
           </div>
         </div>

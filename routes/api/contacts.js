@@ -5,9 +5,8 @@ const controller = require('../../controllers/controller.js');
 
 router
   .route('/')
-  .get(controller.findAllJobs)
-  .post(controller.createJob)
-  .put(controller.updateJob)
-  .delete(controller.deleteJob);
+  .get(controller.findAllContacts)
+  .post(controller.createContact)
+  .delete(controller.deleteContact);
 
 module.exports = router;

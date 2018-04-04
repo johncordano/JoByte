@@ -13,7 +13,7 @@ var ContactSchema = new Schema({
   },
   email: {
     type: String,
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
   },
   phone: {
     type: String

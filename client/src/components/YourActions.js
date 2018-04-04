@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import ActionModal from './ActionModal';
 import DatePicker from 'react-date-picker';
 
-class MyActions extends Component {
+class YourActions extends Component {
   state = {
     isModalOpen: false
   };
@@ -59,4 +59,4 @@ class MyActions extends Component {
   }
 }
 
-export default MyActions;
+export default YourActions;
