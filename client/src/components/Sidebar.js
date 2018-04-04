@@ -94,10 +94,20 @@ class Sidebar extends Component {
           </div>
         )}
 
-        <div className="sidebar-icon">
-          <img src={InterviewIcon} alt="Interview icon" />
-          <a href="calendar.html">Interview Preparation</a>
-        </div>
+        {this.props.path === '/interview' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={InterviewIcon} alt="Interview icon" />
+            <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
+              Interview Preparation
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={InterviewIcon} alt="Interview icon" />
+            <Link to="/interview">Interview Preparation</Link>
+          </div>
+        )}
+
         <div className="sidebar-icon">
           <img src={SettingsIcon} alt="Settings icon" />
           <a href="calendar.html">Settings</a>

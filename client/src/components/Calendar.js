@@ -3,6 +3,7 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import API from '../utils/API';
 import Sidebar from './Sidebar';
+import '../Calendar.css';
 
 // set up the calendar views to use the moment date localizer
 BigCalendar.momentLocalizer(moment);

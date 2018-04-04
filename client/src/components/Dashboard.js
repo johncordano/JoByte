@@ -11,7 +11,7 @@ import ChartContainer from './ChartContainer';
 
 class Dashboard extends Component {
   state = {
-    jobsArray: [],
+    jobsArray: [''],
     actionsArray: [],
     YourJobsTableVisible: false,
     YourActionsTableVisible: false,
