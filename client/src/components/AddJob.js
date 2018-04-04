@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import { withRouter } from 'react-router-dom';
 
 class AddJob extends Component {
@@ -50,7 +50,7 @@ class AddJob extends Component {
     // console.log(this.props.history);
     return (
       <div className="page">
-        <Navbar path={this.props.match.path} />
+        <Sidebar path={this.props.match.path} />
         <div className="main-addjob">
           <div className="new-job">
             <h3>Add a Job</h3>

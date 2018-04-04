@@ -12,7 +12,7 @@ import LogoutIcon from '../images/logout.svg';
 // Components
 // import Dashboard from './Dashboard';
 
-class Navbar extends React.Component {
+class Sidebar extends React.Component {
   state = {
     bgColor: '',
     color: ''
@@ -83,4 +83,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default Sidebar;
