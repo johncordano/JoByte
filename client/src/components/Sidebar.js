@@ -8,6 +8,7 @@ import ContactsIcon from '../images/contact.svg';
 import InterviewIcon from '../images/interview.svg';
 import SettingsIcon from '../images/settings.svg';
 import LogoutIcon from '../images/logout.svg';
+import LogoWhite from '../images/logoWhite.svg';
 
 // Components
 // import Dashboard from './Dashboard';
@@ -32,7 +33,9 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <h2>JOByte</h2>
+        <div className="logo-container">
+          <img className="logo" src={LogoWhite} alt="Logo" />
+        </div>
 
         {this.props.path === '/dashboard' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
@@ -75,7 +78,7 @@ class Sidebar extends Component {
             <Link to="/contacts">Contacts</Link>
           </div>
         )}
-  
+
         {this.props.path === '/calendar' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
             <img src={ContactsIcon} alt="Calendar icon" />

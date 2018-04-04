@@ -128,9 +128,11 @@ class Dashboard extends Component {
                   {this.state.jobsArray.length === 0 ? (
                     <div className="nothing-inside">
                       <h4>You have no saved jobs.</h4>
-                      <button className="add-job-btn">
-                        <Link to="/job/new">Add Job</Link>
-                      </button>
+                      <div className="add-job-container">
+                        <Link to="/job/new">
+                          <button className="add-job-btn">Add Job</button>
+                        </Link>
+                      </div>
                     </div>
                   ) : (
                     <YourJobs jobs={this.state.jobsArray} />
@@ -139,7 +141,13 @@ class Dashboard extends Component {
               </Tab>
               <Tab eventKey={2} title="Your Actions">
                 <div className="table-job">
-                  <YourActions actions={this.state.actionsArray} />
+                  {this.state.actionsArray.length === 0 ? (
+                    <div className="nothing-inside">
+                      <h4>You have no saved actions. Navigate to a job to create actions for it.</h4>
+                    </div>
+                  ) : (
+                    <YourActions actions={this.state.actionsArray} />
+                  )}
                 </div>
               </Tab>
             </Tabs>
