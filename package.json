@@ -20,6 +20,8 @@
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "mongoose": "^5.0.12"
+    "moment": "^2.22.0",
+    "mongoose": "^5.0.12",
+    "react-big-calendar": "^0.19.0"
   }
 }
