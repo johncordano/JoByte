@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 
 // set up the calendar views to use the basic ones from BigCalendar
 BigCalendar.momentLocalizer(moment);
-let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
+// let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
 class Calendar extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class Calendar extends Component {
         <div className="calendar-container">
         <BigCalendar
           events={this.state.events ? this.state.events : []}
-          views={allViews}
+          views={['month','week','work_week', 'day']}
           step={60}
           showMultiDayTimes
           defaultDate={new Date()}
