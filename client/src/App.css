@@ -682,7 +682,7 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-event {
   padding: 2px 5px;
-  background-color: #3174ad;
+  background-color: #016c5a;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -692,7 +692,7 @@ button.rbc-input::-moz-focus-inner {
   pointer-events: none;
 }
 .rbc-event.rbc-selected {
-  background-color: #265985;
+  background-color: #242323;
 }
 .rbc-event-label {
   font-size: 80%;
