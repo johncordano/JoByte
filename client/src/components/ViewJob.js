@@ -22,13 +22,22 @@ class ViewJob extends Component {
       date: new Date(),
       description: '',
       status: '',
-      isModalOpen: false
+      isModalOpen: false,
+      savedButton: false,
+      bgColor: ''
     };
   }
 
   componentDidMount() {
     this.loadActions();
+    this.savedButton();
   }
+
+  savedButton = () => {
+    this.setState({
+      savedButton: false
+    });
+  };
 
   toggleOpen = () => {
     this.setState({
@@ -67,6 +76,7 @@ class ViewJob extends Component {
 
   handleJobUpdate = event => {
     event.preventDefault();
+
     API.updateJob({
       id: this.state.curJob.id,
       company: this.state.curJob.company,
@@ -74,8 +84,8 @@ class ViewJob extends Component {
       link: this.state.curJob.link,
       status: this.state.curJob.status
     })
-      .then(console.log('Successfully updated job'))
-      .then(this.props.history.push('/dashboard'))
+      .then(this.setState({ savedButton: true }))
+      // .then(this.props.history.push('/dashboard'))
       .catch(err => console.log(err));
   };
 
@@ -107,6 +117,8 @@ class ViewJob extends Component {
   };
 
   render() {
+    console.log(this.state.savedButton);
+
     return (
       <div className="page">
         <Sidebar />
@@ -147,9 +159,16 @@ class ViewJob extends Component {
                 <button className="delete-btn" onClick={this.handleJobDelete}>
                   Delete Job
                 </button>
-                <button className="save-btn" onClick={this.handleJobUpdate}>
-                  Save Changes
-                </button>
+
+                {this.state.savedButton ? (
+                  <button className="save-btn" onClick={this.handleJobUpdate} style={{ backgroundColor: '#016c5a' }}>
+                    Saved!
+                  </button>
+                ) : (
+                  <button className="save-btn" onClick={this.handleJobUpdate}>
+                    Save Changes
+                  </button>
+                )}
               </div>
             </form>
           </div>
