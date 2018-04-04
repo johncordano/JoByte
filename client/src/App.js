@@ -8,6 +8,7 @@ import AddJob from './components/AddJob';
 import ViewJob from './components/ViewJob';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Calendar from './components/Calendar';
 // import Myjobs from './components/Myjobs';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/job/new" component={AddJob} />
           <Route path="/job/view" component={ViewJob} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/calendar" component={Calendar} />
         </div>
       </div>
     );
@@ -28,3 +30,4 @@ class App extends Component {
 }
 
 export default App;
+
