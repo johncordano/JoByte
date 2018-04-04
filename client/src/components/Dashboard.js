@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -9,7 +9,7 @@ import ChartContainer from './ChartContainer';
 
 // import API from '../utils/API';
 
-class Dashboard extends React.Component {
+class Dashboard extends Component {
   state = {
     jobsArray: [],
     actionsArray: [],
