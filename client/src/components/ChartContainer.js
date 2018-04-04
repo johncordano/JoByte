@@ -23,21 +23,14 @@ class ChartContainer extends Component {
   };
 
   render() {
-    // const customStyle = {
-    //   '.bar': {
-    //     padding: '12px'
-    //   }
-    // };
-
     return (
       <div className="App">
         <BarChart
-          axisLabels={{ x: 'My x Axis', y: 'My y Axis' }}
           grid
           axes
           colorBars
-          height={250}
-          width={500}
+          height={300}
+          width={900}
           data={[
             { x: 'Researching', y: this.props.researching, color: '#C46882' },
             { x: 'Applied', y: this.props.applied, color: '#975DA8' },

@@ -106,10 +106,10 @@ class Dashboard extends Component {
       <div className="page">
         <Sidebar path={this.props.match.path} />
         <div className="main-single">
-          <div className="container-dashboard">
-            <div className="hello-container">
-              <h3>Hello USER</h3>
-            </div>
+          <div className="container-dashboard dashboard-first-row">
+            {/* <div className="hello-container">
+              <h3>Welcome!</h3>
+            </div> */}
             <div className="chart-container" onClick={this.handleYourJobsClick.bind(this)}>
               <h3>Status of Your Jobs</h3>
 
@@ -121,7 +121,9 @@ class Dashboard extends Component {
                 resolved={this.state.resolvedCount}
               />
             </div>
+          </div>
 
+          <div className="container-dashboard">
             <Tabs defaultActiveKey={1} className="tab-container" id="tabs">
               <Tab eventKey={1} title="Your Jobs">
                 <div className="table-job">
