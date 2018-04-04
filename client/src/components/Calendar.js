@@ -40,6 +40,7 @@ class Calendar extends Component {
     return (
       <div className="page">
         <Sidebar path={this.props.match.path}/>
+        <div className="calendar-container">
         <BigCalendar
           events={this.state.events ? this.state.events : []}
           views={allViews}
@@ -47,6 +48,7 @@ class Calendar extends Component {
           showMultiDayTimes
           defaultDate={new Date()}
           />
+        </div>
       </div>
     );
   }

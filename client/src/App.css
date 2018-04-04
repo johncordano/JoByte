@@ -288,7 +288,8 @@ a {
 .job-container,
 .todos-container,
 .chart-container,
-.tab-container {
+.tab-container,
+.calendar-container {
   background: white;
   padding: 40px;
   border-radius: 5px;
@@ -301,6 +302,9 @@ a {
 }
 .new-job {
   margin: 83px 50% 0 70px;
+}
+.calendar-container {
+  margin: 83px 70px 0 70px;
 }
 
 .job-container {
