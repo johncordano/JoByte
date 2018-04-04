@@ -86,7 +86,7 @@ class Sidebar extends Component {
         ) : (
           <div className="sidebar-icon">
             <img src={ContactsIcon} alt="Calendar icon" />
-            <Link to="/calendar">Contacts</Link>
+            <Link to="/calendar">Calendar</Link>
           </div>
         )}
 

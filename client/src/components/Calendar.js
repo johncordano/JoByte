@@ -42,7 +42,7 @@ class Calendar extends Component {
         <div className="calendar-container">
         <BigCalendar
           events={this.state.events ? this.state.events : []}
-          views={['month','week','work_week', 'day']}
+          views={['month']}
           step={60}
           showMultiDayTimes
           defaultDate={new Date()}
