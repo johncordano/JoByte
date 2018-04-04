@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // Images
 import DashboardIcon from '../images/dashboard.svg';
 import AddJobIcon from '../images/add-job.svg';
+import CalendarIcon from '../images/calendar.svg';
 import ContactsIcon from '../images/contact.svg';
 import InterviewIcon from '../images/interview.svg';
 import SettingsIcon from '../images/settings.svg';
@@ -81,14 +82,14 @@ class Sidebar extends Component {
 
         {this.props.path === '/calendar' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={ContactsIcon} alt="Calendar icon" />
+            <img src={CalendarIcon} alt="Calendar icon" />
             <Link to="/calendar" onClick={this.handleClick} style={{ color: this.state.color }}>
               Calendar
             </Link>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={ContactsIcon} alt="Calendar icon" />
+            <img src={CalendarIcon} alt="Calendar icon" />
             <Link to="/calendar">Calendar</Link>
           </div>
         )}
