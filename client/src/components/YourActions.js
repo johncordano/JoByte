@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import ViewJob from './ViewJob';
 // import SummaryGraph from './SummaryGraph';
 import ActionModal from './ActionModal';
 import DatePicker from 'react-date-picker';
+import moment from 'moment';
 
 class YourActions extends Component {
   state = {
@@ -16,7 +17,7 @@ class YourActions extends Component {
     });
   };
 
-  render() {
+  render() {  
     return (
       <div className="table-job">
         <table className="rtable">
@@ -24,7 +25,7 @@ class YourActions extends Component {
             <tr>
               <th>Date</th>
               <th>Description</th>
-              <th>Completed</th>
+              <th>Status</th>
               <th />
             </tr>
           </thead>
@@ -32,22 +33,10 @@ class YourActions extends Component {
             {this.props.actions.map(data => {
               return (
                 <tr key={data._id}>
-                  <td>{data.date}</td>
+                  <td>{moment(data.date).format("MM/DD/YYYY")}</td>
                   <td>{data.description}</td>
-                  <td>{JSON.stringify(data.status)}</td>
-                  <td>
-                    {/*<Link
-                      to={{
-                        pathname: '/job/view',
-                        state: {
-                          jobInfo: data
-                        }
-                      }}
-                    >
-                      <button data-id={data._id} id="view-btn">
-                        View
-                      </button>
-                    </Link> */}
+                  <td>{data.status}</td>
+                  <td>              
                   </td>
                 </tr>
               );

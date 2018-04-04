@@ -72,7 +72,21 @@ class Sidebar extends Component {
         ) : (
           <div className="sidebar-icon">
             <img src={ContactsIcon} alt="Contacts icon" />
-            <Link to={'/contacts'}>Contacts</Link>
+            <Link to="/contacts">Contacts</Link>
+          </div>
+        )}
+  
+        {this.props.path === '/calendar' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <img src={ContactsIcon} alt="Calendar icon" />
+            <Link to="/calendar" onClick={this.handleClick} style={{ color: this.state.color }}>
+              Calendar
+            </Link>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <img src={ContactsIcon} alt="Calendar icon" />
+            <Link to="/calendar">Contacts</Link>
           </div>
         )}
 
