@@ -75,13 +75,14 @@ class ViewJob extends Component {
       status: this.state.curJob.status
     })
       .then(console.log('Successfully updated job'))
+      .then(this.props.history.push('/dashboard'))
       .catch(err => console.log(err));
   };
 
   handleJobDelete = event => {
     event.preventDefault();
     API.deleteJob({ id: this.state.curJob.id })
-      .then(this.props.history.push('/'))
+      .then(this.props.history.push('/dashboard'))
       .catch(err => console.log(err));
   };
 
@@ -175,16 +176,21 @@ class ViewJob extends Component {
                     name="description"
                     placeholder="Description (required)"
                   />
-                <select name="status" onChange={this.handleActionInputChange} value={this.state.status} className="input-label">
-                  <option value="" disabled>
-                    -- Select a status --
-                  </option>
+                  <select
+                    name="status"
+                    onChange={this.handleActionInputChange}
+                    value={this.state.status}
+                    className="input-label"
+                  >
+                    <option value="" disabled>
+                      -- Select a status --
+                    </option>
                     <option value="No Action Needed">No Action Needed</option>
                     <option value="Not Started">Not Started</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Done">Done</option>
-                  </select>  
-              
+                  </select>
+
                   <button className="add-todo-btn" onClick={this.handleFormSubmit}>
                     Add
                   </button>
