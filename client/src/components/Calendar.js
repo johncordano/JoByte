@@ -4,9 +4,8 @@ import moment from 'moment';
 import API from '../utils/API';
 import Sidebar from './Sidebar';
 
-// set up the calendar views to use the basic ones from BigCalendar
+// set up the calendar views to use the moment date localizer
 BigCalendar.momentLocalizer(moment);
-// let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
 class Calendar extends Component {
   constructor(props) {
