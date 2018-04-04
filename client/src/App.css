@@ -409,6 +409,12 @@ a {
   width: 100%;
 }
 
+.add-todo-btn-job-view {
+  width: 120px;
+  padding: 10px;
+  margin: 0 0 40px 0;
+}
+
 .add-todo-btn-short {
   background: #242323;
   color: white !important;
