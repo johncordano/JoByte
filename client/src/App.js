@@ -65,7 +65,7 @@ class App extends Component {
     const availableRoutes = !isLoggedIn ? (
         <div>
           <Route 
-            exact path='/'
+            path='/'
             render={() => 
               <LoginForm
                 updateUser={this.updateUser}

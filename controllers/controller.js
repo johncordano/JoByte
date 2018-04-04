@@ -20,7 +20,13 @@ const db = require('../models');
       .catch(err => res.status(422).json(err));
   }
   exports.createJob = function(req, res) {
-    db.Job.create(req.body)
+    db.Job.create({
+        company: req.body.company,
+        position:req.body.position,
+        link:req.body.link,
+        status: req.body.status,
+        userId: req.user._id
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

@@ -17,6 +17,9 @@ var JobSchema = new Schema({
   status: {
     type: String
   },
+  userId: {
+    type: String
+  },
   actions: [
     {
       type: Schema.Types.ObjectId,

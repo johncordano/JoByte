@@ -68,7 +68,7 @@ class Navbar extends React.Component {
         <div className="icon" onClick={this.logout}>
           <img src={LogoutIcon} alt="Logout icon" />
 
-          <a href="#">Logout</a>
+          <a href="/">Logout</a>
         </div>
       </div>
     );
