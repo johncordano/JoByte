@@ -27,8 +27,9 @@ class LoginForm extends Component {
         console.log('handleSubmit')
 
         axios
-            .post('/user/login', {
-                username: this.state.username,
+            .post('/signin', {
+                // username: this.state.username,
+                email: this.state.email,
                 password: this.state.password
 
             })
@@ -37,14 +38,16 @@ class LoginForm extends Component {
                 console.log(response)
                 if (response.status === 200) {
                     // update App.js state
+                    // console.log('banana', response)
                     this.props.updateUser({
                         loggedIn: true,
-                        username: response.data.username
+                        email: response.data.email,
+                        userId: response.data._id
                     })
-                    // update the state to redirect to home
-                    this.setState({
-                        redirectTo: '/'
-                    })
+                    // // update the state to redirect to home
+                    // this.setState({
+                    //     redirectTo: '/dashboard'
+                    // })
                 }
             }).catch(error => {
                 console.log('login error: ')
@@ -54,24 +57,24 @@ class LoginForm extends Component {
     }
 
     render() {
-        if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
-        } else {
+        // if (this.state.redirectTo) {
+        //     return <Redirect to={{ pathname: this.state.redirectTo }} />
+        // } else {
             return (
                 <div>
                     <h4>Login</h4>
                     <form className="">
                         <div className="">
                             <div className="">
-                                <label className="" htmlFor="username">Username</label>
+                                <label className="" htmlFor="email">Email</label>
                             </div>
                             <div className="">
                                 <input className=""
                                     type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="username"
-                                    value={this.state.username}
+                                    id="email"
+                                    name="email"
+                                    placeholder="email"
+                                    value={this.state.email}
                                     onChange={this.handleChange}
                                 />
                             </div>
@@ -101,7 +104,7 @@ class LoginForm extends Component {
                     </form>
                 </div>
             )
-        }
+        // }
     }
 }
 

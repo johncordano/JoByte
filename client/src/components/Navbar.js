@@ -23,12 +23,13 @@ class Navbar extends React.Component {
     logout(event) {
         event.preventDefault()
         console.log('logging out')
-        axios.post('/user/logout').then(response => {
+        axios.post('/logout').then(response => {
           console.log(response.data)
           if (response.status === 200) {
             this.props.updateUser({
               loggedIn: false,
-              username: null
+              email: null,
+              userId: null
             })
           }
         }).catch(error => {
@@ -38,15 +39,15 @@ class Navbar extends React.Component {
 
   render() {
     const loggedIn = this.props.loggedIn;
-    console.log('navbar render, props: ')
-    console.log(this.props);
+    // console.log('navbar render, props: ')
+    // console.log(this.props);
 
     return (
       <div className="sidebar">
         <h2>joByte</h2>
         <div className="icon">
           <img src={DashboardIcon} alt="Dashboard icon" />
-          <Link to="/">Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </div>
         <div className="icon">
           <img src={AddJobIcon} alt="Add a job icon" />

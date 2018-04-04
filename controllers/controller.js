@@ -1,27 +1,35 @@
-var db = require('../models');
+exports = module.exports = {}
+const db = require('../models');
 
-module.exports = {
+  exports.logout = function(req, res) {
+    if (req.user) {
+      req.logout()
+      res.send({msg: 'logging out'})
+    } else {
+      res.send({msg: 'no user to log out'})
+    }
+  }
 
 // ================================
 //            JOB METHODS
 // ================================
 
-  findAllJobs: function(req, res) {
-    db.Job.find().sort({status: 1})
+  exports.findAllJobs = function(req, res) {
+    db.Job.find({userId: req.user._id}).sort({status: 1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  createJob: function(req, res) {
+  }
+  exports.createJob = function(req, res) {
     db.Job.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  deleteJob: function(req, res) {
+  }
+  exports.deleteJob = function(req, res) {
     db.Job.deleteOne({_id:req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  updateJob: function(req, res) {
+  }
+  exports.updateJob = function(req, res) {
     db.Job.update(
       { _id: req.body.id },
       {
@@ -34,33 +42,33 @@ module.exports = {
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
-  },
+  }
 
 // ================================
 //            ACTION METHODS
 // ================================
 
-  findJobActions: function(req, res) {
+  exports.findJobActions = function(req, res) {
     db.Action.find({ jobId: req.params.id }).sort({ date: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  findAllActions: function(req, res) {
+  }
+  exports.findAllActions = function(req, res) {
     db.Action.find({}).sort({ date:1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  createAction: function(req, res) {
+  }
+  exports.createAction = function(req, res) {
     db.Action.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  deleteAction: function(req, res) {
+  }
+  exports.deleteAction = function(req, res) {
     db.Action.deleteOne({_id: req.query.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
-};
+
 
 // exports.index = (req, res) => {
 //   db.Article.find({})

@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Link } from 'react-router-dom';
 import './App.css';
+import { Tabs, Tab } from 'react-bootstrap';
 
 // Components
+import Navbar from './components/Navbar';
 import Signup from './components/Sign-up'
 import LoginForm from './components/Login-form'
 import Dashboard from './components/Dashboard';
@@ -17,7 +19,8 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      userId: null,
+      email: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -36,50 +39,63 @@ class App extends Component {
   getUser() {
     axios.get('/user').then(response => {
       console.log('Get user response: ')
-      console.log('here!',response.data)
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          userId: response.data.user._id,
+          email: response.data.user.email
         })
       } else {
         console.log('Get user: no user');
         this.setState({
           loggedIn: false,
-          username: null
+          userId: null,
+          email: null
         })
       }
     })
   }
 
   render() {
-    console.log('log from app.js, loggedIn:', this.state.loggedIn, 'as', this.state.username)
-    return (
-      <div>
-
-        <Route 
-          exact path='/'
-          render={() => 
-            <LoginForm
-              updateUser={this.updateUser}
+    console.log('from app...userID:', this.state.userId)
+    console.log('log from app.js, loggedIn:', this.state.loggedIn, 'as', this.state.email)
+    const isLoggedIn = this.state.loggedIn
+    const availableRoutes = !isLoggedIn ? (
+        <div>
+          <Route 
+            exact path='/'
+            render={() => 
+              <LoginForm
+                updateUser={this.updateUser}
+                />}
+          />
+          <Route
+            exact path='/signup'
+            render={() =>
+              <Signup 
+                signup={this.signup}
               />}
-        />
-        <Route
-          path='/signup'
-          render={() =>
-            <Signup 
-              signup={this.signup}
-            />}
-        />
+          />
+        </div>
+        ) : (
+          <div>
+            <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+            <Route exact path = "/dashboard" component={Dashboard} userId={this.state.userId} />
+            <Route exact path="/job/new" component={AddJob} />
+            <Route path="/job/view" component={ViewJob} />
+          </div>
+        )
 
-        <Route exact path = "/dashboard" component={Dashboard} />
-        <Route exact path="/job/new" component={AddJob} />
-        <Route path="/job/view" component={ViewJob} />
-      </div>
-    );
-  }
+      return (
+        <div>
+
+        {availableRoutes}
+        </div>
+        )
+      }
+
 }
 
 export default App;

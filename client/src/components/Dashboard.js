@@ -1,7 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 // import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import Myjobs from './Myjobs';
 import MyActions from './MyActions';
 import { Tabs, Tab } from 'react-bootstrap';
@@ -10,18 +10,30 @@ import ChartContainer from './ChartContainer';
 // import API from '../utils/API';
 
 class Dashboard extends React.Component {
-  state = {
-    jobsArray: [],
-    actionsArray: [],
-    MyJobsTableVisible: false,
-    MyActionsTableVisible: false,
-    ResearchingTableVisible: false,
-    researchCount: 0,
-    appliedCount: 0,
-    interviewingCount: 0,
-    awaitingCount: 0,
-    resolvedCount: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      // userId: this.props.userId
+      jobsArray: [],
+      actionsArray: [],
+      MyJobsTableVisible: false,
+      MyActionsTableVisible: false,
+      ResearchingTableVisible: false,
+      researchCount: 0,
+      appliedCount: 0,
+      interviewingCount: 0,
+      awaitingCount: 0,
+      resolvedCount: 0
+    }
+  }
+
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('nxtprops...', nextProps)
+  //   if (nextProps.userId && !this.props.userId) {
+  //     this.loadJob();
+  //     this.loadActions();
+  //   }
+  // }
 
   componentDidMount() {
     this.loadJob();
@@ -29,6 +41,7 @@ class Dashboard extends React.Component {
   }
 
   loadJob = () => {
+    console.log('\n\n-----\nhere, look for id',this.props.userId)
     API.getJob()
       .then(res => {
         this.setState({ jobsArray: res.data });
@@ -104,7 +117,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="page">
-        <Navbar />
         <div className="main-single">
           <div className="container-dashboard">
             <div className="hello-container">

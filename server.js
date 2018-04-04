@@ -10,9 +10,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
+// const routes = require('./routes');
 const dbConnection = require('./database') 
-const passport = require('./passport');
+const passport = require('passport');
 
 // Initialiaze express...
 var app = express();
@@ -50,7 +50,14 @@ app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
 // load ROUTES
-app.use(routes);
+// app.use(routes);
+
+
+//Routes
+const authRoute = require('./routes/routes.js')(app,passport);
+ 
+//load passport strategies
+require('./passport/passport.js')(passport, db.User);
 
 app.listen(PORT, function() {
   console.log('App running on port', PORT);

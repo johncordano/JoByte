@@ -5,8 +5,8 @@ export default {
   //             JOB REQUESTS
   // ============================
 
-  getJob: function() {
-    return axios.get('/api/job');
+  getJob: function(userData) {
+    return axios.get('/api/job', userData);
   },
   addJob: function(jobData) {
     return axios.post('/api/job', jobData);
