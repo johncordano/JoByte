@@ -89,7 +89,7 @@ class Contacts extends Component {
               </button>
             </div>
           ) : (
-            <div>
+            <div className="contacts-table">
               <div className="contacts-header">
                 <h3>Contacts</h3>
                 <button onClick={this.toggleOpen} className="add-contact-btn-header">

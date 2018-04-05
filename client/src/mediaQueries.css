@@ -71,14 +71,18 @@
   }
 }
 
-@media screen and (min-width: 760px) and (max-width: 1050px) {
-  .container-dashboard {
+@media screen and (min-width: 759px) and (max-width: 1050px) {
+  .contacts-container table {
+    margin-top: 0;
+  }
+  .container-dashboard,
+  .contacts-container {
     min-width: 700px;
     margin: 20px;
   }
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (max-width: 759px), (min-device-width: 760px) and (max-device-width: 1024px) {
   /* Force table to not be like tables anymore */
   table,
   thead,
@@ -89,27 +93,44 @@
     display: block;
   }
 
+  .contacts-table table {
+    margin: 0;
+    padding-top: 70px;
+  }
+
+  .delete-contact-btn {
+    float: none;
+  }
+
+  .calendar-container {
+    min-width: 400px;
+  }
+
   /* Hide table headers (but not display: none;, for accessibility) */
-  thead tr {
+  .table-job table thead tr,
+  .contacts-table table thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
 
-  tr,
-  tbody tr:last-child {
+  .table-job table tr,
+  .contacts-table table tr,
+  .contacts-table table tbody tr:last-child,
+  .table-job tbody tr:last-child {
     border: 1px solid #ccc;
   }
 
-  td {
+  .table-job table td,
+  .contacts-table table td {
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 50%;
   }
 
-  td:before {
+  .table-job table td:before,
+  .contacts-table table td:before {
     /* Now like a table header */
     position: absolute;
     /* Top/left values mimic padding */
@@ -121,19 +142,52 @@
   }
 
   /* Label the data */
-  td:nth-of-type(1):before {
+  .table-job table td:nth-of-type(1):before {
     content: 'Company: ';
     font-weight: bold;
     position: initial;
   }
 
-  td:nth-of-type(2):before {
+  .table-job table td:nth-of-type(2):before {
     content: 'Position: ';
     font-weight: bold;
     position: initial;
   }
-  td:nth-of-type(3):before {
+  .table-job table td:nth-of-type(3):before {
     content: 'Status: ';
+    font-weight: bold;
+    position: initial;
+  }
+
+  /* Label the data */
+  .contacts-table table td:nth-of-type(1):before {
+    content: 'Name: ';
+    font-weight: bold;
+    position: initial;
+  }
+
+  .contacts-table table td:nth-of-type(2):before {
+    content: 'Company: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(3):before {
+    content: 'Position: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(4):before {
+    content: 'E-mail: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(5):before {
+    content: 'Phone: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(6):before {
+    content: 'Notes: ';
     font-weight: bold;
     position: initial;
   }
