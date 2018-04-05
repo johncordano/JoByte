@@ -4,8 +4,6 @@ import API from '../utils/API';
 class Contact extends Component {
   state = {
     isEditing: false,
-    // contactsArray: [''],
-    // isModalOpen: false,
     name: this.props.data.name,
     company: this.props.data.company,
     position: this.props.data.position,

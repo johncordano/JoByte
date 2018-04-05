@@ -119,24 +119,6 @@ class Contacts extends Component {
                         data={data}
                         key={data._id}
                       />
-                      // <tr key={i}>
-                      //   <td>{data.name}</td>
-                      //   <td>{data.company}</td>
-                      //   <td>{data.position}</td>
-                      //   <td>{data.email}</td>
-                      //   <td>{data.phone}</td>
-                      //   <td>{data.notes}</td>
-                      //   <td>
-                      //     <button
-                      //       data-id={data._id}
-                      //       className="delete-contact-btn"
-                      //       id="view-btn"
-                      //       onClick={this.handleContactDelete}
-                      //     >
-                      //       x
-                      //     </button>
-                      //   </td>
-                      // </tr>
                     );
                   })}
                 </tbody>
