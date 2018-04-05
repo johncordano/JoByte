@@ -83,6 +83,48 @@
 }
 
 @media only screen and (max-width: 759px), (min-device-width: 760px) and (max-device-width: 1024px) {
+  body {
+    display: inline-grid;
+    background: white;
+  }
+
+  .job-container {
+    min-width: 350px;
+  }
+
+  .delete-btn,
+  .save-btn {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .update-job-form select {
+    padding: 5px;
+  }
+
+  .link-job-btn {
+    background: white;
+  }
+
+  .tab-container,
+  .new-job,
+  .contacts-container,
+  .calendar-container,
+  .job-container,
+  .todos-container {
+    box-shadow: none;
+  }
+
+  .contacts-container,
+  .new-job,
+  .container-dashboard,
+  .tab-container,
+  .calendar-container,
+  .job-container,
+  .todos-container {
+    margin: 0;
+  }
+
   /* Force table to not be like tables anymore */
   table,
   thead,
@@ -108,28 +150,53 @@
 
   /* Hide table headers (but not display: none;, for accessibility) */
   .table-job table thead tr,
-  .contacts-table table thead tr {
+  .contacts-table table thead tr,
+  .todos-container table thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
 
   .table-job table tr,
+  .todos-container table tr,
   .contacts-table table tr,
+  .todos-container table tbody tr:last-child,
   .contacts-table table tbody tr:last-child,
   .table-job tbody tr:last-child {
     border: 1px solid #ccc;
   }
 
   .table-job table td,
-  .contacts-table table td {
+  .contacts-table table td,
+  .todos-container table td {
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
   }
 
+  #saved-jobs tr {
+    border: none !important;
+  }
+
+  .add-todo-btn-job-view {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .login-form input,
+  .update-job-form input,
+  .update-job-form select,
+  .add-job-form input,
+  .add-job-form select,
+  .add-todo select,
+  .add-contact select,
+  .todos-container select {
+    border: 1px solid #eee;
+  }
+
   .table-job table td:before,
+  .todos-container table td:before,
   .contacts-table table td:before {
     /* Now like a table header */
     position: absolute;

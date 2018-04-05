@@ -127,7 +127,6 @@ class ViewJob extends Component {
   };
 
   render() {
-
     return (
       <div className="page">
         <Sidebar />
