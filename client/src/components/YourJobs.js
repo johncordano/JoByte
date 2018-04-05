@@ -18,9 +18,9 @@ class YourJobs extends Component {
             </tr>
           </thead>
           <tbody className="tbody saved-jobs" id="saved-jobs">
-            {this.props.jobs.map(data => {
+            {this.props.jobs.forEach((data, i) => {
               return (
-                <tr key={data._id}>
+                <tr key={i}>
                   <td>{data.company}</td>
                   <td>{data.position}</td>
                   <td>{data.status}</td>
