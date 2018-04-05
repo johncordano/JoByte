@@ -35,7 +35,6 @@ class Contacts extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // this.toggleOpen();
     this.handleReset();
 
     API.addContact({
@@ -47,6 +46,7 @@ class Contacts extends Component {
       notes: this.state.notes
     })
       .then(this.loadContacts())
+      .then(this.toggleOpen())
       .catch(err => console.log(err));
   };
 

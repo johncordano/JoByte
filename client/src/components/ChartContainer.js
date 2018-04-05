@@ -40,12 +40,12 @@ class ChartContainer extends Component {
       { x: 'Resolved', y: this.props.resolved, color: '#99D285' }
     ];
 
-    const pieData = [
-      { key: 'Researching', value: this.props.researching, color: '#C46882' },
-      { key: 'Applied', value: this.props.applied, color: '#975DA8' },
-      { key: 'Interviews', value: this.props.interviewing, color: '#9186FB' },
-      { key: 'Awaiting', value: this.props.awaiting, color: '#86DDE4' },
-      { key: 'Resolved', value: this.props.resolved, color: '#99D285' }
+    const config = [
+      { color: '#C46882' },
+      { color: '#975DA8' },
+      { color: '#9186FB' },
+      { color: '#86DDE4' },
+      { color: '#99D285' }
     ];
 
     const defaultStyles = {
@@ -62,8 +62,29 @@ class ChartContainer extends Component {
           {matches =>
             matches ? (
               <div className="piechart">
-                <PieChart size={300} labels padding={20} data={pieData} />
-                <Legend data={pieData} dataId={'key'} styles={defaultStyles} />
+                <PieChart
+                  size={300}
+                  labels
+                  data={[
+                    { key: 'Researching', value: this.props.researching, color: '#C46882' },
+                    { key: 'Applied', value: this.props.applied, color: '#975DA8' },
+                    { key: 'Interviews', value: this.props.interviewing, color: '#9186FB' },
+                    { key: 'Awaiting', value: this.props.awaiting, color: '#86DDE4' },
+                    { key: 'Resolved', value: this.props.resolved, color: '#99D285' }
+                  ]}
+                />
+                <Legend
+                  data={[
+                    { key: 'Researching', value: this.props.researching },
+                    { key: 'Applied', value: this.props.applied },
+                    { key: 'Interviews', value: this.props.interviewing },
+                    { key: 'Awaiting', value: this.props.awaiting },
+                    { key: 'Resolved', value: this.props.resolved }
+                  ]}
+                  dataId={'key'}
+                  config={config}
+                  styles={defaultStyles}
+                />
               </div>
             ) : (
               <BarChart
