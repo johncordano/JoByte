@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Media from 'react-media';
 
 // Images
 import DashboardIcon from '../images/dashboard.svg';
@@ -10,6 +11,7 @@ import InterviewIcon from '../images/interview.svg';
 import SettingsIcon from '../images/settings.svg';
 import LogoutIcon from '../images/logout.svg';
 import LogoWhite from '../images/logoWhite.svg';
+import MagnifyingGlass from '../images/magnifyingGlass.svg';
 
 // Components
 // import Dashboard from './Dashboard';
@@ -35,7 +37,15 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <div className="logo-container">
-          <img className="logo" src={LogoWhite} alt="Logo" />
+          <Media query="(max-width: 999px)">
+            {matches =>
+              matches ? (
+                <img className="logo" src={MagnifyingGlass} alt="Logo" />
+              ) : (
+                <img className="logo" src={LogoWhite} alt="Logo" />
+              )
+            }
+          </Media>
         </div>
 
         {this.props.path === '/dashboard' ? (

@@ -1,5 +1,21 @@
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 999px) {
+  .sidebar a {
+    display: none;
+  }
+  .sidebar-icon img {
+    position: relative;
+    width: 24px;
+  }
+  .sidebar-icon {
+    text-align: center;
+  }
+  .logo-container img {
+    background: none;
+  }
+}
+
 @media screen and (max-width: 860px) {
   /* Login page */
   .signin {
