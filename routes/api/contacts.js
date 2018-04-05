@@ -7,6 +7,7 @@ router
   .route('/')
   .get(controller.findAllContacts)
   .post(controller.createContact)
+  .put(controller.updateContact)
   .delete(controller.deleteContact);
 
 module.exports = router;

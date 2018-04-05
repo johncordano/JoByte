@@ -133,6 +133,23 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  updateContact: function(req, res) {
+    db.Contact.update(
+      { _id: req.body.id },
+      {
+        $set: {
+          name: req.body.name,
+          company: req.body.company,
+          position: req.body.position,
+          email: req.body.email,
+          phone: req.body.phone,
+          notes: req.body.notes
+        }
+      }
+    )
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   deleteContact: function(req, res) {
     db.Contact.deleteOne({ _id: req.query.id })
       .then(dbModel => res.json(dbModel))

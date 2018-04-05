@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../utils/API';
 import Sidebar from './Sidebar';
 import ActionModal from './ActionModal';
+import Contact from './Contact';
 
 class Contacts extends Component {
   state = {
@@ -112,24 +113,30 @@ class Contacts extends Component {
                 <tbody className="tbody saved-jobs" id="saved-jobs">
                   {this.state.contactsArray.map((data, i) => {
                     return (
-                      <tr key={i}>
-                        <td>{data.name}</td>
-                        <td>{data.company}</td>
-                        <td>{data.position}</td>
-                        <td>{data.email}</td>
-                        <td>{data.phone}</td>
-                        <td>{data.notes}</td>
-                        <td>
-                          <button
-                            data-id={data._id}
-                            className="delete-contact-btn"
-                            id="view-btn"
-                            onClick={this.handleContactDelete}
-                          >
-                            x
-                          </button>
-                        </td>
-                      </tr>
+                      <Contact
+                        loadContacts={this.loadContacts}
+                        handleContactDelete={this.handleContactDelete}
+                        data={data}
+                        key={data._id}
+                      />
+                      // <tr key={i}>
+                      //   <td>{data.name}</td>
+                      //   <td>{data.company}</td>
+                      //   <td>{data.position}</td>
+                      //   <td>{data.email}</td>
+                      //   <td>{data.phone}</td>
+                      //   <td>{data.notes}</td>
+                      //   <td>
+                      //     <button
+                      //       data-id={data._id}
+                      //       className="delete-contact-btn"
+                      //       id="view-btn"
+                      //       onClick={this.handleContactDelete}
+                      //     >
+                      //       x
+                      //     </button>
+                      //   </td>
+                      // </tr>
                     );
                   })}
                 </tbody>
