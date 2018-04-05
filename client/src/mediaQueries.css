@@ -83,6 +83,26 @@
 }
 
 @media only screen and (max-width: 759px), (min-device-width: 760px) and (max-device-width: 1024px) {
+  body {
+    display: inline-grid;
+    background: white;
+  }
+
+  .tab-container,
+  .new-job,
+  .contacts-container,
+  .calendar-container {
+    box-shadow: none;
+  }
+
+  .contacts-container,
+  .new-job,
+  .container-dashboard,
+  .tab-container,
+  .calendar-container {
+    margin: 0;
+  }
+
   /* Force table to not be like tables anymore */
   table,
   thead,
