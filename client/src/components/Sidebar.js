@@ -148,6 +148,8 @@ class Sidebar extends Component {
           </div>
         )}
 
+        {/* Removing the settings entry for now
+          
         {this.props.path === '/settings' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
             <div className="highlight-btn">
@@ -167,11 +169,13 @@ class Sidebar extends Component {
             </div>
           </div>
         )}
-
+        */}
+        
+        {/* Redirect to home page */}
         {this.props.path === '/logout' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
             <div className="highlight-btn">
-              <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
+              <Link to="/" onClick={this.handleClick} style={{ color: this.state.color }}>
                 <img src={LogoutIcon} alt="Logout icon" />
                 <h2>Logout</h2>
               </Link>
@@ -180,7 +184,7 @@ class Sidebar extends Component {
         ) : (
           <div className="sidebar-icon ">
             <div className="highlight-btn ">
-              <Link to="/logout">
+              <Link to="/">
                 <img src={LogoutIcon} alt="Logout icon" />
                 <h2>Logout</h2>
               </Link>
