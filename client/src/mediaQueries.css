@@ -1,18 +1,33 @@
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 999px) {
-  .sidebar a {
+  .page {
+    grid-template-columns: 14% 80%;
+  }
+
+  .sidebar {
+    max-width: 80px;
+  }
+  .highlight-btn h2 {
     display: none;
   }
-  .sidebar-icon img {
+  .sidebar-icon {
+    padding: 20px 0;
+  }
+  .highlight-btn img {
     position: relative;
     width: 24px;
   }
-  .sidebar-icon {
+  .highlight-btn {
     text-align: center;
+    margin: 0;
   }
   .logo-container img {
     width: 30%;
+  }
+
+  .new-job {
+    min-width: 400px;
   }
 }
 
@@ -49,15 +64,17 @@
 }
 
 @media screen and (max-width: 660px) {
-  .container-dashboard {
+  .container-dashboard,
+  .new-job {
     min-width: 400px;
     margin: 45px;
   }
 }
 
-@media screen and (min-width: 760px) and (max-width: 1020px) {
+@media screen and (min-width: 760px) and (max-width: 1050px) {
   .container-dashboard {
     min-width: 700px;
+    margin: 20px;
   }
 }
 

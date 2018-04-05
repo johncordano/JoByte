@@ -50,82 +50,143 @@ class Sidebar extends Component {
 
         {this.props.path === '/dashboard' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={DashboardIcon} alt="Dashboard icon" />
-            <Link to="/dashboard" onClick={this.handleClick} style={{ color: this.state.color }}>
-              Dashboard
-            </Link>
+            <div className="highlight-btn">
+              <Link to="/dashboard" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={DashboardIcon} alt="Dashboard icon" />
+                <h2>Dashboard</h2>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={DashboardIcon} alt="Dashboard icon" />
-            <Link to="/dashboard">Dashboard</Link>
+            <div className="highlight-btn ">
+              <Link to="/dashboard">
+                <img src={DashboardIcon} alt="Dashboard icon" />
+                <h2>Dashboard</h2>
+              </Link>
+            </div>
           </div>
         )}
 
         {this.props.path === '/job/new' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={AddJobIcon} alt="Add a job icon" />
-            <Link to="/job/new" onClick={this.handleClick} style={{ color: this.state.color }}>
-              Add a Job
-            </Link>
+            <div className="highlight-btn">
+              <Link to="/job/new" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={AddJobIcon} alt="Add a job icon" />
+                <h2>Add a Job</h2>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={AddJobIcon} alt="Add a job icon" />
-            <Link to={'/job/new'}>Add a Job</Link>
+            <div className="highlight-btn ">
+              <Link to="/job/new">
+                <img src={AddJobIcon} alt="Add a job icon" />
+                <h2> Add a Job</h2>
+              </Link>
+            </div>
           </div>
         )}
 
         {this.props.path === '/contacts' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={ContactsIcon} alt="Contacts icon" />
-            <Link to="/contacts" onClick={this.handleClick} style={{ color: this.state.color }}>
-              Contacts
-            </Link>
+            <div className="highlight-btn">
+              <Link to="/contacts" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={ContactsIcon} alt="Contacts icon" />
+                <h2>Contacts</h2>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={ContactsIcon} alt="Contacts icon" />
-            <Link to="/contacts">Contacts</Link>
+            <div className="highlight-btn ">
+              <Link to="/contacts">
+                <img src={ContactsIcon} alt="Contacts icon" />
+                <h2>Contacts</h2>
+              </Link>
+            </div>
           </div>
         )}
 
         {this.props.path === '/calendar' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={CalendarIcon} alt="Calendar icon" />
-            <Link to="/calendar" onClick={this.handleClick} style={{ color: this.state.color }}>
-              Calendar
-            </Link>
+            <div className="highlight-btn">
+              <Link to="/calendar" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={CalendarIcon} alt="Calendar icon" />
+                <h2>Calendar</h2>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={CalendarIcon} alt="Calendar icon" />
-            <Link to="/calendar">Calendar</Link>
+            <div className="highlight-btn ">
+              <Link to="/calendar">
+                <img src={CalendarIcon} alt="Calendar icon" />
+                <h2>Calendar</h2>
+              </Link>
+            </div>
           </div>
         )}
 
         {this.props.path === '/interview' ? (
           <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
-            <img src={InterviewIcon} alt="Interview icon" />
-            <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
-              Interview Preparation
-            </Link>
+            <div className="highlight-btn">
+              <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={InterviewIcon} alt="Interview icon" />
+                <h2>Interview Preparation</h2>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="sidebar-icon">
-            <img src={InterviewIcon} alt="Interview icon" />
-            <Link to="/interview">Interview Preparation</Link>
+            <div className="highlight-btn ">
+              <Link to="/interview">
+                <img src={InterviewIcon} alt="Interview icon" />
+                <h2>Interview Prep</h2>
+              </Link>
+            </div>
           </div>
         )}
 
-        <div className="sidebar-icon">
-          <img src={SettingsIcon} alt="Settings icon" />
-          <a href="calendar.html">Settings</a>
-        </div>
-        <div className="sidebar-icon">
-          <img src={LogoutIcon} alt="Logout icon" />
-          <a href="calendar.html">Logout</a>
-        </div>
+        {this.props.path === '/settings' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <div className="highlight-btn">
+              <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={SettingsIcon} alt="Settings icon" />
+                <h2>Settings</h2>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="sidebar-icon">
+            <div className="highlight-btn ">
+              <Link to="/settings">
+                <img src={SettingsIcon} alt="Settings icon" />
+                <h2>Settings</h2>
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {this.props.path === '/logout' ? (
+          <div className="sidebar-icon" onClick={this.handleClick} style={{ backgroundColor: this.state.bgColor }}>
+            <div className="highlight-btn">
+              <Link to="/interview" onClick={this.handleClick} style={{ color: this.state.color }}>
+                <img src={LogoutIcon} alt="Logout icon" />
+                <h2>Logout</h2>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="sidebar-icon ">
+            <div className="highlight-btn ">
+              <Link to="/logout">
+                <img src={LogoutIcon} alt="Logout icon" />
+                <h2>Logout</h2>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
