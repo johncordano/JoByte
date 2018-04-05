@@ -25,7 +25,7 @@ class ActionModal extends Component {
       borderRadius: '5px',
       maxWidth: '500px',
       minHeight: '100px',
-      margin: '150px auto',
+      margin: 'auto',
       padding: '50px',
       textAlign: 'center'
     };

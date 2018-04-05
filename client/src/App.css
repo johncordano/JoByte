@@ -254,17 +254,21 @@ a {
   margin: 0 auto;
 }
 
-.nothing-inside {
+.nothing-inside,
+.empty-contacts {
   text-align: center;
 }
 
-.nothing-inside h4 {
+.nothing-inside h4,
+.empty-contacts h4 {
   text-align: center;
   font-weight: 400;
   color: gray;
   margin-bottom: 30px;
 }
-.nothing-inside button {
+
+.nothing-inside button,
+.add-contact-btn {
   background: #016c5a;
   margin: 0 auto;
   float: none;
@@ -276,7 +280,8 @@ a {
 .add-job-form,
 .update-job-form,
 .view-form,
-.add-todo {
+.add-todo,
+.add-contact {
   border: none;
   padding: 5px 0;
   display: grid;
@@ -288,7 +293,8 @@ a {
 .update-job-form select,
 .add-job-form input,
 .add-job-form select,
-.add-todo select {
+.add-todo select,
+.add-contact select {
   padding: 10px;
   height: 35px;
   margin-bottom: 15px;
@@ -300,7 +306,8 @@ a {
 .todos-container,
 .chart-container,
 .tab-container,
-.calendar-container {
+.calendar-container,
+.contacts-container {
   background: white;
   padding: 40px;
   border-radius: 5px;
@@ -311,10 +318,13 @@ a {
   width: 150px !important;
   text-align: center !important;
 }
+
 .new-job {
   margin: 83px 50% 0 70px;
 }
-.calendar-container {
+
+.calendar-container,
+.contacts-container {
   margin: 83px 70px 70px 70px;
 }
 
@@ -332,7 +342,8 @@ a {
   margin-bottom: 15px;
 }
 
-.add-todo-h2 {
+.add-todo-h2,
+.add-contact-h2 {
   margin: 0 0 40px 0;
 }
 
@@ -367,8 +378,11 @@ a {
   float: right;
   margin-top: 30px;
   width: 150px;
+  border: none;
 }
-.delete-action-btn {
+
+.delete-action-btn,
+.delete-contact-btn {
   width: 30px;
   padding: 5px;
 }
@@ -393,7 +407,10 @@ a {
 .add-todo-btn,
 .add-job-btn,
 .delete-action-btn,
-.view-btn {
+.delete-contact-btn,
+.view-btn,
+.add-contact-btn {
+  border: none;
   background: #016c5a;
   color: white !important;
   text-align: center;
@@ -405,7 +422,8 @@ a {
 }
 
 .save-btn,
-.delete-action-btn {
+.delete-action-btn,
+.delete-contact-btn {
   float: right;
 }
 
@@ -475,7 +493,8 @@ a {
   float: left;
 }
 
-.table-job thead {
+.table-job thead,
+.contacts-container thead {
   text-align: left;
   background: #f5f5f5;
   line-height: 45px;
@@ -512,4 +531,14 @@ tbody td {
 
 .react-date-picker__calendar .react-calendar {
   width: 280px;
+}
+
+/* CONTACTS PAGE */
+
+.empty-contacts {
+  text-align: center;
+}
+
+.add-contact-btn {
+  padding: 10px;
 }
