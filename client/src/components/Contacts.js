@@ -81,7 +81,6 @@ class Contacts extends Component {
       <div className="page">
         <Sidebar path={this.props.match.path} />
         <div className="contacts-container">
-          <h3>Contacts</h3>
           {this.state.contactsArray.length === 0 ? (
             <div className="empty-contacts">
               <h4>You have not added any contacts yet.</h4>
@@ -90,44 +89,52 @@ class Contacts extends Component {
               </button>
             </div>
           ) : (
-            <table className="rtable">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Company</th>
-                  <th>Position</th>
-                  <th>E-mail</th>
-                  <th>Phone</th>
-                  <th>Notes</th>
-                  <th />
-                </tr>
-              </thead>
+            <div>
+              <div className="contacts-header">
+                <h3>Contacts</h3>
+                <button onClick={this.toggleOpen} className="add-contact-btn-header">
+                  Add Contact
+                </button>
+              </div>
+              <table className="rtable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>E-mail</th>
+                    <th>Phone</th>
+                    <th>Notes</th>
+                    <th />
+                  </tr>
+                </thead>
 
-              <tbody className="tbody saved-jobs" id="saved-jobs">
-                {this.state.contactsArray.map((data, i) => {
-                  return (
-                    <tr key={i}>
-                      <td>{data.name}</td>
-                      <td>{data.company}</td>
-                      <td>{data.position}</td>
-                      <td>{data.email}</td>
-                      <td>{data.phone}</td>
-                      <td>{data.notes}</td>
-                      <td>
-                        <button
-                          data-id={data._id}
-                          className="delete-contact-btn"
-                          id="view-btn"
-                          onClick={this.handleContactDelete}
-                        >
-                          x
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                <tbody className="tbody saved-jobs" id="saved-jobs">
+                  {this.state.contactsArray.map((data, i) => {
+                    return (
+                      <tr key={i}>
+                        <td>{data.name}</td>
+                        <td>{data.company}</td>
+                        <td>{data.position}</td>
+                        <td>{data.email}</td>
+                        <td>{data.phone}</td>
+                        <td>{data.notes}</td>
+                        <td>
+                          <button
+                            data-id={data._id}
+                            className="delete-contact-btn"
+                            id="view-btn"
+                            onClick={this.handleContactDelete}
+                          >
+                            x
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           )}
 
           <ActionModal show={this.state.isModalOpen} onClose={this.toggleOpen}>

@@ -409,7 +409,8 @@ a {
 .delete-action-btn,
 .delete-contact-btn,
 .view-btn,
-.add-contact-btn {
+.add-contact-btn,
+.add-contact-btn-header {
   border: none;
   background: #016c5a;
   color: white !important;
@@ -482,7 +483,8 @@ a {
 .new-job h3,
 .chart-container h3,
 .job-container h3,
-.todos-container h3 {
+.todos-container h3,
+.contacts-container h3 {
   font-size: 24px;
   color: #242323;
   margin-top: 0;
@@ -491,6 +493,10 @@ a {
 
 .todo-flex h3 {
   float: left;
+}
+
+.contacts-container table {
+  margin-top: 40px;
 }
 
 .table-job thead,
@@ -537,8 +543,19 @@ tbody td {
 
 .empty-contacts {
   text-align: center;
+  margin-top: 200px;
 }
 
-.add-contact-btn {
-  padding: 10px;
+.add-contact-btn,
+.add-contact-btn-header {
+  padding: 10px 20px;
+}
+
+.contacts-header h3 {
+  float: left;
+}
+
+.add-contact-btn-header {
+  float: right;
+  margin-bottom: 40px;
 }
