@@ -223,13 +223,13 @@ a {
   margin: 70px;
 }
 
-/* .dashboard-first-row {
-  display: flex;
-} */
-
 .hello-container {
   margin-right: 40px;
   width: 100%;
+}
+
+.piechart {
+  display: flex;
 }
 
 .chart-container {
@@ -558,30 +558,4 @@ tbody td {
 .add-contact-btn-header {
   float: right;
   margin-bottom: 40px;
-}
-
-/* MEDIA QUERIES */
-
-@media screen and (max-width: 860px) {
-  .signin {
-    width: 70%;
-    float: none;
-    margin: 0 auto !important;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  /* Login page */
-  .username-form {
-    text-align: center;
-  }
-
-  .username-form input,
-  .signin-btn,
-  .signup-btn {
-    width: 250px;
-  }
-  .signin {
-    min-width: 350px;
-  }
 }

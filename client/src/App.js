@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
+import './mediaQueries.css';
 
 // Components
 import Dashboard from './components/Dashboard';
