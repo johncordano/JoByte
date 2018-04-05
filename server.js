@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // static directory...
-app.use(express.static('./public'));
+app.use(express.static('./client/build'));
 
 // // use morgan logger to log requests
 // app.use(logger("dev"));
