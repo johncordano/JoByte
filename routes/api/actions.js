@@ -11,6 +11,7 @@ router
  .route('/')
  .get(controller.findAllActions)
  .post(controller.createAction)
+ .put(controller.updateAction)
  .delete(controller.deleteAction);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+// import moment from 'moment';
 import API from '../utils/API';
+import YourAction from './YourAction';
 
 class YourActions extends Component {
   state = {
@@ -9,7 +10,6 @@ class YourActions extends Component {
 
   handleActionDelete = event => {
     event.preventDefault();
-    // console.log(this.props.actions[0]._id)
     API.deleteAction({ id: event.target.getAttribute('data-id') })
       .then(this.props.loadActions())
       .catch(err => console.log(err));
@@ -36,21 +36,12 @@ class YourActions extends Component {
           <tbody className="tbody saved-jobs" id="saved-jobs">
             {this.props.actions.map(data => {
               return (
-                <tr key={data._id}>
-                  <td>{moment(data.date).format('MM/DD/YYYY')}</td>
-                  <td>{data.description}</td>
-                  <td>{data.status}</td>
-                  <td>
-                    <button
-                      data-id={data._id}
-                      className="delete-action-btn"
-                      id="view-btn"
-                      onClick={this.handleActionDelete}
-                    >
-                      x
-                    </button>
-                  </td>
-                </tr>
+                <YourAction 
+                loadActions={this.props.loadActions}
+                handleActionDelete={this.handleActionDelete}
+                data={data} 
+                key={data._id}
+                />
               );
             })}
           </tbody>

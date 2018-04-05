@@ -127,7 +127,6 @@ class ViewJob extends Component {
   };
 
   render() {
-    console.log(this.state.savedButton);
 
     return (
       <div className="page">
