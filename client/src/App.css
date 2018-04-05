@@ -228,6 +228,10 @@ a {
   width: 100%;
 }
 
+.charts {
+  text-align: center;
+}
+
 .piechart {
   display: flex;
 }
@@ -521,6 +525,11 @@ tbody tr {
 
 tbody tr:last-child {
   border: none;
+}
+
+th,
+tr {
+  text-align: left;
 }
 
 thead th,
