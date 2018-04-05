@@ -58,6 +58,19 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  updateAction: function(req, res) {
+    db.Action.update(
+      { _id: req.body.id },
+      {
+        $set: {
+          description: req.body.description,
+          status: req.body.status
+        }
+      }
+    )
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   deleteAction: function(req, res) {
     db.Action.deleteOne({ _id: req.query.id })
       .then(dbModel => res.json(dbModel))
