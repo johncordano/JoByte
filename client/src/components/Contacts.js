@@ -81,6 +81,7 @@ class Contacts extends Component {
       <div className="page">
         <Sidebar path={this.props.match.path} />
         <div className="contacts-container">
+          <h3>Contacts</h3>
           {this.state.contactsArray.length === 0 ? (
             <div className="empty-contacts">
               <h4>You have not added any contacts yet.</h4>
