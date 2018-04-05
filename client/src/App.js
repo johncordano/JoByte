@@ -28,6 +28,8 @@ class App extends Component {
           <Route path="/contacts" component={Contacts} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/interview" component={InterviewPrep} />
+          <Route exact path="/settings" component={InterviewPrep} />
+          <Route exact path="/logout" component={InterviewPrep} />
         </div>
       </div>
     );

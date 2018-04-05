@@ -184,48 +184,54 @@ a {
 }
 
 .sidebar h2 {
-  color: white;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 30px;
+  font-size: 16px;
+  margin-left: 35px;
 }
 
 .sidebar a {
   width: 100%;
   color: white;
-  display: flex;
-  padding: 20px 0 20px 50px;
   text-decoration: none;
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 5px;
 }
 
 .sidebar-icon img {
   position: absolute;
   width: 16px;
-  margin: 22px 20px;
+  /* margin: 22px 20px; */
 }
 
-.sidebar-icon a:hover {
+.sidebar-icon {
+  /* margin: 30px 0 0 20px; */
+  padding: 10px 0;
+}
+
+.sidebar-icon:hover {
   background: #d3d3d3 !important;
-  color: #242323 !important;
 }
 
 .sidebar-highlight {
   background-color: #d3d3d3;
 }
 
+.highlight-btn {
+  margin-left: 30px;
+  padding-bottom: 10px;
+}
+
 /* DASHBOARD COMPONENT */
 
 .container-dashboard {
   margin: 70px;
+  max-width: 800px;
 }
 
 .hello-container {
   margin-right: 40px;
   width: 100%;
+}
+
+.charts {
+  text-align: center;
 }
 
 .piechart {
@@ -521,6 +527,11 @@ tbody tr {
 
 tbody tr:last-child {
   border: none;
+}
+
+th,
+tr {
+  text-align: left;
 }
 
 thead th,

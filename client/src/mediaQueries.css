@@ -1,5 +1,36 @@
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 999px) {
+  .page {
+    grid-template-columns: 14% 80%;
+  }
+
+  .sidebar {
+    max-width: 80px;
+  }
+  .highlight-btn h2 {
+    display: none;
+  }
+  .sidebar-icon {
+    padding: 20px 0;
+  }
+  .highlight-btn img {
+    position: relative;
+    width: 24px;
+  }
+  .highlight-btn {
+    text-align: center;
+    margin: 0;
+  }
+  .logo-container img {
+    width: 30%;
+  }
+
+  .new-job {
+    min-width: 400px;
+  }
+}
+
 @media screen and (max-width: 860px) {
   /* Login page */
   .signin {
@@ -9,6 +40,9 @@
   }
 
   /* Dashboard */
+  .chart-container {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -27,4 +61,138 @@
   }
 
   /* Dashboard */
+}
+
+@media screen and (max-width: 660px) {
+  .container-dashboard,
+  .new-job {
+    min-width: 400px;
+    margin: 45px;
+  }
+}
+
+@media screen and (min-width: 759px) and (max-width: 1050px) {
+  .contacts-container table {
+    margin-top: 0;
+  }
+  .container-dashboard,
+  .contacts-container {
+    min-width: 700px;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 759px), (min-device-width: 760px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  .contacts-table table {
+    margin: 0;
+    padding-top: 70px;
+  }
+
+  .delete-contact-btn {
+    float: none;
+  }
+
+  .calendar-container {
+    min-width: 400px;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table-job table thead tr,
+  .contacts-table table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table-job table tr,
+  .contacts-table table tr,
+  .contacts-table table tbody tr:last-child,
+  .table-job tbody tr:last-child {
+    border: 1px solid #ccc;
+  }
+
+  .table-job table td,
+  .contacts-table table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+
+  .table-job table td:before,
+  .contacts-table table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /* Label the data */
+  .table-job table td:nth-of-type(1):before {
+    content: 'Company: ';
+    font-weight: bold;
+    position: initial;
+  }
+
+  .table-job table td:nth-of-type(2):before {
+    content: 'Position: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .table-job table td:nth-of-type(3):before {
+    content: 'Status: ';
+    font-weight: bold;
+    position: initial;
+  }
+
+  /* Label the data */
+  .contacts-table table td:nth-of-type(1):before {
+    content: 'Name: ';
+    font-weight: bold;
+    position: initial;
+  }
+
+  .contacts-table table td:nth-of-type(2):before {
+    content: 'Company: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(3):before {
+    content: 'Position: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(4):before {
+    content: 'E-mail: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(5):before {
+    content: 'Phone: ';
+    font-weight: bold;
+    position: initial;
+  }
+  .contacts-table table td:nth-of-type(6):before {
+    content: 'Notes: ';
+    font-weight: bold;
+    position: initial;
+  }
+
+  .table-btn {
+    float: none !important;
+  }
 }

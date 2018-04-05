@@ -24,7 +24,7 @@ class YourJobs extends Component {
                   <td>{data.company}</td>
                   <td>{data.position}</td>
                   <td>{data.status}</td>
-                  <td style={{ float: 'right' }}>
+                  <td className="table-btn" style={{ float: 'right' }}>
                     {data.link ? (
                       <a href={data.link} target="_blank">
                         <button className="link-job-btn"> Link to Job</button>

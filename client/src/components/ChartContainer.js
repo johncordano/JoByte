@@ -57,7 +57,7 @@ class ChartContainer extends Component {
     };
 
     return (
-      <div className="App">
+      <div className="App charts">
         <Media query="(max-width: 999px)">
           {matches =>
             matches ? (
