@@ -26,7 +26,7 @@ All your actions across all jobs in JOByte appear on your monthly calendar, whic
 
 Because networking is a key component of a job search, you can also use JOByte to enter contact information. You might want to add contacts for recruiters, people you meet at events or are working in your desired industry, references, or any others who can help you with your job search. 
 
-![Screenshot of form to add contacts](./screenshots/add-contact-form.gif)
+![Screenshot of form to add contacts](./screenshots/add-contact-form.png)
 
 ## Use on your computer or mobile device
 
