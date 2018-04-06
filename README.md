@@ -4,7 +4,7 @@ With JOByte, you can track your entire job search process. You can enter a posit
 
 Rather than manage you job candidacy information on disorganized sticky notes or a spreadsheet, use the JOByte app instead.
 
-Try it at https://jobyte-app.herokuapp.com/.
+Try it at https://jobyte.herokuapp.com/.
 
 ## Get started
 
