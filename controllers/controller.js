@@ -77,46 +77,46 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  createAccount: function(req, res) {
-    // console.log(req.body);
+  // createAccount: function(req, res) {
+  //   // console.log(req.body);
 
-    db.User.create(req.body)
-      .then(data => res.json(data))
-      .then(function(res) {
-        //console.log("create account res", res._id)
-        // res returns _id: 5ac281ed8799ebd5211abeeb
-        if (res._id) {
-          console.log('create account res', res._id);
-          res.status(200).end();
-        }
-      })
+  //   db.User.create(req.body)
+  //     .then(data => res.json(data))
+  //     .then(function(res) {
+  //       //console.log("create account res", res._id)
+  //       // res returns _id: 5ac281ed8799ebd5211abeeb
+  //       if (res._id) {
+  //         console.log('create account res', res._id);
+  //         res.status(200).end();
+  //       }
+  //     })
 
-      .catch(err => res.status(422).json(err));
-  },
-  findAccount: function(req, res) {
-    // fetch user and test password verification
-    console.log('req.body', req.body);
+  //     .catch(err => res.status(422).json(err));
+  // },
+  // findAccount: function(req, res) {
+  //   // fetch user and test password verification
+  //   console.log('req.body', req.body);
 
-    db.User.findOne({ email: req.body.email }, function(err, user) {
-      console.log('req.email', req.body.email);
-      console.log('req.pw', req.body.password);
-      if (err) throw err;
+  //   db.User.findOne({ email: req.body.email }, function(err, user) {
+  //     console.log('req.email', req.body.email);
+  //     console.log('req.pw', req.body.password);
+  //     if (err) throw err;
 
-      // test password
-      user.comparePassword(req.body.password, function(err, isMatch) {
-        if (err) throw err;
-        console.log('does password match', isMatch);
-        if (isMatch) {
-          console.log('yep');
-          res.status(200).end();
-          //  res.redirect("/dashboard").end();
-        } else {
-          console.log('nope');
-          //  res.redirect('/login');
-        }
-      });
-    });
-  },
+  //     // test password
+  //     user.comparePassword(req.body.password, function(err, isMatch) {
+  //       if (err) throw err;
+  //       console.log('does password match', isMatch);
+  //       if (isMatch) {
+  //         console.log('yep');
+  //         res.status(200).end();
+  //         //  res.redirect("/dashboard").end();
+  //       } else {
+  //         console.log('nope');
+  //         //  res.redirect('/login');
+  //       }
+  //     });
+  //   });
+  // },
 
   // ================================
   //            CONTACTS METHODS

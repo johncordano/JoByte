@@ -20,6 +20,12 @@ var UserSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
+  resetPasswordToken: { 
+    type: String 
+  },
+  resetPasswordExpires: {
+    type: Date 
+  },
   job: {
     type: Schema.Types.ObjectId,
     ref: 'Job'

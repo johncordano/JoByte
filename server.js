@@ -41,3 +41,16 @@ app.use(routes);
 app.listen(PORT, function() {
   console.log('App running on port', PORT);
 });
+
+app.use(function(req, res, next) {  
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
+module.exports = {  
+  // Secret key for JWT signing and encryption
+  'secret': 'super secret passphrase',
+}
